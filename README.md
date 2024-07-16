@@ -1,4 +1,4 @@
-## ![spoonman_rendered](https://github.com/user-attachments/assets/9d3a0fa0-acc0-41d3-8076-db0814b2d72e)
+## ![spoonman_rendered](https://github.com/user-attachments/assets/dcd5efc5-0de3-4911-9ae9-a925e8cad586)
 
 # Grabpack In Godot
 A Godot starter project for creating poppy Playtime fangames!
