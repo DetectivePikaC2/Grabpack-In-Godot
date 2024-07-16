@@ -6,6 +6,7 @@ A Godot starter project for creating poppy Playtime fangames!
 ## Download
 
 Download the .zip from a release, and extract the contents. Then open godot and import the project! By defualt the render mode is set to compatibility, but you can change it to mobile or forward+ if you want.
+If its not working use  this: https://www.mediafire.com/file/b51mudcwiwywg4j/grabpack_in_godot.zip/file
 
 ## Features
 
