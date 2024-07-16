@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bgy6kr3geh2lt"]
+
+[ext_resource type="Texture2D" uid="uid://bhfamgusi15yy" path="res://Puzzle/Race Car/model/textures/MI_RaceCar_specularGlossiness.png" id="1_lxjfo"]
+[ext_resource type="Texture2D" uid="uid://dy1olnvdah6nb" path="res://Puzzle/Race Car/model/textures/MI_RaceCar_normal.png" id="2_p1lht"]
+[ext_resource type="Texture2D" uid="uid://dygcxf6qpl13u" path="res://Puzzle/Race Car/model/textures/MI_RaceCar_diffuse.png" id="3_t756y"]
+
+[resource]
+albedo_texture = ExtResource("1_lxjfo")
+metallic = 0.5
+metallic_texture = ExtResource("1_lxjfo")
+roughness_texture = ExtResource("3_t756y")
+normal_enabled = true
+normal_texture = ExtResource("2_p1lht")

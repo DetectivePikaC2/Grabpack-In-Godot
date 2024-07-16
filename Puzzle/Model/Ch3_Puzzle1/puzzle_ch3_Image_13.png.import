@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://busow1k15h7to"
+path.s3tc="res://.godot/imported/puzzle_ch3_Image_13.png-42dda8363f831e94b88e648ffac3d739.s3tc.ctex"
+path.etc2="res://.godot/imported/puzzle_ch3_Image_13.png-42dda8363f831e94b88e648ffac3d739.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "ce3b658f5be80cb373c18c65a57bcdb6"
+}
+
+[deps]
+
+source_file="res://Puzzle/Model/Ch3_Puzzle1/puzzle_ch3_Image_13.png"
+dest_files=["res://.godot/imported/puzzle_ch3_Image_13.png-42dda8363f831e94b88e648ffac3d739.s3tc.ctex", "res://.godot/imported/puzzle_ch3_Image_13.png-42dda8363f831e94b88e648ffac3d739.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Puzzle/Model/Ch3_Puzzle1/puzzle_ch3_Image_13.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

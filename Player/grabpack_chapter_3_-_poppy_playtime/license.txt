@@ -1,0 +1,8 @@
+Model Information:
+* title:	Grabpack (Chapter 3) - Poppy Playtime
+* source:	https://sketchfab.com/3d-models/grabpack-chapter-3-poppy-playtime-fcb9fa6426504991916f2d3ed82d5b9d
+* author:	MG Rips (https://sketchfab.com/MG_GameRips)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

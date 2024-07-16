@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://d3nho3c8mr4ct"]
+
+[ext_resource type="Texture2D" uid="uid://c5dxa0pbwj65r" path="res://Puzzle/Race Car/model/textures/MI_PlasticTrimYellow_specularGlossiness.png" id="1_neckl"]
+[ext_resource type="Texture2D" uid="uid://bwkbhn4yklkiy" path="res://Puzzle/Race Car/model/textures/MI_PlasticTrimYellow_normal.png" id="2_bvlta"]
+
+[resource]
+albedo_texture = ExtResource("1_neckl")
+metallic = 0.5
+metallic_texture = ExtResource("1_neckl")
+normal_enabled = true
+normal_texture = ExtResource("2_bvlta")

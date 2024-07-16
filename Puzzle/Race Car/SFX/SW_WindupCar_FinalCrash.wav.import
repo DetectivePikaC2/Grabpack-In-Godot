@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp23el6j488ye"
+path="res://.godot/imported/SW_WindupCar_FinalCrash.wav-3d67fdc26dd107df407f3baf2ab74856.sample"
+
+[deps]
+
+source_file="res://Puzzle/Race Car/SFX/SW_WindupCar_FinalCrash.wav"
+dest_files=["res://.godot/imported/SW_WindupCar_FinalCrash.wav-3d67fdc26dd107df407f3baf2ab74856.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

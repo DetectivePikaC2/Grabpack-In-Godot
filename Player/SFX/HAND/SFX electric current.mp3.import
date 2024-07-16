@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b71a3n4eaobm4"
+path="res://.godot/imported/SFX electric current.mp3-25db445818535c56767ebd0598be7275.mp3str"
+
+[deps]
+
+source_file="res://Player/SFX/HAND/SFX electric current.mp3"
+dest_files=["res://.godot/imported/SFX electric current.mp3-25db445818535c56767ebd0598be7275.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

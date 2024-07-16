@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8ptmv2u6jo3d"
+path="res://.godot/imported/SFX electric pole charge.mp3-7a9141330833469d73100965617b31d1.mp3str"
+
+[deps]
+
+source_file="res://Puzzle/Puzzle_Basic/SFX/SFX electric pole charge.mp3"
+dest_files=["res://.godot/imported/SFX electric pole charge.mp3-7a9141330833469d73100965617b31d1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

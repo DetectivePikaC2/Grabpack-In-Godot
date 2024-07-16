@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p5kugldsr3h2"
+path="res://.godot/imported/SFX gun pistol insert mag 03.mp3-e3232ac5d85c29205247eb1d2fea0662.mp3str"
+
+[deps]
+
+source_file="res://Player/SFX/HAND/SFX gun pistol insert mag 03.mp3"
+dest_files=["res://.godot/imported/SFX gun pistol insert mag 03.mp3-e3232ac5d85c29205247eb1d2fea0662.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

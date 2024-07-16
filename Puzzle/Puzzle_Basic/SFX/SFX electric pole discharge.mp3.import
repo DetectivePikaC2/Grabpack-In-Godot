@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4qge4jgduos1"
+path="res://.godot/imported/SFX electric pole discharge.mp3-534f021b157eeb5392127545529f86a7.mp3str"
+
+[deps]
+
+source_file="res://Puzzle/Puzzle_Basic/SFX/SFX electric pole discharge.mp3"
+dest_files=["res://.godot/imported/SFX electric pole discharge.mp3-534f021b157eeb5392127545529f86a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

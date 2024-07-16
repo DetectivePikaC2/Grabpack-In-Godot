@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://booq526bndbbo"]
+
+[ext_resource type="Script" path="res://Player/UI/death.gd" id="1_aj1u6"]
+[ext_resource type="AudioStream" uid="uid://by4su3nedv2qt" path="res://Player/SFX/UI/SW_Death_Audio.wav" id="2_8il3s"]
+[ext_resource type="Shader" path="res://Player/UI/Shader/vhs.gdshader" id="2_odmnd"]
+[ext_resource type="FontFile" uid="uid://cer55s5caorg6" path="res://Player/UI/Font/easvhs.ttf" id="2_v872p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovtrv"]
+shader = ExtResource("2_odmnd")
+shader_parameter/range = 0.015
+shader_parameter/noiseQuality = 107.1
+shader_parameter/noiseIntensity = 0.001
+shader_parameter/offsetIntensity = 0.045
+shader_parameter/colorOffsetIntensity = 0.043
+
+[sub_resource type="Animation" id="Animation_bjo4y"]
+resource_name = "fade"
+length = 3.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ttkgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kails"]
+_data = {
+"RESET": SubResource("Animation_ttkgw"),
+"fade": SubResource("Animation_bjo4y")
+}
+
+[node name="death" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aj1u6")
+death_messages = [["Your rest is over", "Get Up"], ["Don't be selfish", "Get Up"], ["I won't wait for you", "Get Up"], ["ITS TIME TO HARVEST", "THE BODY IS STILL FRESH"], ["You don't get to die yet", "Get Up"]]
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8il3s")
+
+[node name="tim" type="Timer" parent="."]
+wait_time = 3.8
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_right = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -63.0
+offset_right = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="msg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v872p")
+theme_override_font_sizes/font_size = 31
+text = "This is a test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_ovtrv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kails")
+}
+
+[connection signal="timeout" from="tim" to="." method="_on_tim_timeout"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

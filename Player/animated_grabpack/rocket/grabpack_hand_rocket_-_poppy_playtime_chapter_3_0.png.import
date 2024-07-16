@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://demvvoderxvbi"
+path.s3tc="res://.godot/imported/grabpack_hand_rocket_-_poppy_playtime_chapter_3_0.png-917c710e53f9536cd37663a04bd34a59.s3tc.ctex"
+path.etc2="res://.godot/imported/grabpack_hand_rocket_-_poppy_playtime_chapter_3_0.png-917c710e53f9536cd37663a04bd34a59.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "cbd7fe2d4467fae582cfcb6a018f0b78"
+}
+
+[deps]
+
+source_file="res://Player/animated_grabpack/rocket/grabpack_hand_rocket_-_poppy_playtime_chapter_3_0.png"
+dest_files=["res://.godot/imported/grabpack_hand_rocket_-_poppy_playtime_chapter_3_0.png-917c710e53f9536cd37663a04bd34a59.s3tc.ctex", "res://.godot/imported/grabpack_hand_rocket_-_poppy_playtime_chapter_3_0.png-917c710e53f9536cd37663a04bd34a59.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

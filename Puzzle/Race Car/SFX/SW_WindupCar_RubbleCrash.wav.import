@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lrx3ohrsyido"
+path="res://.godot/imported/SW_WindupCar_RubbleCrash.wav-353987a6e1870755b07fbc6091bd8c61.sample"
+
+[deps]
+
+source_file="res://Puzzle/Race Car/SFX/SW_WindupCar_RubbleCrash.wav"
+dest_files=["res://.godot/imported/SW_WindupCar_RubbleCrash.wav-353987a6e1870755b07fbc6091bd8c61.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

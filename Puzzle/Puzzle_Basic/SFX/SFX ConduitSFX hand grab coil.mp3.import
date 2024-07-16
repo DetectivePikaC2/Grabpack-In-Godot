@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wvoihdvwwlax"
+path="res://.godot/imported/SFX ConduitSFX hand grab coil.mp3-dabd6d749fc8baa083aad2e6462bc1be.mp3str"
+
+[deps]
+
+source_file="res://Puzzle/Puzzle_Basic/SFX/SFX ConduitSFX hand grab coil.mp3"
+dest_files=["res://.godot/imported/SFX ConduitSFX hand grab coil.mp3-dabd6d749fc8baa083aad2e6462bc1be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

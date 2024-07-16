@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mw8ad2cq4ljn"
+path="res://.godot/imported/SW_WindupCar_PeelOut_LOOP.wav-6446e50dd5b6245c8996095c47d78d03.sample"
+
+[deps]
+
+source_file="res://Puzzle/Race Car/SFX/SW_WindupCar_PeelOut_LOOP.wav"
+dest_files=["res://.godot/imported/SW_WindupCar_PeelOut_LOOP.wav-6446e50dd5b6245c8996095c47d78d03.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=3
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

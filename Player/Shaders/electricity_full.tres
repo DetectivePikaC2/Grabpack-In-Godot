@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://dbth01d16qhfb"]
+
+[ext_resource type="Shader" path="res://Player/Shaders/green_hand.gdshader" id="1_cixrj"]
+[ext_resource type="FastNoiseLite" uid="uid://dviy3uf676nnt" path="res://Player/Shaders/electric_noise.tres" id="2_23oh0"]
+
+[sub_resource type="Gradient" id="Gradient_egdw7"]
+offsets = PackedFloat32Array(0.7, 0.75, 0.8)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_phykd"]
+seamless = true
+color_ramp = SubResource("Gradient_egdw7")
+noise = ExtResource("2_23oh0")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y6w8h"]
+seamless = true
+color_ramp = SubResource("Gradient_egdw7")
+noise = ExtResource("2_23oh0")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hkvjf"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2wbq"]
+seamless = true
+noise = SubResource("FastNoiseLite_hkvjf")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cixrj")
+shader_parameter/tint = Color(0.655291, 1, 0.720633, 1)
+shader_parameter/distortionVertex = 0.03
+shader_parameter/speedVertex = 0.5
+shader_parameter/lightningNoise1 = SubResource("NoiseTexture2D_phykd")
+shader_parameter/lightningNoise2 = SubResource("NoiseTexture2D_y6w8h")
+shader_parameter/noiseVertex = SubResource("NoiseTexture2D_d2wbq")

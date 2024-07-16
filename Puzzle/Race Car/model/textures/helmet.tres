@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c63kao2ldech0"]
+
+[ext_resource type="Texture2D" uid="uid://bp8q0sd8x6xq6" path="res://Puzzle/Race Car/model/textures/MI_PlayerHelmet_specularGlossiness.png" id="1_q55g6"]
+[ext_resource type="Texture2D" uid="uid://ciubo7gjd052r" path="res://Puzzle/Race Car/model/textures/MI_PlayerHelmet_normal.png" id="2_dfi5j"]
+
+[resource]
+resource_name = "MI_PlayerHelmet.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_q55g6")
+metallic = 0.5
+metallic_texture = ExtResource("1_q55g6")
+normal_enabled = true
+normal_texture = ExtResource("2_dfi5j")

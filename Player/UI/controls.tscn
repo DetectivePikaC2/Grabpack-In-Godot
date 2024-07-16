@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6vk3omy5rumt"]
+
+[ext_resource type="Script" path="res://Player/UI/controls.gd" id="1_ilaqk"]
+[ext_resource type="Script" path="res://Player/UI/virtual_joystick.gd" id="2_t824p"]
+[ext_resource type="Texture2D" uid="uid://d0207ancdlnig" path="res://Player/UI/Texture/Mobile/90_20240220170918.png" id="3_jie2r"]
+[ext_resource type="Texture2D" uid="uid://4dk173bvg5ts" path="res://Player/UI/Texture/Mobile/90_20240220171039.png" id="4_b5h16"]
+[ext_resource type="Texture2D" uid="uid://cl67l6fw50hlv" path="res://Player/UI/Texture/Mobile/left_1.png" id="5_oe5wf"]
+[ext_resource type="Texture2D" uid="uid://c3knxxrq73o3d" path="res://Player/UI/Texture/Mobile/right3.png" id="6_wgwfw"]
+[ext_resource type="Texture2D" uid="uid://cyl0n0mdafpu0" path="res://Player/UI/Texture/Mobile/switch_up.png" id="7_kc1qn"]
+[ext_resource type="Texture2D" uid="uid://cuc2n7cjhaxvt" path="res://Player/UI/Texture/Mobile/gas.png" id="7_vyw5a"]
+[ext_resource type="Texture2D" uid="uid://bv1mvegeiq4hb" path="res://Player/UI/Texture/Mobile/switch_down.png" id="8_ftul3"]
+
+[node name="controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ilaqk")
+
+[node name="mouse_region" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -307.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Virtual Joystick" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = -308.0
+offset_right = 367.0
+offset_bottom = -8.0
+grow_vertical = 0
+script = ExtResource("2_t824p")
+action_left = "left"
+action_right = "right"
+action_up = "forward"
+action_down = "back"
+
+[node name="Base" type="TextureRect" parent="Virtual Joystick"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -95.0
+offset_right = 84.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+mouse_force_pass_scroll_events = false
+texture = ExtResource("3_jie2r")
+stretch_mode = 5
+
+[node name="Tip" type="TextureRect" parent="Virtual Joystick/Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.5
+offset_top = -63.75
+offset_right = 64.5
+offset_bottom = 63.75
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("3_jie2r")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="jump" type="TouchScreenButton" parent="."]
+position = Vector2(565, 505)
+texture_normal = ExtResource("4_b5h16")
+action = "jump"
+
+[node name="crouch" type="TouchScreenButton" parent="."]
+position = Vector2(433, 505)
+rotation = 1.57079
+scale = Vector2(1, -1)
+texture_normal = ExtResource("4_b5h16")
+action = "crouch"
+
+[node name="left_hand" type="TouchScreenButton" parent="."]
+position = Vector2(739, 363)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_oe5wf")
+action = "left_hand"
+
+[node name="right_hand" type="TouchScreenButton" parent="."]
+position = Vector2(907, 363)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_wgwfw")
+action = "right_hand"
+
+[node name="gas_equip" type="TouchScreenButton" parent="."]
+position = Vector2(907, 226)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_vyw5a")
+action = "mask"
+
+[node name="switch_up" type="TouchScreenButton" parent="."]
+position = Vector2(906, 505)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_kc1qn")
+action = "hand_switch_up"
+
+[node name="switch_down" type="TouchScreenButton" parent="."]
+position = Vector2(739, 505)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_ftul3")
+action = "hand_switch_down"
+
+[connection signal="mouse_entered" from="mouse_region" to="." method="_on_mouse_region_mouse_entered"]
+[connection signal="mouse_exited" from="mouse_region" to="." method="_on_mouse_region_mouse_exited"]

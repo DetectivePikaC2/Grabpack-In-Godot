@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://inekakguo630"
+path="res://.godot/imported/SW_Rocket_HandJump_01.wav-aa96b8b971b65a58e5e9e117102a3d4b.sample"
+
+[deps]
+
+source_file="res://Puzzle/Purple Pad/sfx/SW_Rocket_HandJump_01.wav"
+dest_files=["res://.godot/imported/SW_Rocket_HandJump_01.wav-aa96b8b971b65a58e5e9e117102a3d4b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
