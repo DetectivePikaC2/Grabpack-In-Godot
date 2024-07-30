@@ -305,22 +305,13 @@ func _ready():
 func _input(event):
 	if can_move:
 		if event is InputEventMouseMotion:
-			if not use_mobile_controls:
-				if is_free_looking:
-					neck.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
-					neck.rotation.y = clamp(neck.rotation.y, deg_to_rad(-120), deg_to_rad(120))
-				else:
-					rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
-				head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
-				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-			elif Player.move_mouse:
-				if is_free_looking:
-					neck.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
-					neck.rotation.y = clamp(neck.rotation.y, deg_to_rad(-120), deg_to_rad(120))
-				else:
-					rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
-				head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
-				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			if is_free_looking:
+				neck.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
+				neck.rotation.y = clamp(neck.rotation.y, deg_to_rad(-120), deg_to_rad(120))
+			else:
+				rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
+			head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
+			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	if can_pack:
 		if grabpack_version == 1 and r_hand_locked:
 			if Input.is_action_just_pressed("hand_switch_up"):

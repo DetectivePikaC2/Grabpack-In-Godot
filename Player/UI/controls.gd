@@ -1,6 +1,5 @@
 extends Control
 
-@onready var prev = $ColorRect
 @onready var jump = $jump
 @onready var left_hand = $left_hand
 @onready var right_hand = $right_hand
@@ -12,8 +11,6 @@ extends Control
 
 var deleted = false
 
-var move_mouse = false
-var can_move = false
 var screen_drag_time = 0.0
 var prev_screen_drag_time = 0.0
 var l_press = false
@@ -21,14 +18,6 @@ var r_press = false
 var e_press = false
 
 func _input(event):
-	if event is InputEventScreenTouch:
-		if event.is_pressed():
-			if move_mouse:
-				Player.move_mouse = true
-			else:
-				Player.move_mouse = false
-		else:
-			Player.move_mouse = false
 	if Player.use_mobile:
 		Input.action_press("sprint")
 	if not Player.use_mobile:
@@ -71,11 +60,3 @@ func _process(delta):
 			gas_equip.visible = true
 		else:
 			gas_equip.visible = false
-
-#CONTROL_PRESSED
-
-func _on_mouse_region_mouse_entered():
-	move_mouse = true
-
-func _on_mouse_region_mouse_exited():
-	move_mouse = false

@@ -19,16 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ilaqk")
 
-[node name="mouse_region" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -307.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
-
 [node name="Virtual Joystick" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -122,6 +112,3 @@ position = Vector2(739, 505)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_ftul3")
 action = "hand_switch_down"
-
-[connection signal="mouse_entered" from="mouse_region" to="." method="_on_mouse_region_mouse_entered"]
-[connection signal="mouse_exited" from="mouse_region" to="." method="_on_mouse_region_mouse_exited"]
