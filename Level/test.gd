@@ -39,3 +39,9 @@ func _on_power_reciever_power_recieved():
 
 func _on_power_reciever_2_power_recieved():
 	pass # Replace with function body.
+
+func _on_playwatch_camera_obstacle_openned() -> void:
+	print("openned_1")
+
+func _on_playwatch_camera_2_obstacle_openned() -> void:
+	print("openned_2")

@@ -169,7 +169,7 @@ var switched_hand = 0
 var can_shoot_right = false
 var can_shoot_left = false
 var PACK_LERP_SPEED = 5.0
-var pull_speed = 0.25
+var pull_speed = 0.4
 var pull_point = Vector3()
 var pulling = false
 var drop_pull = false
@@ -194,7 +194,8 @@ var damage = 0.0
 var switching_pack = false
 var mobile_item_sel = false
 var playwatch_enabled = false
-var has_playwatch = true
+var has_playwatch = false
+var hit_stay_time = 0.25
 
 #Grabpack_Line_L:
 var l_current_lines = 0
@@ -213,12 +214,15 @@ var r_line_position = Vector3()
 var r_line_target = Vector3()
 var r_fire_time = 0.0
 #Playwatch:
+
+@onready var watch_model: Node3D = $neck/head/grabpack_1/scale/pack_nodes/Playwatch/model
 @onready var playwatch_ui: Control = $ui/playwatch_ui
 @onready var watch_static: ColorRect = $ui/playwatch_ui/static
 @onready var cam_title: Label = $ui/playwatch_ui/cam_title
 @onready var play_cam: Camera3D = $ui/playwatch_ui/SubViewportContainer/SubViewport/Camera3D
 var cam_name = "CAM_01"
 var cam_number = 1
+var cams_active = false
 
 #HAND_VARS:
 #BASE:
@@ -247,6 +251,8 @@ enum def_hand {
 @export var rocket_hand = true
 @export var flare_hand = false
 @export var dash_hand = false
+##If enabled, and the player has a Grabpack 2.0, the Grabpack 2.0 will have a Playwatch equiped. The Playwatch is only compatible with the Grabpack 2.0
+@export var start_with_playwatch = false
 #EXTRA
 @onready var green_lightning = preload("res://Player/Shaders/electricity_full.tres")
 @onready var green_effect = $neck/head/grabpack_1/scale/pack_nodes/RHand/green/Skeleton3D/Object_73/OmniLight3D
@@ -284,6 +290,8 @@ var walk_time = 0
 var forever_time = 0.0
 var can_move = true
 var can_pack = true
+var watch_anim = false
+var queue_watch = false
 
 var jump_time = 0.0
 
@@ -306,6 +314,8 @@ func _ready():
 		Player.has_mask = false
 	else:
 		Player.has_mask = true
+	if start_with_playwatch and grabpack_version == 1:
+		has_playwatch = true
 	
 	if not use_mobile_controls:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -695,6 +705,12 @@ func _process(delta):
 	else:
 		flashlight.visible = false
 	
+	#PLAYWATCH:
+	if has_playwatch:
+		watch_model.visible = true
+	else:
+		watch_model.visible = false
+	
 	if pulling:
 		if global_position.distance_to(pull_point) < 2:
 			if right_use and Player.is_dashing:
@@ -774,14 +790,14 @@ func _process(delta):
 				_hold_item_l(0)
 	if left_use:
 		if l_hand_current == grab_point:
+			pull_l.playing = false
 			if not reached_l:
 				_rand_sfx("neck/head/grabpack_1/sfx/collide", 1, 3)
 				reached_l = true
-			pull_l.stop()
 		if quick_retract_l:
 			if l_hand.global_position.distance_to(grab_point) < 0.5:
 				l_hit_time += 1 * delta
-				if l_hit_time > 0.5:
+				if l_hit_time > hit_stay_time:
 					_retract_left()
 		line_l.visible = true
 		l_retract_force = 0
@@ -840,14 +856,14 @@ func _process(delta):
 	if right_use:
 		if can_shoot_right:
 			if r_hand_current == r_grab_point:
+				pull_r.playing = false
 				if not reached_r:
 					_rand_sfx("neck/head/grabpack_1/sfx/collide", 1, 3)
 					reached_r = true
-				pull_r.stop()
 			if quick_retract_r:
 				if r_hand.global_position.distance_to(r_grab_point) < 0.5:
 					r_hit_time += 1 * delta
-					if r_hit_time > 0.5:
+					if r_hit_time > hit_stay_time:
 						_retract_right()
 			line_r.visible = true
 			r_retract_force = 0
@@ -1119,6 +1135,7 @@ func _get_hands(grabpack):
 func _switch_grabpack(pack):
 	can_pack = true
 	has_grabpack = true
+	has_playwatch = false
 	if pack == 0:
 		_grab1_hand_reset()
 		grabpack.visible = true
@@ -1139,8 +1156,13 @@ func _switch_grabpack(pack):
 		grabpack.visible = false
 		new_grabpack.visible = true
 		grabpack_version = 1
+		if queue_watch:
+			has_playwatch = true
+			queue_watch = false
 	l_anim.play("RESET")
 	r_anim.play("RESET")
+	pull_r.playing = false
+	pull_l.playing = false
 	_refresh_hand()
 
 func _grab1_hand_reset():
@@ -1173,6 +1195,8 @@ func _collect_hand(hand):
 			flare_hand = true
 		if hand == 5:
 			dash_hand = true
+	pull_l.playing = false
+	pull_r.playing = false
 
 func _switch_hand_up():
 	var switch_hand = Player.current_hand
@@ -1278,16 +1302,19 @@ func _unequip_mask():
 	ui_anim.play("gas_remove")
 
 func _toggle_playwatch():
-	if playwatch_enabled:
-		ui_anim.play("watch_disabled")
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	else:
-		new_pack_anim.play("playwatch_on")
-		_disable_movement(true)
-		_hide_crosshair()
-		var cam_owner = get_parent().get_node("PlaywatchCams")
-		cam_owner._get_next_camera(cam_number)
-	playwatch_enabled = !playwatch_enabled
+	if not watch_anim and has_playwatch:
+		if playwatch_enabled:
+			watch_anim = true
+			ui_anim.play("watch_disabled")
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			watch_anim = true
+			new_pack_anim.play("playwatch_on")
+			_disable_movement(true)
+			_hide_crosshair()
+			var cam_owner = get_parent().get_node("PlaywatchCams")
+			cam_owner._get_camera(cam_number)
+		playwatch_enabled = !playwatch_enabled
 
 func _playwatch_cam_return(new_cam_name, cam_pos, cam_rot):
 	play_cam.global_position = cam_pos
@@ -1297,6 +1324,10 @@ func _playwatch_cam_return(new_cam_name, cam_pos, cam_rot):
 		cam_name = str("0", new_cam_name)
 	else:
 		cam_name = str(new_cam_name)
+	cam_title.text = str("CAM_", cam_name)
+
+func _queue_playwatch():
+	queue_watch = true
 
 func _die():
 	var cur_scene = get_tree().current_scene
@@ -1363,6 +1394,10 @@ func _on_new_pack_anim_animation_finished(anim_name):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		playwatch_ui.visible = true
 		ui_anim.play("watch_enabled")
+		cams_active = true
+		neck.visible = false
+	if anim_name == "playwatch_off":
+		watch_anim = false
 
 func _on_pack_player_r_animation_finished(anim_name):
 	if anim_name == "fire_flare":
@@ -1388,12 +1423,21 @@ func _on_item_col_area_exited(area):
 		Input.action_release("use")
 
 func _on_ui_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "watch_enabled":
+		watch_anim = false
 	if anim_name == "watch_disabled":
 		playwatch_ui.visible = false
 		new_pack_anim.play("playwatch_off")
+		cams_active = false
+		neck.visible = true
 		_enable_movement(true)
 		_show_crosshair()
 
 func _on_switch_pressed() -> void:
 	var cam_owner = get_parent().get_node("PlaywatchCams")
 	cam_owner._get_next_camera(cam_number)
+	ui_anim.play("watch_switch")
+
+func _on_open_pressed() -> void:
+	var cam_owner = get_parent().get_node("PlaywatchCams")
+	cam_owner._get_obstacle(cam_number)

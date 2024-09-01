@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dv4qrnr0ds2w6"]
+
+[ext_resource type="StyleBox" uid="uid://dg2ojck8eb7ki" path="res://Game/Menu/theme/button_normal.tres" id="1_rqcgv"]
+[ext_resource type="StyleBox" uid="uid://c8bhsfvyqo7j8" path="res://Game/Menu/theme/button_hover.tres" id="2_45oyc"]
+[ext_resource type="FontFile" uid="uid://bcaqbinvnjarr" path="res://Player/UI/Font/VCR_OSD_MONO_1.001.ttf" id="3_0pu48"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3mbw"]
+
+[resource]
+default_font = ExtResource("3_0pu48")
+default_font_size = 25
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_y3mbw")
+Button/styles/hover = ExtResource("2_45oyc")
+Button/styles/normal = ExtResource("1_rqcgv")
+Button/styles/pressed = ExtResource("1_rqcgv")
