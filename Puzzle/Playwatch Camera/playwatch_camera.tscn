@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnp4xletrofhp"]
+
+[ext_resource type="Script" path="res://Puzzle/Playwatch Camera/playwatch_camera.gd" id="1_3m257"]
+
+[node name="playwatch_camera" type="Camera3D"]
+script = ExtResource("1_3m257")

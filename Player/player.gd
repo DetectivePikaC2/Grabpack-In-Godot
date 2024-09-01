@@ -68,9 +68,9 @@ enum start_hand {
 @onready var grabpack_1 = $neck/head/grabpack_1
 @onready var r_hand = $neck/head/grabpack_1/scale/pack_nodes/RHand
 @onready var l_hand = $neck/head/grabpack_1/scale/pack_nodes/LHand
-@onready var l_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/l_hand
+@onready var l_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/left_attachment_new/l_hand
 @onready var line_l = $pack_lines/line_l/line_l_main
-@onready var line_l_pos = $neck/head/grabpack_1/scale/pack_nodes/l_line
+@onready var line_l_pos = $neck/head/grabpack_1/scale/pack_nodes/left_attachment/l_line
 @onready var l_anim = $neck/head/grabpack_1/scale/pack_nodes/LHand/l_anim
 @onready var line_cast = $pack_lines/line_l/line_l_main/line_cast
 @onready var line_l_sub_1 = $pack_lines/line_l/line_l_sub1
@@ -83,9 +83,9 @@ enum start_hand {
 @onready var line_r_sub_2 = $pack_lines/line_r/line_r_sub2
 @onready var line_r_sub_3 = $pack_lines/line_r/line_r_sub3
 @onready var line_r = $pack_lines/line_r/line_r_main
-@onready var r_line_pos = $neck/head/grabpack_1/scale/pack_nodes/r_line
+@onready var r_line_pos = $neck/head/grabpack_1/scale/pack_nodes/right_attachment/r_line
 @onready var r_hand_marker = $neck/head/grabpack_1/scale/pack_nodes/RHand/hand_r_marker
-@onready var r_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/r_hand
+@onready var r_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/right_attachment_new/r_hand
 @onready var extra_anim = $neck/head/grabpack_1/extra_anim
 @onready var r_anim = $neck/head/grabpack_1/scale/pack_nodes/RHand/r_anim
 @onready var pack_player_r = $neck/head/grabpack_1/scale/pack_nodes/Grabpack/pack_player_r
@@ -119,6 +119,8 @@ enum start_hand {
 @onready var ui_anim = $ui/ui_anim
 @onready var damage_anim = $ui/damage_anim
 @onready var pack_full_timer = $neck/head/grabpack_1/pack_full_timer
+@onready var r_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/right_attachment/r_hand_pos2
+@onready var l_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/left_attachment/l_hand_pos2
 
 #Hold Items:
 
@@ -191,6 +193,8 @@ var gas_damage = false
 var damage = 0.0
 var switching_pack = false
 var mobile_item_sel = false
+var playwatch_enabled = false
+var has_playwatch = true
 
 #Grabpack_Line_L:
 var l_current_lines = 0
@@ -208,6 +212,14 @@ var r_sub_3_pos = Vector3()
 var r_line_position = Vector3()
 var r_line_target = Vector3()
 var r_fire_time = 0.0
+#Playwatch:
+@onready var playwatch_ui: Control = $ui/playwatch_ui
+@onready var watch_static: ColorRect = $ui/playwatch_ui/static
+@onready var cam_title: Label = $ui/playwatch_ui/cam_title
+@onready var play_cam: Camera3D = $ui/playwatch_ui/SubViewportContainer/SubViewport/Camera3D
+var cam_name = "CAM_01"
+var cam_number = 1
+
 #HAND_VARS:
 #BASE:
 var unshootable_hands = [0, 4]
@@ -344,6 +356,9 @@ func _input(event):
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			Player.is_fullscreen = true
+	
+	if Input.is_action_just_pressed("playwatch") and grabpack_version > 0:
+		_toggle_playwatch()
 
 func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
@@ -794,8 +809,10 @@ func _process(delta):
 		l_hit_time = 0.0
 		quick_retract_l = true
 		line_l.visible = false
-		l_hand.rotation = l_hand_pos.rotation
-		l_hand.position = l_hand_pos.position
+		if grabpack_version > 0:
+			l_hand.global_transform = l_hand_pos.global_transform
+		else:
+			l_hand.global_transform = l_hand_pos_2.global_transform
 		left_use = false
 	#RIGHT HAND:
 	
@@ -858,8 +875,10 @@ func _process(delta):
 		r_hit_time = 0.0
 		quick_retract_r = true
 		line_r.visible = false
-		r_hand.rotation = r_hand_pos.rotation
-		r_hand.position = r_hand_pos.position
+		if grabpack_version > 0:
+			r_hand.global_transform = r_hand_pos.global_transform
+		else:
+			r_hand.global_transform = r_hand_pos_2.global_transform
 		right_use = false
 	if left_use or not l_hand_locked:
 		_fix_line_l()
@@ -1258,6 +1277,27 @@ func _unequip_mask():
 	gas_breath.stop()
 	ui_anim.play("gas_remove")
 
+func _toggle_playwatch():
+	if playwatch_enabled:
+		ui_anim.play("watch_disabled")
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else:
+		new_pack_anim.play("playwatch_on")
+		_disable_movement(true)
+		_hide_crosshair()
+		var cam_owner = get_parent().get_node("PlaywatchCams")
+		cam_owner._get_next_camera(cam_number)
+	playwatch_enabled = !playwatch_enabled
+
+func _playwatch_cam_return(new_cam_name, cam_pos, cam_rot):
+	play_cam.global_position = cam_pos
+	play_cam.global_rotation = cam_rot
+	cam_number = new_cam_name
+	if new_cam_name < 10:
+		cam_name = str("0", new_cam_name)
+	else:
+		cam_name = str(new_cam_name)
+
 func _die():
 	var cur_scene = get_tree().current_scene
 	Player.previous_level = cur_scene.scene_file_path
@@ -1319,6 +1359,10 @@ func _on_crouch_exit_timeout():
 func _on_new_pack_anim_animation_finished(anim_name):
 	if anim_name == "Armature|A_FirstPersonPlayer_HandSwitch":
 		hand_switch_anim = false
+	if anim_name == "playwatch_on":
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		playwatch_ui.visible = true
+		ui_anim.play("watch_enabled")
 
 func _on_pack_player_r_animation_finished(anim_name):
 	if anim_name == "fire_flare":
@@ -1342,3 +1386,14 @@ func _on_item_col_area_exited(area):
 	if Player.use_mobile:
 		mobile_item_sel = false
 		Input.action_release("use")
+
+func _on_ui_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "watch_disabled":
+		playwatch_ui.visible = false
+		new_pack_anim.play("playwatch_off")
+		_enable_movement(true)
+		_show_crosshair()
+
+func _on_switch_pressed() -> void:
+	var cam_owner = get_parent().get_node("PlaywatchCams")
+	cam_owner._get_next_camera(cam_number)
