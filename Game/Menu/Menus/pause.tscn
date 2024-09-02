@@ -1,0 +1,186 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwnki4k556rab"]
+
+[ext_resource type="Script" path="res://Game/Menu/Menus/pause.gd" id="1_0b8db"]
+[ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="2_17ls7"]
+[ext_resource type="Shader" path="res://Game/Menu/Shader/vcr_pause.gdshader" id="3_ab8y3"]
+[ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_cegoq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4mcrc"]
+noise_type = 2
+seed = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8j3j6"]
+width = 500
+height = 500
+normalize = false
+noise = SubResource("FastNoiseLite_4mcrc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2jht"]
+shader = ExtResource("3_ab8y3")
+shader_parameter/curvature = 0.0
+shader_parameter/skip = 0.0
+shader_parameter/image_flicker = 0.04
+shader_parameter/vignette_flicker_speed = 0.0
+shader_parameter/vignette_strength = 1.0
+shader_parameter/small_scanlines_speed = 0.1
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_speed = 0.1
+shader_parameter/scanline_thickness = 0.57
+shader_parameter/scanlines_spacing = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_8j3j6")
+
+[sub_resource type="Animation" id="Animation_kcbwc"]
+resource_name = "fade_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_86idu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddvi6"]
+_data = {
+"RESET": SubResource("Animation_86idu"),
+"fade_in": SubResource("Animation_kcbwc")
+}
+
+[node name="pause" type="Control"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0b8db")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_h2jht")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="paused" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 35.0
+offset_right = 256.0
+offset_bottom = 85.0
+theme = ExtResource("2_17ls7")
+theme_override_font_sizes/font_size = 38
+text = "[paused]"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="buttons" type="Control" parent="."]
+anchors_preset = 0
+anchor_left = 0.0347222
+anchor_top = 0.594136
+anchor_right = 0.311632
+anchor_bottom = 0.921296
+metadata/_edit_use_anchors_ = true
+
+[node name="resume" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.0518868
+anchor_right = 0.959248
+anchor_bottom = 0.212264
+offset_bottom = 2.0
+theme = ExtResource("2_17ls7")
+theme_override_font_sizes/font_size = 23
+text = "RESUME"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="settings" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.231132
+anchor_right = 0.959248
+anchor_bottom = 0.391509
+offset_bottom = 2.0
+theme = ExtResource("2_17ls7")
+theme_override_font_sizes/font_size = 23
+text = "SETTINGS"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="loadgame" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.410377
+anchor_right = 0.959248
+anchor_bottom = 0.570755
+offset_bottom = 2.0
+theme = ExtResource("2_17ls7")
+theme_override_font_sizes/font_size = 23
+text = "LOADGAME"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="titlescreen" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.59434
+anchor_right = 0.959248
+anchor_bottom = 0.754717
+offset_bottom = 2.0
+theme = ExtResource("2_17ls7")
+theme_override_font_sizes/font_size = 23
+text = "TITLE SCREEN"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="quit" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.773585
+anchor_right = 0.959248
+anchor_bottom = 0.933962
+offset_bottom = 2.0
+theme = ExtResource("2_17ls7")
+theme_override_font_sizes/font_size = 23
+text = "QUIT"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("3_cegoq")
+root_path = NodePath("../buttons")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ddvi6")
+}
+
+[connection signal="pressed" from="buttons/resume" to="." method="_on_resume_pressed"]

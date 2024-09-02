@@ -1,0 +1,197 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd8mtaq7gm53"]
+
+[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/Ch3MainMenuBackground.ogv" id="1_udaa2"]
+[ext_resource type="AudioStream" uid="uid://dkpntqt8iqxug" path="res://Game/Menu/SFX/Music/02. Chapter 3 Title Screen.mp3" id="2_nvjh2"]
+[ext_resource type="Texture2D" uid="uid://gbep6gfxosxo" path="res://Game/Menu/Texture/UI_Parts/NewFlare.png" id="2_qjkk2"]
+[ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_4uxni"]
+[ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_8ihiw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68e28"]
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[node name="title_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_bg_video" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.113
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_right = -0.176025
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_udaa2")
+autoplay = true
+expand = true
+loop = true
+
+[node name="menu_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nvjh2")
+volume_db = -15.0
+autoplay = true
+
+[node name="flare" type="Sprite2D" parent="."]
+position = Vector2(254.5, 70)
+scale = Vector2(0.248535, 0.546875)
+texture = ExtResource("2_qjkk2")
+
+[node name="chapter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 59.0
+offset_right = 261.0
+offset_bottom = 83.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 27
+text = "Chapter 3"
+vertical_alignment = 1
+uppercase = true
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 97.0
+offset_right = 387.0
+offset_bottom = 141.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 49
+text = "‘Deep sleep’"
+vertical_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 0
+offset_top = 165.0
+offset_right = 510.0
+offset_bottom = 169.0
+theme = ExtResource("3_8ihiw")
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxFlat_68e28")
+
+[node name="description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 196.0
+offset_right = 1006.0
+offset_bottom = 307.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_8ihiw")
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 6
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 36
+text = "In the aftermath of the train crash, you now
+find yourself stranded in the depths with a
+new goal in your sights."
+
+[node name="version" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 635.0
+offset_right = 88.0
+offset_bottom = 658.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("3_8ihiw")
+theme_override_colors/font_color = Color(0.593134, 0.593134, 0.593134, 1)
+theme_override_font_sizes/font_size = 19
+text = "v28,247"
+
+[node name="buttons" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.023
+anchor_top = 0.571
+anchor_right = 0.33
+anchor_bottom = 0.931
+offset_left = -0.496002
+offset_top = -0.00802612
+offset_right = -0.160004
+offset_bottom = -0.288025
+
+[node name="continue" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 29.0
+offset_top = -12.0
+offset_right = 309.026
+offset_bottom = 22.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "CONTINUE"
+alignment = 0
+
+[node name="newgame" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 309.026
+offset_bottom = 60.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "NEW GAME"
+alignment = 0
+
+[node name="replay" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 29.0
+offset_top = 64.0
+offset_right = 309.026
+offset_bottom = 98.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "REPLAY ENCOUNTER"
+alignment = 0
+
+[node name="settings" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 29.0
+offset_top = 102.0
+offset_right = 309.026
+offset_bottom = 136.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "SETTINGS"
+alignment = 0
+
+[node name="credits" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 29.0
+offset_top = 140.0
+offset_right = 309.026
+offset_bottom = 174.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "CREDITS"
+alignment = 0
+
+[node name="quit" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 29.0
+offset_top = 179.0
+offset_right = 309.026
+offset_bottom = 213.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "QUIT"
+alignment = 0
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("3_4uxni")
+root_path = NodePath("../buttons")
