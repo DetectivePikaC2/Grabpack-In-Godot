@@ -121,6 +121,14 @@ enum start_hand {
 @onready var pack_full_timer = $neck/head/grabpack_1/pack_full_timer
 @onready var r_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/right_attachment/r_hand_pos2
 @onready var l_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/left_attachment/l_hand_pos2
+@onready var objective_animation: AnimationPlayer = $ui/objective_animation
+@onready var obj_title: Label = $ui/objective/obj_title
+@onready var display_timer: Timer = $ui/objective/display_timer
+@onready var objective_sound: AudioStreamPlayer = $ui/objective/objective_sound
+@onready var tooltip_title: Label = $ui/tooltip/tooltip_title
+@onready var tooltip_timer: Timer = $ui/tooltip/tooltip_timer
+@onready var tooltip_sound: AudioStreamPlayer = $ui/tooltip/tooltip_sound
+@onready var tooltip_animation: AnimationPlayer = $ui/tooltip_animation
 
 #Hold Items:
 
@@ -1111,6 +1119,26 @@ func _unpower_line():
 	line_material.emission_enabled = false
 	Player.line_power = false
 
+func new_objective(title: String, display_time: float):
+	obj_title.text = str("S")
+	obj_title.text = str("[",title,"]")
+	if display_time < 1:
+		display_timer.start(5.0)
+	else:
+		display_timer.start(display_time)
+	objective_animation.play("fade_in")
+	objective_sound.play()
+
+func tooltip(tip: String, display_time: float):
+	tooltip_title.text = str("S")
+	tooltip_title.text = str(tip)
+	if display_time < 1:
+		tooltip_timer.start(5.0)
+	else:
+		tooltip_timer.start(display_time)
+	tooltip_animation.play("float_in")
+	tooltip_sound.play()
+
 func _show_crosshair():
 	crosshair.visible = true
 
@@ -1445,3 +1473,9 @@ func _on_switch_pressed() -> void:
 func _on_open_pressed() -> void:
 	var cam_owner = get_parent().get_node("PlaywatchCams")
 	cam_owner._get_obstacle(cam_number)
+
+func _on_display_timer_timeout() -> void:
+	objective_animation.play("fade_out")
+
+func _on_tooltip_timer_timeout() -> void:
+	tooltip_animation.play("float_out")
