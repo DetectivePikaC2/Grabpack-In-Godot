@@ -453,9 +453,11 @@ transform = Transform3D(0.771336, 0, -0.636428, 0, 1, 0, 0.636428, 0, 0.771336, 
 
 [node name="Player" parent="." instance=ExtResource("25_hyjo4")]
 transform = Transform3D(1, 0, -1.58932e-08, 0, 1, 0, 1.58932e-08, 0, 1, -2.92386, 0.102042, 3.11763)
+grabpack_version = 1
 starting_hand = 0
 green_hand = false
 rocket_hand = false
+start_with_playwatch = true
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -8.88287, 4.11265, 1.93138)

@@ -220,6 +220,8 @@ var r_fire_time = 0.0
 @onready var watch_static: ColorRect = $ui/playwatch_ui/static
 @onready var cam_title: Label = $ui/playwatch_ui/cam_title
 @onready var play_cam: Camera3D = $ui/playwatch_ui/SubViewportContainer/SubViewport/Camera3D
+@onready var watch_equip: AudioStreamPlayer = $neck/head/grabpack_1/sfx/watch_equip
+@onready var watch_unequip: AudioStreamPlayer = $neck/head/grabpack_1/sfx/watch_unequip
 var cam_name = "CAM_01"
 var cam_number = 1
 var cams_active = false
@@ -1304,10 +1306,12 @@ func _unequip_mask():
 func _toggle_playwatch():
 	if not watch_anim and has_playwatch:
 		if playwatch_enabled:
+			watch_unequip.play()
 			watch_anim = true
 			ui_anim.play("watch_disabled")
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
+			watch_equip.play()
 			watch_anim = true
 			new_pack_anim.play("playwatch_on")
 			_disable_movement(true)
