@@ -8,8 +8,9 @@
 [node name="playwatch_camera" type="Camera3D"]
 script = ExtResource("1_3m257")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="map_icon" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 layers = 524288
 texture = ExtResource("2_qxasr")
 

@@ -12,7 +12,12 @@ enum sound_version {
 @onready var puzzle_sfx: AudioStreamPlayer = $puzzle_sfx
 @onready var jingle: AudioStreamPlayer = $jingle
 
+@onready var map_icon: Sprite3D = $map_icon
+
 var openned = false
+
+func _ready() -> void:
+	map_icon.visible = true
 
 func _open_obstacle():
 	if not openned:
