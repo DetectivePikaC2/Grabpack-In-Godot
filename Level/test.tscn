@@ -467,9 +467,12 @@ script = ExtResource("26_i5ve1")
 
 [node name="playwatch_camera" parent="PlaywatchCams" instance=ExtResource("27_t4bwh")]
 transform = Transform3D(0.75471, -0.202733, 0.623949, 0, 0.951057, 0.309017, -0.656059, -0.233218, 0.717772, 2.34485, 5, 8.54322)
+play_puzzle_complete_sound = true
 
 [node name="playwatch_camera2" parent="PlaywatchCams" instance=ExtResource("27_t4bwh")]
 transform = Transform3D(0.842725, 0, -0.538344, 0, 1, 0, 0.538344, 0, 0.842725, 4.34547, 4.08742, 3.43582)
+play_puzzle_complete_sound = true
+complete_sound = 1
 
 [node name="playwatch_camera3" parent="PlaywatchCams" instance=ExtResource("27_t4bwh")]
 transform = Transform3D(0.842725, 0, -0.538344, 0, 1, 0, 0.538344, 0, 0.842725, -8.65453, 4.08742, -4.96537)

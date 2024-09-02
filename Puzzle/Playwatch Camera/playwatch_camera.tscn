@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnp4xletrofhp"]
+[gd_scene load_steps=5 format=3 uid="uid://cnp4xletrofhp"]
 
 [ext_resource type="Script" path="res://Puzzle/Playwatch Camera/playwatch_camera.gd" id="1_3m257"]
 [ext_resource type="Texture2D" uid="uid://bf4t7ce7m76m1" path="res://Player/UI/Texture/camera_icon.png" id="2_qxasr"]
+[ext_resource type="AudioStream" uid="uid://bs3xsrfrjoatc" path="res://Player/SFX/Grabpack/SW_Jingle_Grabpack2_Obtain.wav" id="3_ovdhs"]
+[ext_resource type="AudioStream" uid="uid://dprdgt42o1l3b" path="res://Puzzle/SFX/SFX puzzle complete sfx.mp3" id="3_u66s2"]
 
 [node name="playwatch_camera" type="Camera3D"]
 script = ExtResource("1_3m257")
@@ -10,3 +12,9 @@ script = ExtResource("1_3m257")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 layers = 524288
 texture = ExtResource("2_qxasr")
+
+[node name="jingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ovdhs")
+
+[node name="puzzle_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u66s2")
