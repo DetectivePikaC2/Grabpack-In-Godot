@@ -45,3 +45,6 @@ func _on_playwatch_camera_obstacle_openned() -> void:
 
 func _on_playwatch_camera_2_obstacle_openned() -> void:
 	print("openned_2")
+
+func _on_grabpack_item_collected() -> void:
+	pass # Replace with function body.
