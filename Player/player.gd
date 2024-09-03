@@ -129,6 +129,7 @@ enum start_hand {
 @onready var tooltip_timer: Timer = $ui/tooltip/tooltip_timer
 @onready var tooltip_sound: AudioStreamPlayer = $ui/tooltip/tooltip_sound
 @onready var tooltip_animation: AnimationPlayer = $ui/tooltip_animation
+@onready var grab_switch_delay = $neck/head/grabpack_1/grab_switch_delay
 
 #Hold Items:
 
@@ -761,7 +762,13 @@ func _process(delta):
 	Player.left_click = left_click
 	Player.right_click = right_click
 	
-	if Player.current_hand == 4:
+	if pack_switch_queued or grabpack_lowered:
+		can_shoot_left = false
+		can_shoot_right = false
+	if hand_switch_anim:
+		can_shoot_right = false
+	
+	if Player.current_hand == 4 and can_shoot_right:
 		flare_count.text = str(current_flares)
 		if Input.is_action_just_pressed("right_hand") and can_shoot_flare:
 			if not current_flares < 1:
@@ -777,11 +784,6 @@ func _process(delta):
 				can_shoot_flare = false
 			else:
 				fire_flare_fail.play()
-	if pack_switch_queued and l_hand_locked and r_hand_locked:
-		extra_anim.play("grabpack_lower")
-		pack_switch_timer.start()
-		pack_switch_queued = false
-	
 	if Input.is_action_just_released("left_hand"):
 		if left_use and not left_click:
 			_retract_left()
@@ -937,6 +939,10 @@ func _process(delta):
 			green_mat.surface_get_material(0).emission_enabled = false
 			green_started = false
 	_remove_lines()
+	if pack_switch_queued and l_hand_locked and r_hand_locked:
+		grab_switch_delay.start()
+		grabpack_lowered = true
+		pack_switch_queued = false
 	Player.l_launched = left_use
 	Player.r_launched = right_use
 	Player.r_pos = r_hand.global_position
@@ -1493,4 +1499,7 @@ func _on_tooltip_timer_timeout() -> void:
 func _on_extra_anim_animation_started(anim_name):
 	if anim_name == "grabpack_lower":
 		grabpack_lowered = true
-		print("wow")
+
+func _on_grab_switch_delay_timeout():
+	extra_anim.play("grabpack_lower")
+	pack_switch_timer.start()
