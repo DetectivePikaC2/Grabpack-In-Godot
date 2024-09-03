@@ -1425,6 +1425,9 @@ func _on_hand_switch_timer_timeout():
 	_rand_sfx("neck/head/grabpack_1/sfx/switch", 2, 2)
 	_refresh_hand()
 
+func _hand_anim_switched():
+	hand_switch_anim = false
+
 func _on_crouch_enter_timeout():
 	extra_anim.play("idle")
 
