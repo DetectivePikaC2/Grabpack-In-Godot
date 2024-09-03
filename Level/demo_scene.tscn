@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1synj2xgx754"]
+
+[ext_resource type="PackedScene" uid="uid://wipogv674odr" path="res://Player/player.tscn" id="1_y6ybj"]
+
+[node name="demo_scene" type="Node3D"]
+
+[node name="csg" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+size = Vector3(3, 0.2, 13)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9, 6.9)
+size = Vector3(3, 0.2, 6)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95, -4.9, 14.2)
+size = Vector3(12.3, 0.2, 8.6)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -2.4, 3.9)
+size = Vector3(3, 0.2, 5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -11)
+size = Vector3(4, 0.2, 14)
+
+[node name="Player" parent="." instance=ExtResource("1_y6ybj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, -4.8, 14.4)

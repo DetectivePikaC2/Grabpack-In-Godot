@@ -394,7 +394,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("crouch") or ray_cast_3d.is_colliding():
 		if is_on_floor():
 			current_speed = lerp(current_speed, CROUCHING_SPEED, delta * LERP_SPEED)
-		head.position.y = lerp(head.position.y, CROUCHING_DEPTH, delta * 4.0)
+		head.position.y = lerp(head.position.y, CROUCHING_DEPTH, delta * 6.0)
 		standing_collision.disabled = true
 		crouch_collision.disabled = false
 		wiggle_current_intensity = WIGGLE_ON_CROUCHING_INTENSITY
@@ -403,7 +403,7 @@ func _physics_process(delta):
 		is_sprinting = false
 		is_crouching = true
 	else:
-		head.position.y = lerp(head.position.y, 0.0, delta * 4.0)
+		head.position.y = lerp(head.position.y, 0.0, delta * 6.0)
 		standing_collision.disabled = false
 		crouch_collision.disabled = true
 		slide_timer.stop()
