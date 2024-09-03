@@ -199,11 +199,12 @@ var hand_switch_anim = false
 var mask_equipped = false
 var gas_damage = false
 var damage = 0.0
-var switching_pack = false
+var grabpack_lowered = false
 var mobile_item_sel = false
 var playwatch_enabled = false
 var has_playwatch = false
 var hit_stay_time = 0.25
+var pack_switch_queued = false
 
 #Grabpack_Line_L:
 var l_current_lines = 0
@@ -528,14 +529,14 @@ func _physics_process(delta):
 	last_velocity = velocity
 	
 	if can_move:
-		if is_crouching and not crouch_notif and not switching_pack:
+		if is_crouching and not crouch_notif and not grabpack_lowered:
 			_rand_sfx("neck/head/grabpack_1/sfx/crouch", 3, 3)
 			_rand_sfx("neck/head/grabpack_1/sfx/crouch", 1, 1)
 			extra_anim.play("crouch")
 			crouch_exit.stop()
 			crouch_enter.start()
 			crouch_notif = true
-		if crouch_notif and not is_crouching and not switching_pack:
+		if crouch_notif and not is_crouching and not grabpack_lowered:
 			_rand_sfx("neck/head/grabpack_1/sfx/crouch", 2, 2)
 			_rand_sfx("neck/head/grabpack_1/sfx/crouch", 1, 1)
 			extra_anim.play("crouch_exit")
@@ -776,6 +777,10 @@ func _process(delta):
 				can_shoot_flare = false
 			else:
 				fire_flare_fail.play()
+	if pack_switch_queued and l_hand_locked and r_hand_locked:
+		extra_anim.play("grabpack_lower")
+		pack_switch_timer.start()
+		pack_switch_queued = false
 	
 	if Input.is_action_just_released("left_hand"):
 		if left_use and not left_click:
@@ -829,7 +834,8 @@ func _process(delta):
 				_unpower_line()
 			_rand_sfx("neck/head/grabpack_1/sfx/retractL_", 1, 3)
 			l_anim.play("pull_back_hit")
-			pack_playerl.play("hit_3")
+			if not pack_switch_queued:
+				pack_playerl.play("hit_3")
 			l_hand_locked = true
 	else:
 		l_hit_time = 0.0
@@ -895,7 +901,8 @@ func _process(delta):
 				_unpower_line()
 			_rand_sfx("neck/head/grabpack_1/sfx/retractR_", 1, 3)
 			r_anim.play("pull_back_hit")
-			pack_player_r.play("hit_3")
+			if not pack_switch_queued:
+				pack_player_r.play("hit_3")
 			r_hand_locked = true
 	else:
 		r_hit_time = 0.0
@@ -1205,10 +1212,12 @@ func _grab2_hand_reset():
 	_refresh_hand()
 
 func _collect_pack(pack):
-	switching_pack = true
 	collect_grabpack = pack
-	extra_anim.play("switch_pack_v2")
-	pack_switch_timer.start()
+	if l_hand_locked and r_hand_locked:
+		extra_anim.play("grabpack_lower")
+		pack_switch_timer.start()
+	else:
+		pack_switch_queued = true
 
 func _collect_hand(hand):
 	if grabpack_version == 0:
@@ -1392,11 +1401,12 @@ func _on_pack_switch_timer_timeout():
 		_switch_grabpack(0)
 	elif collect_grabpack == 1:
 		_switch_grabpack(1)
+	extra_anim.play("grabpack_raise")
 
 func _on_extra_anim_animation_finished(anim_name):
-	if anim_name == "switch_pack" or anim_name == "switch_pack_v2":
+	if anim_name == "grabpack_raise":
 		extra_anim.play("idle")
-		switching_pack = false
+		grabpack_lowered = false
 
 func _on_reload_timer_timeout(anim):
 	if anim == "charge":
@@ -1479,3 +1489,8 @@ func _on_display_timer_timeout() -> void:
 
 func _on_tooltip_timer_timeout() -> void:
 	tooltip_animation.play("float_out")
+
+func _on_extra_anim_animation_started(anim_name):
+	if anim_name == "grabpack_lower":
+		grabpack_lowered = true
+		print("wow")
