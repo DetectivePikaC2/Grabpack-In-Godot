@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=4 uid="uid://bjhse55dlsf0a"]
+[gd_scene load_steps=25 format=4 uid="uid://bjhse55dlsf0a"]
 
 [ext_resource type="Script" path="res://Item/Grabpack/playwatch.gd" id="1_qyktj"]
 [ext_resource type="Texture2D" uid="uid://cnw4j6l8diw3h" path="res://Player/grabpack3/grabpack_3_1.png" id="1_x642j"]
 [ext_resource type="AudioStream" uid="uid://bs3xsrfrjoatc" path="res://Player/SFX/Grabpack/SW_Jingle_Grabpack2_Obtain.wav" id="2_u72h7"]
-[ext_resource type="AudioStream" uid="uid://dcj2bxtg8wxx4" path="res://Player/SFX/Grabpack/SW_Grabpack_EquipPack.wav" id="3_y1hx4"]
 [ext_resource type="AudioStream" uid="uid://bn4g1q8gpbtym" path="res://Item/SFX/SFX item grab v3.mp3" id="4_v3r7e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sa7rt"]
@@ -308,7 +307,6 @@ shape = SubResource("BoxShape3D_8rfjg")
 stream = ExtResource("2_u72h7")
 
 [node name="collect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_y1hx4")
 
 [node name="get_sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_v3r7e")

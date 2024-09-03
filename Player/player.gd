@@ -148,6 +148,7 @@ enum start_hand {
 @onready var gas_equip = $ui/gas_mask/gas_equip
 @onready var gas_remove = $ui/gas_mask/gas_remove
 @onready var gas_breath = $ui/gas_mask/gas_breath
+@onready var pack_equip: AudioStreamPlayer = $neck/head/grabpack_1/sfx/pack_equip
 
 #Grabpack BTS:
 
@@ -836,8 +837,7 @@ func _process(delta):
 				_unpower_line()
 			_rand_sfx("neck/head/grabpack_1/sfx/retractL_", 1, 3)
 			l_anim.play("pull_back_hit")
-			if not pack_switch_queued:
-				pack_playerl.play("hit_3")
+			pack_playerl.play("hit_3")
 			l_hand_locked = true
 	else:
 		l_hit_time = 0.0
@@ -903,8 +903,7 @@ func _process(delta):
 				_unpower_line()
 			_rand_sfx("neck/head/grabpack_1/sfx/retractR_", 1, 3)
 			r_anim.play("pull_back_hit")
-			if not pack_switch_queued:
-				pack_player_r.play("hit_3")
+			pack_player_r.play("hit_3")
 			r_hand_locked = true
 	else:
 		r_hit_time = 0.0
@@ -939,10 +938,6 @@ func _process(delta):
 			green_mat.surface_get_material(0).emission_enabled = false
 			green_started = false
 	_remove_lines()
-	if pack_switch_queued and l_hand_locked and r_hand_locked:
-		grab_switch_delay.start()
-		grabpack_lowered = true
-		pack_switch_queued = false
 	Player.l_launched = left_use
 	Player.r_launched = right_use
 	Player.r_pos = r_hand.global_position
@@ -1220,6 +1215,7 @@ func _grab2_hand_reset():
 func _collect_pack(pack):
 	collect_grabpack = pack
 	if l_hand_locked and r_hand_locked:
+		pack_equip.play()
 		extra_anim.play("grabpack_lower")
 		pack_switch_timer.start()
 	else:
@@ -1450,6 +1446,11 @@ func _on_new_pack_anim_animation_finished(anim_name):
 func _on_pack_player_r_animation_finished(anim_name):
 	if anim_name == "fire_flare":
 		can_shoot_flare = true
+	if pack_switch_queued and l_hand_locked and r_hand_locked and anim_name == "hit_3":
+		pack_equip.play()
+		extra_anim.play("grabpack_lower")
+		pack_switch_timer.start()
+		pack_switch_queued = false
 
 func _on_gas_det_area_entered(area):
 	gas_damage = true
@@ -1500,6 +1501,9 @@ func _on_extra_anim_animation_started(anim_name):
 	if anim_name == "grabpack_lower":
 		grabpack_lowered = true
 
-func _on_grab_switch_delay_timeout():
-	extra_anim.play("grabpack_lower")
-	pack_switch_timer.start()
+func _on_pack_playerl_animation_finished(anim_name: StringName) -> void:
+	if pack_switch_queued and l_hand_locked and r_hand_locked and anim_name == "hit_3":
+		pack_equip.play()
+		extra_anim.play("grabpack_lower")
+		pack_switch_timer.start()
+		pack_switch_queued = false
