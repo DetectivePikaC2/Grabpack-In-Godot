@@ -497,6 +497,17 @@ func _physics_process(delta):
 				jump_time = -0.5
 				animation_player.play("landing")
 				_rand_sfx("neck/head/grabpack_1/sfx/land", 1, 3)
+	else:
+		grabpack_1.rotation.z = lerp(
+			grabpack_1.rotation.z,
+			pack_defualt.rotation.z, 
+			delta * PACK_LERP_SPEED * 3
+		)
+		grabpack_1.position = lerp(
+			grabpack_1.position,
+			pack_defualt.position, 
+			delta * PACK_LERP_SPEED * 3
+		)
 	
 	if can_move:
 		if Input.is_action_pressed("jump") and is_on_floor():
@@ -640,11 +651,6 @@ func _grabpack_walk(delta):
 			pack_forward.position.x, 
 			delta * PACK_LERP_SPEED
 		)
-		grabpack_1.rotation.z = lerp(
-			grabpack_1.rotation.z,
-			pack_defualt.rotation.z, 
-			delta * PACK_LERP_SPEED
-		)
 	if x_axis == 0:
 		grabpack_1.position.x = lerp(
 			grabpack_1.position.x,
@@ -768,10 +774,11 @@ func _process(delta):
 		can_shoot_right = false
 	if hand_switch_anim:
 		can_shoot_right = false
+		can_shoot_flare = true
 	
-	if Player.current_hand == 4 and can_shoot_right:
+	if Player.current_hand == 4:
 		flare_count.text = str(current_flares)
-		if Input.is_action_just_pressed("right_hand") and can_shoot_flare:
+		if Input.is_action_just_pressed("right_hand") and can_shoot_flare and not hand_switch_anim:
 			if not current_flares < 1:
 				if current_flares == max_flares:
 					display_anim_flare.play("charge")
