@@ -959,6 +959,7 @@ func _process(delta):
 	Player.current_pack = grabpack_version
 	Player.player_position = global_position
 	Player.player_transform = global_transform.origin
+	Player.camera_position = camera.global_position
 
 func _retract_right():
 	r_anim.play("pull_back")

@@ -13,7 +13,7 @@ func _enter_tree():
 func _process(delta):
 	if not global_position.distance_to(target_position) < 0.3:
 		global_position = global_position.move_toward(target_position, 20.0 * delta)
-		target_position.y -= 0.0025
+		target_position.y -= 0.0005
 	if fading:
 		light.light_energy -= 0.025
 		flare_ambience.volume_db -= 0.1

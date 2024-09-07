@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsrb3nvouvvrj"]
+[gd_scene load_steps=12 format=3 uid="uid://dsrb3nvouvvrj"]
 
 [ext_resource type="Script" path="res://Player/flare.gd" id="1_iq4wj"]
 [ext_resource type="AudioStream" uid="uid://6tvwqf3cbf2r" path="res://Player/SFX/Flare/SW_Flare_Burning_LOOP_01.wav" id="3_123cu"]
@@ -51,6 +51,9 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_plmxx")
 size = Vector2(0.3, 0.3)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_y1i1j"]
+radius = 0.652215
+
 [node name="flare" type="Node3D"]
 script = ExtResource("1_iq4wj")
 
@@ -91,5 +94,10 @@ autostart = true
 [node name="flare_ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_123cu")
 autoplay = true
+
+[node name="Area3D" type="Area3D" parent="." groups=["flare"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_y1i1j")
 
 [connection signal="timeout" from="time" to="." method="_on_time_timeout"]
