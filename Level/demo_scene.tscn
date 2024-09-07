@@ -220,6 +220,71 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.65)
 use_collision = true
 size = Vector3(7, 0.2, 12.9)
 
+[node name="CSGBox3D35" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.65, -1.8, -29.15)
+use_collision = true
+size = Vector3(7, 3.8, 7.4)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -25.7, -1.8, -30.35)
+use_collision = true
+size = Vector3(20.7, 3.8, 4.6)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.45, -3.6, -42.8)
+use_collision = true
+size = Vector3(27.2, 0.2, 20.3)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.7, -1.1, -33.95)
+use_collision = true
+size = Vector3(3.5, 5.2, 2.6)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.7, 1.35, -38.6151)
+use_collision = true
+size = Vector3(2.4, 0.3, 6.73015)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.7, 3.75, -48.35)
+use_collision = true
+size = Vector3(2.4, 0.3, 4.6)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -14.2, 3.75, -51.85)
+use_collision = true
+size = Vector3(2.4, 0.3, 9.4)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -32.45, 3.75, -51.85)
+use_collision = true
+size = Vector3(2.4, 0.3, 7.3)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.13566e-07, 0.5, -0.866025, -6.55671e-08, 0.866025, 0.5, 1, 0, 1.31134e-07, -27.6238, 3.0469, -51.85)
+use_collision = true
+size = Vector3(2.4, 0.3, 2.9)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, -4.37114e-08, 0.866025, 0.5, 7.57103e-08, 0.5, -0.866025, -10.7, 2.54681, -44.0067)
+use_collision = true
+size = Vector3(2.4, 0.3, 4.89358)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13.65, -1.8, -38.95)
+use_collision = true
+size = Vector3(2.4, 3.8, 7.4)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.5, 0, -33.95)
+use_collision = true
+size = Vector3(5.1, 0.2, 2.6)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-0.866025, 0.5, -7.57103e-08, 0.5, 0.866025, 4.37114e-08, 8.74228e-08, -5.0243e-15, -1, -27.7561, -1.862, -33.95)
+use_collision = true
+size = Vector3(7.5, 0.2, 2.6)
+
 [node name="CSGBox3D24" type="CSGBox3D" parent="csg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -2.7, -29.15)
 use_collision = true
@@ -504,7 +569,7 @@ shape = SubResource("BoxShape3D_wosy0")
 
 [node name="DraggableObject3D" type="Node3D" parent="puzzle/SM_BoxLetters_A"]
 script = ExtResource("19_qoi3l")
-pull_speed = 0.005
+pull_speed = 0.001
 
 [node name="Area3D" type="Area3D" parent="puzzle/SM_BoxLetters_A/DraggableObject3D"]
 collision_layer = 24
@@ -516,8 +581,16 @@ shape = SubResource("BoxShape3D_8vxfp")
 
 [node name="Marker3D" type="Marker3D" parent="puzzle/SM_BoxLetters_A/DraggableObject3D"]
 
+[node name="purple_panel2" parent="puzzle" instance=ExtResource("15_wqfru")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16.1, -3.5, -33.8)
+launch_height = 15.0
+
+[node name="purple_panel3" parent="puzzle" instance=ExtResource("15_wqfru")]
+transform = Transform3D(0.996321, 0, -0.085695, 0, 1, 0, 0.085695, 0, 0.996321, -17.7571, 3.9, -51.7295)
+
 [node name="Player" parent="." instance=ExtResource("1_y6ybj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.2, -23.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8, 1.4, -34.5)
+floor_constant_speed = true
 grabpack_version = 1
 defualt_hand = 3
 green_hand = false
@@ -528,6 +601,8 @@ libraries = {
 "": SubResource("AnimationLibrary_irjxv")
 }
 
+[connection signal="pressed" from="decor/Large Button" to="." method="_on_large_button_pressed"]
+[connection signal="released" from="decor/Large Button" to="." method="_on_large_button_released"]
 [connection signal="area_entered" from="puzzle/gate_closer" to="." method="_on_gate_closer_area_entered"]
 [connection signal="area_entered" from="puzzle/hand_notify" to="." method="_on_hand_notify_area_entered"]
 [connection signal="scan_complete" from="puzzle/Blue Scanner" to="." method="_on_blue_scanner_scan_complete"]
