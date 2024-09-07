@@ -3,7 +3,8 @@ extends Node3D
 @onready var gate = $puzzle/Gate
 @onready var gate_2 = $puzzle/Gate2
 @onready var player = $Player
-@onready var large_gate_2 = $"puzzle/Large Gate2"
+@onready var gate_3: StaticBody3D = $puzzle/Gate3
+@onready var purple_panel_4: StaticBody3D = $puzzle/purple_panel4
 
 var gate_openned = false
 
@@ -29,7 +30,9 @@ func _on_grabpack_item_collected():
 
 
 func _on_large_button_pressed():
-	large_gate_2._open()
+	gate_3._open()
+	purple_panel_4._power()
 
 func _on_large_button_released():
-	large_gate_2._close()
+	gate_3._close()
+	purple_panel_4._unpower()

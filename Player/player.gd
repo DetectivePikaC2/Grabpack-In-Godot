@@ -958,6 +958,7 @@ func _process(delta):
 	Player.item_position -= camera.get_global_transform().basis.z
 	Player.current_pack = grabpack_version
 	Player.player_position = global_position
+	Player.player_transform = global_transform.origin
 
 func _retract_right():
 	r_anim.play("pull_back")
@@ -1294,6 +1295,20 @@ func _update_r_position(pos, rot):
 func _update_l_position(pos, rot):
 	grab_point = pos
 	l_hand_rot = rot
+
+func _update_l_rotation(rot, x, y, z):
+	l_hand_rot = rot
+
+func _update_r_rotation(rot, x, y, z):
+	if not x and not y and not z:
+		r_hand_rot = rot
+	else:
+		if x:
+			r_hand_rot.x = rot.x
+		if y:
+			r_hand_rot.y = rot.y
+		if z:
+			r_hand_rot.z = rot.z
 
 func _set_retract_mode_r(mode):
 	quick_retract_r = mode

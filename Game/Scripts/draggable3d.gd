@@ -60,7 +60,6 @@ func _enter_tree() -> void:
 		marker.name = "Marker3D"
 
 func _hand_collided(area: Area3D) -> void:
-	print("spooky")
 	if area.collision_layer == 8:
 		if not grabbed_l and Player.l_launched:
 			get_tree().call_group("player", "_set_retract_mode_l", false)

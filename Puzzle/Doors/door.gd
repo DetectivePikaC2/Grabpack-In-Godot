@@ -32,6 +32,7 @@ enum door_colours {
 @export var open_by_defualt = false
 
 var prev_colour = null
+var prev_open = false
 var open = false
 var selected = false
 
@@ -47,9 +48,18 @@ func _ready():
 		door.rotation_degrees.y = 0.0
 
 func _process(delta):
-	if not prev_colour == colour:
-		_set_colour(colour)
-	prev_colour = colour
+	if Engine.is_editor_hint():
+		if not prev_colour == colour:
+			_set_colour(colour)
+		prev_colour = colour
+		if not prev_open == open_by_defualt:
+			if open_by_defualt:
+				open = true
+				door.rotation_degrees.y = 97.9
+			else:
+				open = false
+				door.rotation_degrees.y = 0.0
+		prev_open = open_by_defualt
 
 func _set_colour(colour):
 	frame_cyan.visible = false

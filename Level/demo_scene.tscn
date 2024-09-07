@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://b1synj2xgx754"]
+[gd_scene load_steps=48 format=4 uid="uid://b1synj2xgx754"]
 
 [ext_resource type="Script" path="res://Level/demo_scene.gd" id="1_o3h6j"]
 [ext_resource type="PackedScene" uid="uid://wipogv674odr" path="res://Player/player.tscn" id="1_y6ybj"]
@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://c7h4vgpq7wn2j" path="res://Puzzle/Handle/grapple_handle.tscn" id="19_acbyl"]
 [ext_resource type="Script" path="res://Game/Scripts/draggable3d.gd" id="19_qoi3l"]
 [ext_resource type="PackedScene" uid="uid://b6jhnelyu0cjv" path="res://Puzzle/Gates/large_gate.tscn" id="20_jajkj"]
+[ext_resource type="PackedScene" uid="uid://cgfr84c3rrtym" path="res://Puzzle/Doors/door.tscn" id="20_phgs6"]
 [ext_resource type="PackedScene" uid="uid://cu72dk6n7aaco" path="res://Item/Grabpack/grabpack_item.tscn" id="21_6y8sb"]
+[ext_resource type="Script" path="res://Game/Scripts/crittercontainer.gd" id="21_la45o"]
+[ext_resource type="PackedScene" uid="uid://c3q5y3n2s2evf" path="res://Character/ColorPlush/minicritter.tscn" id="22_8m4ld"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rpms1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -203,6 +206,10 @@ _data = {
 "cutseen_intro": SubResource("Animation_25d0v")
 }
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_cu4ux"]
+vertices = PackedVector3Array(-4.35, 0.6, -56.6, -4.35, 0.6, -36.6, 11.4, 0.6, -36.6, 11.4, 0.6, -56.6)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [node name="demo_scene" type="Node3D"]
 script = ExtResource("1_o3h6j")
 
@@ -231,9 +238,69 @@ use_collision = true
 size = Vector3(20.7, 3.8, 4.6)
 
 [node name="CSGBox3D39" type="CSGBox3D" parent="csg"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.45, -3.6, -42.8)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -22.45, -3.6, -45)
 use_collision = true
-size = Vector3(27.2, 0.2, 20.3)
+size = Vector3(27.2, 0.2, 24.7)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -36, 2.25, -42.7)
+use_collision = true
+size = Vector3(0.1, 11.9, 29.3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="csg/CSGBox3D48"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 9.22948)
+operation = 2
+size = Vector3(0.4, 3.3, 1.6)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -51, 6, -50.5)
+use_collision = true
+size = Vector3(0.1, 4.4, 6.3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="csg/CSGBox3D57"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 1.42948)
+operation = 2
+size = Vector3(0.4, 3.3, 1.5)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.9, 2.25, -44.95)
+use_collision = true
+size = Vector3(0.1, 11.9, 24.6)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -11.7, 4.15, -32.55)
+use_collision = true
+size = Vector3(0.2, 8.1, 7.3)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -23.15, 0.9, -32.55)
+use_collision = true
+size = Vector3(0.2, 1.6, 15.6)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -30.45, -0.9, -35.15)
+use_collision = true
+size = Vector3(0.2, 5.2, 11)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -18.7, -1.65, -35.15)
+use_collision = true
+size = Vector3(0.2, 3.7, 12.5)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -22.45, 2.25, -57.25)
+use_collision = true
+size = Vector3(0.2, 11.9, 27.2)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -43.5, 6, -53.65)
+use_collision = true
+size = Vector3(0.2, 4.4, 14.9)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -25.7, 2.25, -28.05)
+use_collision = true
+size = Vector3(0.2, 11.9, 20.7)
 
 [node name="CSGBox3D40" type="CSGBox3D" parent="csg"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10.7, -1.1, -33.95)
@@ -256,12 +323,17 @@ use_collision = true
 size = Vector3(2.4, 0.3, 9.4)
 
 [node name="CSGBox3D46" type="CSGBox3D" parent="csg"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -32.45, 3.75, -51.85)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -34.15, 3.75, -51.85)
 use_collision = true
-size = Vector3(2.4, 0.3, 7.3)
+size = Vector3(2.4, 0.3, 3.7)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="csg"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -43.5, 3.75, -50.5)
+use_collision = true
+size = Vector3(6.3, 0.3, 15)
 
 [node name="CSGBox3D47" type="CSGBox3D" parent="csg"]
-transform = Transform3D(1.13566e-07, 0.5, -0.866025, -6.55671e-08, 0.866025, 0.5, 1, 0, 1.31134e-07, -27.6238, 3.0469, -51.85)
+transform = Transform3D(1.13566e-07, 0.5, -0.866025, -6.55671e-08, 0.866025, 0.5, 1, 0, 1.31134e-07, -31.1238, 3.0469, -51.85)
 use_collision = true
 size = Vector3(2.4, 0.3, 2.9)
 
@@ -276,14 +348,14 @@ use_collision = true
 size = Vector3(2.4, 3.8, 7.4)
 
 [node name="CSGBox3D37" type="CSGBox3D" parent="csg"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.5, 0, -33.95)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.5, 0, -33.9)
 use_collision = true
-size = Vector3(5.1, 0.2, 2.6)
+size = Vector3(5.1, 0.2, 2.5)
 
 [node name="CSGBox3D38" type="CSGBox3D" parent="csg"]
-transform = Transform3D(-0.866025, 0.5, -7.57103e-08, 0.5, 0.866025, 4.37114e-08, 8.74228e-08, -5.0243e-15, -1, -27.7561, -1.862, -33.95)
+transform = Transform3D(-0.866025, 0.5, -7.57103e-08, 0.5, 0.866025, 4.37114e-08, 8.74228e-08, -5.0243e-15, -1, -27.7561, -1.862, -33.9)
 use_collision = true
-size = Vector3(7.5, 0.2, 2.6)
+size = Vector3(7.5, 0.2, 2.5)
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="csg"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -2.7, -29.15)
@@ -514,6 +586,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
 colour = 1
 open_by_defualt = false
 
+[node name="Gate3" parent="puzzle" instance=ExtResource("16_58b6u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, -29.1437)
+colour = 2
+open_by_defualt = false
+
 [node name="gate_closer" type="Area3D" parent="puzzle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -11.9)
 collision_layer = 32
@@ -541,9 +618,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.1, -8.4)
 [node name="Large Gate" parent="puzzle" instance=ExtResource("20_jajkj")]
 transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 7.8, 0.1, -29.1)
 
-[node name="Large Gate2" parent="puzzle" instance=ExtResource("20_jajkj")]
-transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, -7.9, 0.1, -29.1)
-
 [node name="Grabpack Item" parent="puzzle" instance=ExtResource("21_6y8sb")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 2.1, -4.5, 10.2)
 pack = 1
@@ -557,6 +631,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, -0.5, -33.1)
 
 [node name="SM_BoxLetters_A" type="RigidBody3D" parent="puzzle"]
 transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -6.7, 0.1, -35.2)
+mass = 3.0
 metadata/_edit_group_ = true
 
 [node name="SM_BoxLetters_A_MI_Box_Letters_A_0" type="MeshInstance3D" parent="puzzle/SM_BoxLetters_A"]
@@ -581,25 +656,83 @@ shape = SubResource("BoxShape3D_8vxfp")
 
 [node name="Marker3D" type="Marker3D" parent="puzzle/SM_BoxLetters_A/DraggableObject3D"]
 
+[node name="SM_BoxLetters_A2" type="RigidBody3D" parent="puzzle"]
+transform = Transform3D(0.965926, -0.258819, -1.13133e-08, 0, -4.37114e-08, 1, -0.258819, -0.965926, -4.2222e-08, -9.3, 0.1, -26.9)
+metadata/_edit_group_ = true
+
+[node name="SM_BoxLetters_A_MI_Box_Letters_A_0" type="MeshInstance3D" parent="puzzle/SM_BoxLetters_A2"]
+mesh = SubResource("ArrayMesh_eil3f")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="puzzle/SM_BoxLetters_A2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+shape = SubResource("BoxShape3D_wosy0")
+
+[node name="DraggableObject3D" type="Node3D" parent="puzzle/SM_BoxLetters_A2"]
+script = ExtResource("19_qoi3l")
+pull_speed = 0.005
+
+[node name="Area3D" type="Area3D" parent="puzzle/SM_BoxLetters_A2/DraggableObject3D"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="puzzle/SM_BoxLetters_A2/DraggableObject3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7)
+shape = SubResource("BoxShape3D_8vxfp")
+
+[node name="Marker3D" type="Marker3D" parent="puzzle/SM_BoxLetters_A2/DraggableObject3D"]
+
 [node name="purple_panel2" parent="puzzle" instance=ExtResource("15_wqfru")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16.1, -3.5, -33.8)
-launch_height = 15.0
+launch_height = 14.0
 
 [node name="purple_panel3" parent="puzzle" instance=ExtResource("15_wqfru")]
 transform = Transform3D(0.996321, 0, -0.085695, 0, 1, 0, 0.085695, 0, 0.996321, -17.7571, 3.9, -51.7295)
+launch_height = 13.0
+
+[node name="purple_panel4" parent="puzzle" instance=ExtResource("15_wqfru")]
+transform = Transform3D(0.175092, 0, -0.984552, 0, 1, 0, 0.984552, 0, 0.175092, -1.7571, 0.1, -34.8295)
+powered = false
+
+[node name="Door" parent="puzzle" instance=ExtResource("20_phgs6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36, 3.9, -51.2)
+colour = 2
+open_by_defualt = true
+
+[node name="Door2" parent="puzzle" instance=ExtResource("20_phgs6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -51, 3.9, -51.2)
+colour = 2
+open_by_defualt = true
+
+[node name="Door3" parent="puzzle" instance=ExtResource("20_phgs6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43, 3.9, -47.4)
+colour = 1
+
+[node name="MiniCritterContainer" type="Node" parent="."]
+script = ExtResource("21_la45o")
+
+[node name="minicritter" parent="MiniCritterContainer" instance=ExtResource("22_8m4ld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.4, -44.9)
 
 [node name="Player" parent="." instance=ExtResource("1_y6ybj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8, 1.4, -34.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.1, -38.3)
 floor_constant_speed = true
 grabpack_version = 1
-defualt_hand = 3
-green_hand = false
+defualt_hand = 2
 flare_hand = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_irjxv")
 }
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_cu4ux")
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.5, -0.15, -46.65)
+use_collision = true
+size = Vector3(16.7, 0.5, 20.9)
 
 [connection signal="pressed" from="decor/Large Button" to="." method="_on_large_button_pressed"]
 [connection signal="released" from="decor/Large Button" to="." method="_on_large_button_released"]

@@ -1,5 +1,7 @@
 extends Node
 
+@onready var player: CharacterBody3D = $Player
+
 #BACKEND
 
 var previous_level = "none"
@@ -29,6 +31,7 @@ var right_click = false
 var has_mask = false
 var current_pack = 0
 var player_position = Vector3()
+var player_transform
 
 #Hand Variables
 var current_hand = 0
