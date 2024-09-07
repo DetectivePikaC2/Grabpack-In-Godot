@@ -957,6 +957,7 @@ func _process(delta):
 	Player.item_position = global_position + Vector3(0,1.7,0);
 	Player.item_position -= camera.get_global_transform().basis.z
 	Player.current_pack = grabpack_version
+	Player.player_position = global_position
 
 func _retract_right():
 	r_anim.play("pull_back")
