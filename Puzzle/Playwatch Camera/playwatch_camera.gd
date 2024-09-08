@@ -2,6 +2,8 @@ extends Camera3D
 
 signal obstacle_openned
 
+@export var proximity = true
+@export var proximity_distance = 8.0
 @export var play_puzzle_complete_sound = false
 enum sound_version {
 	puzzle_complete,
@@ -21,10 +23,15 @@ func _ready() -> void:
 
 func _open_obstacle():
 	if not openned:
-		emit_signal("obstacle_openned")
-		if play_puzzle_complete_sound:
-			if complete_sound == 0:
-				puzzle_sfx.play()
-			else:
-				jingle.play()
-		openned = true
+		if global_position.distance_to(Player.player_position) < proximity_distance or not proximity:
+			emit_signal("obstacle_openned")
+			if play_puzzle_complete_sound:
+				if complete_sound == 0:
+					puzzle_sfx.play()
+				else:
+					jingle.play()
+			openned = true
+		else:
+			Game.tooltip("camera is too far", 2)
+	else:
+		Game.tooltip("obstacle is already open", 2)

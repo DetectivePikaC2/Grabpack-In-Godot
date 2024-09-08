@@ -1,6 +1,6 @@
 extends Node
 
-func dialog(message: String, display_time: float) -> void:
+func tooltip(message: String, display_time: float) -> void:
 	get_tree().call_group("player", "tooltip", message, display_time)
 
 func set_objective(objective: String, display_time: float) -> void:
