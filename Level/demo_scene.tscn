@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://b1synj2xgx754"]
+[gd_scene load_steps=45 format=4 uid="uid://b1synj2xgx754"]
 
 [ext_resource type="Script" path="res://Level/demo_scene.gd" id="1_o3h6j"]
 [ext_resource type="PackedScene" uid="uid://wipogv674odr" path="res://Player/player.tscn" id="1_y6ybj"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://b6jhnelyu0cjv" path="res://Puzzle/Gates/large_gate.tscn" id="20_jajkj"]
 [ext_resource type="PackedScene" uid="uid://cgfr84c3rrtym" path="res://Puzzle/Doors/door.tscn" id="20_phgs6"]
 [ext_resource type="PackedScene" uid="uid://cu72dk6n7aaco" path="res://Item/Grabpack/grabpack_item.tscn" id="21_6y8sb"]
-[ext_resource type="Script" path="res://Game/Scripts/critterspawn.gd" id="22_3mvkh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rpms1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -204,12 +203,6 @@ resource_name = "cutseen_intro"
 _data = {
 "cutseen_intro": SubResource("Animation_25d0v")
 }
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_cu4ux"]
-vertices = PackedVector3Array(13.65, 0.6, -36.85, 13.65, 0.6, -43.35, 11.4, 0.6, -43.6, -4.35, 0.6, -36.6, 11.4, 0.6, -56.6, -4.35, 0.6, -56.6, 28.65, 0.6, -44.1, 33.4, 0.6, -44.1, 33.4, 0.6, -56.6, 17.65, 0.6, -56.6, 17.65, 0.6, -44.85, 17.4, 0.6, -43.35, 28.15, 0.6, -43.85, 28.15, 0.6, -36.85)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(0, 1, 11), PackedInt32Array(6, 12, 10), PackedInt32Array(10, 12, 11), PackedInt32Array(12, 13, 11), PackedInt32Array(11, 13, 0)]
-agent_height = 0.8
-agent_radius = 0.3
 
 [node name="demo_scene" type="Node3D"]
 script = ExtResource("1_o3h6j")
@@ -711,12 +704,8 @@ colour = 1
 
 [node name="Critters" type="Node" parent="."]
 
-[node name="MiniCritterSpawner" type="Marker3D" parent="Critters"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -55.9)
-script = ExtResource("22_3mvkh")
-
 [node name="Player" parent="." instance=ExtResource("1_y6ybj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0.1, -38.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.1, -21.3)
 floor_constant_speed = true
 grabpack_version = 1
 defualt_hand = 2
@@ -726,24 +715,6 @@ flare_hand = true
 libraries = {
 "": SubResource("AnimationLibrary_irjxv")
 }
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_cu4ux")
-
-[node name="CSGBox3D59" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.5, -0.15, -46.65)
-use_collision = true
-size = Vector3(16.7, 0.5, 20.9)
-
-[node name="CSGBox3D61" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 25.6, -0.15, -50.4)
-use_collision = true
-size = Vector3(16.7, 0.5, 13.3)
-
-[node name="CSGBox3D60" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20.2, -0.15, -40.15)
-use_collision = true
-size = Vector3(16.7, 0.5, 7.2)
 
 [connection signal="pressed" from="decor/Large Button" to="." method="_on_large_button_pressed"]
 [connection signal="released" from="decor/Large Button" to="." method="_on_large_button_released"]
