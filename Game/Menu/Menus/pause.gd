@@ -30,3 +30,14 @@ func _close_pause() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	paused = false
 	get_tree().paused = false
+
+#BUTTON SIGNALS
+
+func _on_titlescreen_pressed():
+	get_tree().paused = false
+	get_tree().call_group("player", "_disable_movement", true)
+	LoadManagement.load_scene("res://Game/Menu/Menus/title_screen.tscn")
+
+func _on_quit_pressed():
+	get_tree().paused = false
+	get_tree().quit()

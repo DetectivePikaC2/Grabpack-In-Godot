@@ -114,3 +114,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_navigation_agent_3d_navigation_finished() -> void:
 	if retreating:
 		queue_free()
+
+func _on_jumpdet_body_entered(body):
+	if body.is_in_group("player"):
+		animation("jumpscare", 4.5)
+		jumpscare.play()
+		get_tree().call_group("player", "_disable_movement", true)
+		head_camera.current = true
+		jumpscaring = true

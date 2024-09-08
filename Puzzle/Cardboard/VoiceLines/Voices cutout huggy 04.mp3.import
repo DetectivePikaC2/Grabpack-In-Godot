@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8c3qfwfwd1s7"
+path="res://.godot/imported/Voices cutout huggy 04.mp3-ad463a0b9512ed5a481ed186170ea7ee.mp3str"
+
+[deps]
+
+source_file="res://Puzzle/Cardboard/VoiceLines/Voices cutout huggy 04.mp3"
+dest_files=["res://.godot/imported/Voices cutout huggy 04.mp3-ad463a0b9512ed5a481ed186170ea7ee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

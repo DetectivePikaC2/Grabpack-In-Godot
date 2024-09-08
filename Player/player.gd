@@ -372,14 +372,6 @@ func _input(event):
 	if mobile_item_sel:
 		Input.action_press("use")
 	
-	if Input.is_action_just_pressed("fullscreen"):
-		if Player.is_fullscreen:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			Player.is_fullscreen = false
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			Player.is_fullscreen = true
-	
 	if Input.is_action_just_pressed("playwatch") and grabpack_version > 0:
 		_toggle_playwatch()
 
@@ -960,6 +952,7 @@ func _process(delta):
 	Player.player_position = global_position
 	Player.player_transform = global_transform.origin
 	Player.camera_position = camera.global_position
+	Player.can_move = can_move
 
 func _retract_right():
 	r_anim.play("pull_back")

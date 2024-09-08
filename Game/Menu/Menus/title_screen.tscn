@@ -1,14 +1,129 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd8mtaq7gm53"]
+[gd_scene load_steps=19 format=3 uid="uid://bd8mtaq7gm53"]
 
 [ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/Ch3MainMenuBackground.ogv" id="1_udaa2"]
+[ext_resource type="Script" path="res://Game/Menu/Menus/title_screen.gd" id="1_xuk05"]
 [ext_resource type="AudioStream" uid="uid://dkpntqt8iqxug" path="res://Game/Menu/SFX/Music/02. Chapter 3 Title Screen.mp3" id="2_nvjh2"]
 [ext_resource type="Texture2D" uid="uid://gbep6gfxosxo" path="res://Game/Menu/Texture/UI_Parts/NewFlare.png" id="2_qjkk2"]
 [ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_4uxni"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_8ihiw"]
+[ext_resource type="Script" path="res://Game/Menu/Menus/replay_encounter.gd" id="5_cevw7"]
+[ext_resource type="Script" path="res://Game/Menu/CustomButtons/replaybutton.gd" id="6_r54t3"]
+[ext_resource type="Shader" path="res://Game/Menu/Shader/blur.gdshader" id="6_sdl0m"]
+[ext_resource type="Texture2D" uid="uid://qr7cw85m8s11" path="res://Game/Menu/Texture/ReplayImages/demo_scene.tscn - Grabpack In Godot - Godot Engine 2024-09-08 9_38_53 AM.png" id="7_cyas4"]
+[ext_resource type="Texture2D" uid="uid://bju8f3r3p6lu4" path="res://Game/Menu/Texture/ReplayImages/demo_scene.tscn - Grabpack In Godot - Godot Engine 2024-09-08 9_54_36 AM.png" id="9_5vurl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68e28"]
 expand_margin_top = 1.0
 expand_margin_bottom = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4q4r"]
+shader = ExtResource("6_sdl0m")
+shader_parameter/lod = 3.5
+shader_parameter/mix_percentage = 0.34
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ekilp"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-652.5, -296, 0, 1305, 592, 0),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 32, 35, 196, 0, 0, 148, 67, 0, 32, 35, 196, 0, 0, 148, 195, 0, 32, 35, 68, 0, 0, 148, 195, 0, 32, 35, 68, 0, 0, 148, 67)
+}]
+
+[sub_resource type="Animation" id="Animation_e8npk"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.087, 3.5]
+}
+
+[sub_resource type="Animation" id="Animation_t4lfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.5]
+}
+
+[sub_resource type="Animation" id="Animation_k0a6l"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.5, 1.087]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq4kf"]
+_data = {
+"RESET": SubResource("Animation_t4lfx"),
+"close": SubResource("Animation_k0a6l"),
+"open": SubResource("Animation_e8npk")
+}
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
@@ -17,6 +132,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xuk05")
 
 [node name="menu_bg_video" type="VideoStreamPlayer" parent="."]
 layout_mode = 1
@@ -50,7 +166,7 @@ offset_right = 261.0
 offset_bottom = 83.0
 theme = ExtResource("3_8ihiw")
 theme_override_font_sizes/font_size = 27
-text = "Chapter 3"
+text = "Chapter 69"
 vertical_alignment = 1
 uppercase = true
 
@@ -62,7 +178,7 @@ offset_right = 387.0
 offset_bottom = 141.0
 theme = ExtResource("3_8ihiw")
 theme_override_font_sizes/font_size = 49
-text = "‘Deep sleep’"
+text = "‘Sleep deep’"
 vertical_alignment = 1
 uppercase = true
 
@@ -87,9 +203,8 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = 6
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 36
-text = "In the aftermath of the train crash, you now
-find yourself stranded in the depths with a
-new goal in your sights."
+text = "After dying, you awakein a goofy looking
+unfinished project."
 
 [node name="version" type="Label" parent="."]
 layout_mode = 0
@@ -192,6 +307,134 @@ theme_override_font_sizes/font_size = 22
 text = "QUIT"
 alignment = 0
 
+[node name="replay_encounter" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_cevw7")
+
+[node name="ColorRect" type="ColorRect" parent="replay_encounter"]
+material = SubResource("ShaderMaterial_q4q4r")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.998457
+metadata/_edit_use_anchors_ = true
+
+[node name="replayencounter" type="Label" parent="replay_encounter"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 30.0
+offset_right = 660.0
+offset_bottom = 111.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 50
+text = "[REPLAY ENCOUNTER]"
+vertical_alignment = 1
+
+[node name="replaytitle" type="Label" parent="replay_encounter"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 437.0
+offset_right = 1037.0
+offset_bottom = 518.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 30
+text = "Level Name"
+vertical_alignment = 1
+
+[node name="load" type="Button" parent="replay_encounter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 714.0
+offset_top = 544.0
+offset_right = 994.026
+offset_bottom = 578.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "LOAD CHECKPOINT "
+alignment = 2
+
+[node name="back" type="Button" parent="replay_encounter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 960.0
+offset_top = 583.0
+offset_right = 993.288
+offset_bottom = 617.0
+theme = ExtResource("3_8ihiw")
+theme_override_colors/font_hover_color = Color(0.566298, 0.566298, 0.566298, 1)
+theme_override_font_sizes/font_size = 22
+text = "BACK"
+flat = true
+
+[node name="replay_image" type="MeshInstance2D" parent="replay_encounter"]
+position = Vector2(769, 288)
+scale = Vector2(0.39636, 0.502534)
+mesh = SubResource("ArrayMesh_ekilp")
+texture = ExtResource("7_cyas4")
+
+[node name="level1" type="Button" parent="replay_encounter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 110.0
+offset_top = 140.0
+offset_right = 390.026
+offset_bottom = 174.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "Example Level"
+alignment = 0
+script = ExtResource("6_r54t3")
+level_path = "res://Level/demo_scene.tscn"
+image = ExtResource("7_cyas4")
+
+[node name="level2" type="Button" parent="replay_encounter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 110.0
+offset_top = 176.0
+offset_right = 390.026
+offset_bottom = 210.0
+theme = ExtResource("3_8ihiw")
+theme_override_font_sizes/font_size = 22
+text = "Test Level"
+alignment = 0
+script = ExtResource("6_r54t3")
+level_path = "res://Level/test.tscn"
+image = ExtResource("9_5vurl")
+
+[node name="HSeparator" type="HSeparator" parent="replay_encounter"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 518.0
+offset_right = 1028.0
+offset_bottom = 522.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="replay_encounter"]
+libraries = {
+"": SubResource("AnimationLibrary_qq4kf")
+}
+
 [node name="ButtonSFXPlayer" type="Node" parent="."]
 script = ExtResource("3_4uxni")
 root_path = NodePath("../buttons")
+
+[node name="ButtonSFXPlayer2" type="Node" parent="."]
+script = ExtResource("3_4uxni")
+root_path = NodePath("../replay_encounter")
+
+[connection signal="pressed" from="buttons/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="replay_encounter/load" to="replay_encounter" method="_on_load_pressed"]
+[connection signal="pressed" from="replay_encounter/back" to="replay_encounter" method="_on_back_pressed"]
+[connection signal="animation_finished" from="replay_encounter/AnimationPlayer" to="replay_encounter" method="_on_animation_player_animation_finished"]

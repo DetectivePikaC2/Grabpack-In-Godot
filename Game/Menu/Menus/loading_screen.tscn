@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5kkkagyrsuel"]
+
+[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/Loading.ogv" id="1_1a8t4"]
+[ext_resource type="Script" path="res://Game/Menu/Menus/loading_screen.gd" id="1_3xpd1"]
+
+[sub_resource type="Animation" id="Animation_jw4yb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VideoStreamPlayer:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dug7v"]
+resource_name = "end_load"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VideoStreamPlayer:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fwyyc"]
+resource_name = "start_load"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"loading_screen_has_full_coverage"],
+"method": &"emit_signal"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VideoStreamPlayer:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xs1p0"]
+_data = {
+"RESET": SubResource("Animation_jw4yb"),
+"end_load": SubResource("Animation_dug7v"),
+"start_load": SubResource("Animation_fwyyc")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrunc"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="loading_screen" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+follow_viewport_enabled = true
+script = ExtResource("1_3xpd1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xs1p0")
+}
+autoplay = "start_load"
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lrunc")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_1a8t4")
+autoplay = true
+expand = true
+loop = true

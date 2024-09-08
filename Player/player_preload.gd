@@ -33,6 +33,7 @@ var current_pack = 0
 var player_position = Vector3()
 var player_transform
 var camera_position = Vector3()
+var can_move = true
 
 #Hand Variables
 var current_hand = 0

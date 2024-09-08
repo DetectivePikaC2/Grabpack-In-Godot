@@ -31,6 +31,21 @@ shader_parameter/scanline_thickness = 0.57
 shader_parameter/scanlines_spacing = 1.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_8j3j6")
 
+[sub_resource type="Animation" id="Animation_86idu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_kcbwc"]
 resource_name = "fade_in"
 length = 0.2
@@ -45,21 +60,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_86idu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ddvi6"]
@@ -184,3 +184,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="buttons/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="buttons/titlescreen" to="." method="_on_titlescreen_pressed"]
+[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]

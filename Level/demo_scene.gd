@@ -11,8 +11,17 @@ extends Node3D
 @onready var gate_7 = $puzzle/Gate7
 @onready var large_gate = $"puzzle/Large Gate"
 @onready var mini_critter_spawner = $Critters/MiniCritterSpawner
+@onready var tp_point = $puzzle/tp_point
+@onready var gate_8 = $puzzle/Gate8
+@onready var puzzle_1_sfx = $puzzle/puzzle1_sfx
+@onready var mini_critter_spawner_2 = $Critters/MiniCritterSpawner2
+@onready var mini_critter_spawner_3 = $Critters/MiniCritterSpawner3
 
 var gate_openned = false
+var puzzle1_1 = false
+var puzzle1_2 = false
+var puzzle1_3 = false
+var puzzle1_complete = false
 
 func _ready():
 	Game.set_objective("Find a grabpack", 5)
@@ -20,7 +29,7 @@ func _ready():
 func _on_gate_closer_area_entered(area):
 	if not gate_openned:
 		gate._close()
-		Game.dialog("hold blue hand on the scanner", 5)
+		Game.tooltip("hold blue hand on the scanner", 5)
 		gate_openned = true
 
 
@@ -69,6 +78,31 @@ func _on_power_reciever_power_recieved():
 
 func _on_event_trigger_3_triggered():
 	mini_critter_spawner.spawner_active = true
+	mini_critter_spawner_2.spawner_active = true
+	mini_critter_spawner_3.spawner_active = true
 
 func _on_event_trigger_4_triggered():
 	mini_critter_spawner.spawner_active = false
+	mini_critter_spawner_2.spawner_active = false
+	mini_critter_spawner_3.spawner_active = false
+
+func _on_door_6_opened():
+	player.position = tp_point.position
+	mini_critter_spawner.spawner_active = false
+	mini_critter_spawner_2.spawner_active = false
+	mini_critter_spawner_3.spawner_active = false
+
+func _on_green_reciever_power_recieved():
+	puzzle1_1 = true
+
+func _on_battery_socket_battery_placed():
+	puzzle1_2 = true
+
+func _on_battery_socket_2_battery_placed():
+	puzzle1_3 = true
+
+func _on_button_pressed():
+	if puzzle1_1 and puzzle1_2 and puzzle1_3 and not puzzle1_complete:
+		gate_8._open()
+		puzzle_1_sfx.play()
+		puzzle1_complete = true

@@ -13,7 +13,7 @@ func _ready():
 		original_rotation = item.rotation_degrees
 
 func _process(delta):
-	if item and not Player.use_mobile:
+	if item and not Player.use_mobile and Player.can_move:
 		handle_sway(delta)
 
 func handle_sway(delta):
