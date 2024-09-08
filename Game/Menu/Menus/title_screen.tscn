@@ -35,34 +35,6 @@ _surfaces = [{
 "vertex_data": PackedByteArray(0, 32, 35, 196, 0, 0, 148, 67, 0, 32, 35, 196, 0, 0, 148, 195, 0, 32, 35, 68, 0, 0, 148, 195, 0, 32, 35, 68, 0, 0, 148, 67)
 }]
 
-[sub_resource type="Animation" id="Animation_e8npk"]
-resource_name = "open"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.087, 3.5]
-}
-
 [sub_resource type="Animation" id="Animation_t4lfx"]
 length = 0.001
 tracks/0/type = "value"
@@ -118,6 +90,34 @@ tracks/1/keys = {
 "values": [3.5, 1.087]
 }
 
+[sub_resource type="Animation" id="Animation_e8npk"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.087, 3.5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qq4kf"]
 _data = {
 "RESET": SubResource("Animation_t4lfx"),
@@ -166,7 +166,7 @@ offset_right = 261.0
 offset_bottom = 83.0
 theme = ExtResource("3_8ihiw")
 theme_override_font_sizes/font_size = 27
-text = "Chapter 69"
+text = "Chapter 3"
 vertical_alignment = 1
 uppercase = true
 
@@ -178,7 +178,7 @@ offset_right = 387.0
 offset_bottom = 141.0
 theme = ExtResource("3_8ihiw")
 theme_override_font_sizes/font_size = 49
-text = "‘Sleep deep’"
+text = "‘Deep sleep’"
 vertical_alignment = 1
 uppercase = true
 
@@ -203,8 +203,9 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = 6
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 36
-text = "After dying, you awakein a goofy looking
-unfinished project."
+text = "In the aftermath of the train crash, you now
+find yourself stranded in the depths with a
+new goal in your sights."
 
 [node name="version" type="Label" parent="."]
 layout_mode = 0
