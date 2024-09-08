@@ -3,7 +3,7 @@ extends Camera3D
 signal obstacle_openned
 
 @export var proximity = true
-@export var proximity_distance = 8.0
+@export var proximity_distance = 12.0
 @export var play_puzzle_complete_sound = false
 enum sound_version {
 	puzzle_complete,
@@ -13,6 +13,7 @@ enum sound_version {
 
 @onready var puzzle_sfx: AudioStreamPlayer = $puzzle_sfx
 @onready var jingle: AudioStreamPlayer = $jingle
+@onready var activated = $activated
 
 @onready var map_icon: Sprite3D = $map_icon
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 func _open_obstacle():
 	if not openned:
 		if global_position.distance_to(Player.player_position) < proximity_distance or not proximity:
+			activated.play()
 			emit_signal("obstacle_openned")
 			if play_puzzle_complete_sound:
 				if complete_sound == 0:

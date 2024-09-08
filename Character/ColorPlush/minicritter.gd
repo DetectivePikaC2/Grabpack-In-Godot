@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		else:
 			_update_target_location(Player.player_transform)
 			if global_position.distance_to(Player.player_position) < 3 and not idle:
-				animation("idle", 1.0)
+				animation("idle", 2.0)
 				footstep.stop()
 				nearplayer.play()
 				idle = true
@@ -86,7 +86,7 @@ func _on_spawn_cooldown_timeout() -> void:
 
 func _on_flare_area_entered(area: Area3D) -> void:
 	if area.is_in_group("flare"):
-		if not retreating:
+		if not retreating and area.get_parent().new_flare:
 			animation("flee", 4.0)
 			footstep.play()
 			nearplayer.stop()
@@ -108,6 +108,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			animation("crawl", 1.0)
 			footstep.play()
 			idle = false
+	if anim_name == "jumpscare":
+		Game.kill_player()
 
 func _on_navigation_agent_3d_navigation_finished() -> void:
 	if retreating:

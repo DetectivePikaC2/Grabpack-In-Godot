@@ -7,6 +7,8 @@ extends Node3D
 var target_position = Vector3()
 var fading = false
 
+var new_flare = true
+
 func _enter_tree():
 	target_position = Player.flare_spawn_position
 
@@ -22,3 +24,6 @@ func _process(delta):
 
 func _on_time_timeout():
 	fading = true
+
+func _on_new_timeout():
+	new_flare = false

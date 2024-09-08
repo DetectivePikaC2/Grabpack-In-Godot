@@ -2,11 +2,11 @@ extends StaticBody3D
 
 @export_category("Settings")
 ##Video file of the video this tv plays
-@export var video = VideoStream
+@export var video: VideoStream = null
 ##If enabled, this tv uses spatial audio
 @export var use_spatial_audio = false
 ##Audio file for spatial audio to play if use_spatial_audio is enabled
-@export var audio = AudioStream
+@export var audio: AudioStream = null
 
 @onready var video_player = $_0/SubViewportContainer/SubViewport/video
 @onready var spatial_audio = $spatial_audio

@@ -2,11 +2,12 @@
 extends Node3D
 class_name DraggableObject3D
 
-@export var pull_speed = 0.01
+@export var pull_speed = 0.001
 
 var area3d: Area3D
 var collision:CollisionShape3D
 var marker: Marker3D
+var marker2: Marker3D
 
 var grabbed_l = false
 var grabbed_r = false
@@ -15,6 +16,7 @@ var grabbed_r = false
 @onready var area_3d: Area3D = $Area3D
 @onready var collision_shape_3d: CollisionShape3D = $Area3D/CollisionShape3D
 @onready var marker_3d: Marker3D = $Marker3D
+@onready var marker_3d_2 = $Marker3D2
 
 func _ready():
 	area_3d.area_entered.connect(Callable(self,"_hand_collided"))
@@ -34,7 +36,7 @@ func _process(delta: float) -> void:
 		if not Player.l_launched:
 			grabbed_l = false
 	if grabbed_r:
-		get_tree().call_group("player", "_update_r_position", marker_3d.global_position, marker_3d.global_rotation)
+		get_tree().call_group("player", "_update_r_position", marker_3d_2.global_position, marker_3d_2.global_rotation)
 		if not Player.r_launched:
 			grabbed_r = false
 
@@ -43,8 +45,10 @@ func _enter_tree() -> void:
 		area3d = Area3D.new()
 		collision = CollisionShape3D.new()
 		marker = Marker3D.new()
+		marker2 = Marker3D.new()
 		add_child(area3d)
 		add_child(marker)
+		add_child(marker2)
 		area3d.set_collision_layer_value(1,false)
 		area3d.set_collision_layer_value(4,true)
 		area3d.set_collision_layer_value(5,true)
@@ -55,9 +59,12 @@ func _enter_tree() -> void:
 		area3d.set_owner(get_tree().edited_scene_root)
 		collision.set_owner(get_tree().edited_scene_root)
 		marker.set_owner(get_tree().edited_scene_root)
+		marker2.set_owner(get_tree().edited_scene_root)
 		area3d.name = "Area3D"
 		collision.name = "CollisionShape3D"
 		marker.name = "Marker3D"
+		marker2.name = "Marker3D2"
+		print(get_children())
 
 func _hand_collided(area: Area3D) -> void:
 	if area.collision_layer == 8:
@@ -69,6 +76,6 @@ func _hand_collided(area: Area3D) -> void:
 	if area.collision_layer == 16:
 		if not grabbed_r and Player.r_launched:
 			get_tree().call_group("player", "_set_retract_mode_r", false)
-			marker_3d.global_position = area.global_position
-			marker_3d.global_rotation = area.global_rotation
+			marker_3d_2.global_position = area.global_position
+			marker_3d_2.global_rotation = area.global_rotation
 			grabbed_r = true

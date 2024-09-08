@@ -1,4 +1,5 @@
 extends Marker3D
+class_name MiniCritterSpawner
 
 var spawn_time = 5.0
 var current_spawn_time = 0.0

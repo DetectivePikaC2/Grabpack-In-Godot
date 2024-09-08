@@ -91,6 +91,11 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="new" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
 [node name="flare_ambience" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_123cu")
 autoplay = true
@@ -101,3 +106,4 @@ autoplay = true
 shape = SubResource("SphereShape3D_y1i1j")
 
 [connection signal="timeout" from="time" to="." method="_on_time_timeout"]
+[connection signal="timeout" from="new" to="." method="_on_new_timeout"]

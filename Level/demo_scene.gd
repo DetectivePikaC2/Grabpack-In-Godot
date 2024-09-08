@@ -8,6 +8,9 @@ extends Node3D
 @onready var gate_4: StaticBody3D = $puzzle/Gate4
 @onready var gate_5: StaticBody3D = $puzzle/Gate5
 @onready var gate_6: StaticBody3D = $puzzle/Gate6
+@onready var gate_7 = $puzzle/Gate7
+@onready var large_gate = $"puzzle/Large Gate"
+@onready var mini_critter_spawner = $Critters/MiniCritterSpawner
 
 var gate_openned = false
 
@@ -49,3 +52,23 @@ func _on_playwatch_camera_2_obstacle_openned() -> void:
 
 func _on_playwatch_camera_3_obstacle_openned() -> void:
 	gate_6._open()
+
+func _on_blue_scanner_2_scan_complete():
+	gate_7._open()
+
+
+func _on_playwatch_collected():
+	Game.tooltip("press t to use cameras", 3)
+
+func _on_event_trigger_triggered():
+	Game.set_objective("find the coordinate device", 5)
+
+
+func _on_power_reciever_power_recieved():
+	large_gate._open()
+
+func _on_event_trigger_3_triggered():
+	mini_critter_spawner.spawner_active = true
+
+func _on_event_trigger_4_triggered():
+	mini_critter_spawner.spawner_active = false
