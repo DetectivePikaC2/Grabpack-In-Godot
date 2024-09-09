@@ -130,6 +130,7 @@ enum start_hand {
 @onready var tooltip_sound: AudioStreamPlayer = $ui/tooltip/tooltip_sound
 @onready var tooltip_animation: AnimationPlayer = $ui/tooltip_animation
 @onready var grab_switch_delay = $neck/head/grabpack_1/grab_switch_delay
+@onready var poppyface: Sprite3D = $neck/head/grabpack_1/scale/pack_nodes/Playwatch/model/poppyface
 
 #Hold Items:
 
@@ -236,6 +237,8 @@ var r_fire_time = 0.0
 var cam_name = "CAM_01"
 var cam_number = 1
 var cams_active = false
+const POPPY_MOUTH_OPEN = preload("res://Player/grabpack3/poppy_mouth_open.png")
+const SECURITY_DEVICE_PIXEL_POPPY = preload("res://Player/grabpack3/security_device_pixel_poppy.png")
 
 #HAND_VARS:
 #BASE:
@@ -291,6 +294,7 @@ var direction = Vector3.ZERO
 var is_walking = false
 var is_sprinting = false
 var is_crouching = false
+var is_moving = false
 var is_free_looking = false
 var slide_vector = Vector2.ZERO
 var wiggle_vector = Vector2.ZERO
@@ -305,6 +309,8 @@ var can_move = true
 var can_pack = true
 var watch_anim = false
 var queue_watch = false
+var prev_poppy = false
+var current_poppy = false
 
 var jump_time = 0.0
 
@@ -435,6 +441,7 @@ func _physics_process(delta):
 	
 	if can_move:
 		if not is_on_floor():
+			is_moving = true
 			jump_aligned = false
 			jump_time += 0.01
 			if jump_time > 0.1:
@@ -443,6 +450,7 @@ func _physics_process(delta):
 			grabpack_1.rotation.x = lerp(grabpack_1.rotation.x, 0.0, delta * LERP_SPEED)
 			velocity.y -= gravity * delta
 		elif slide_timer.is_stopped() and input_dir != Vector2.ZERO:
+			is_moving = true
 			grabpack_1.position = lerp(
 				grabpack_1.position,
 				pack_defualt.position, 
@@ -468,6 +476,7 @@ func _physics_process(delta):
 			if jump_time == 0:
 				_grabpack_walk(delta)
 		else:
+			is_moving = false
 			grabpack_1.position = lerp(
 				grabpack_1.position,
 				pack_defualt.position, 
@@ -500,6 +509,7 @@ func _physics_process(delta):
 			pack_defualt.position, 
 			delta * PACK_LERP_SPEED * 3
 		)
+		is_moving = false
 	
 	if can_move:
 		if Input.is_action_pressed("jump") and is_on_floor():
@@ -571,6 +581,9 @@ func _physics_process(delta):
 	if input_dir == Vector2.ZERO:
 		wiggle_index = 0
 		wiggle_vector = Vector2.ZERO
+	
+	if new_pack_anim.is_playing():
+		is_moving = true
 
 func _grabpack_walk(delta):
 	if jump_time == 0.0:
@@ -767,6 +780,18 @@ func _process(delta):
 	if hand_switch_anim:
 		can_shoot_right = false
 		can_shoot_flare = true
+	
+	if has_playwatch:
+		if is_moving:
+			current_poppy = true
+		else:
+			current_poppy = false
+		if not prev_poppy == current_poppy:
+			if current_poppy:
+				poppyface.texture = POPPY_MOUTH_OPEN
+			else:
+				poppyface.texture = SECURITY_DEVICE_PIXEL_POPPY
+			prev_poppy = current_poppy
 	
 	if Player.current_hand == 4:
 		flare_count.text = str(current_flares)
