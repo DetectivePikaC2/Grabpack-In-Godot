@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bd8mtaq7gm53"]
+[gd_scene load_steps=20 format=3 uid="uid://bd8mtaq7gm53"]
 
 [ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/Ch3MainMenuBackground.ogv" id="1_udaa2"]
 [ext_resource type="Script" path="res://Game/Menu/Menus/title_screen.gd" id="1_xuk05"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://Game/Menu/Shader/blur.gdshader" id="6_sdl0m"]
 [ext_resource type="Texture2D" uid="uid://qr7cw85m8s11" path="res://Game/Menu/Texture/ReplayImages/demo_scene.tscn - Grabpack In Godot - Godot Engine 2024-09-08 9_38_53 AM.png" id="7_cyas4"]
 [ext_resource type="Texture2D" uid="uid://bju8f3r3p6lu4" path="res://Game/Menu/Texture/ReplayImages/demo_scene.tscn - Grabpack In Godot - Godot Engine 2024-09-08 9_54_36 AM.png" id="9_5vurl"]
+[ext_resource type="PackedScene" uid="uid://umft1vb3u8io" path="res://Game/Menu/Menus/settings.tscn" id="11_y85ln"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68e28"]
 expand_margin_top = 1.0
@@ -426,6 +427,9 @@ libraries = {
 "": SubResource("AnimationLibrary_qq4kf")
 }
 
+[node name="Settings" parent="." instance=ExtResource("11_y85ln")]
+layout_mode = 1
+
 [node name="ButtonSFXPlayer" type="Node" parent="."]
 script = ExtResource("3_4uxni")
 root_path = NodePath("../buttons")
@@ -435,6 +439,7 @@ script = ExtResource("3_4uxni")
 root_path = NodePath("../replay_encounter")
 
 [connection signal="pressed" from="buttons/replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="replay_encounter/load" to="replay_encounter" method="_on_load_pressed"]
 [connection signal="pressed" from="replay_encounter/back" to="replay_encounter" method="_on_back_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://umft1vb3u8io"]
+
+[ext_resource type="Script" path="res://Game/Menu/Menus/settings.gd" id="1_a2klg"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a2klg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 97.0
+offset_right = 499.0
+offset_bottom = 506.0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 173.0
+offset_right = 332.0
+offset_bottom = 230.0
+text = "BACK"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

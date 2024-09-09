@@ -1,8 +1,10 @@
 extends Control
 
 var paused = false
+var settings_menu = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var settings = $Settings
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("esc"):
@@ -27,6 +29,7 @@ func _open_pause() -> void:
 
 func _close_pause() -> void:
 	visible = false
+	settings._close_settings()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	paused = false
 	get_tree().paused = false
@@ -41,3 +44,10 @@ func _on_titlescreen_pressed():
 func _on_quit_pressed():
 	get_tree().paused = false
 	get_tree().quit()
+
+func _on_settings_pressed():
+	if not settings_menu:
+		settings._open_settings()
+	else:
+		settings._close_settings()
+	settings_menu = !settings_menu

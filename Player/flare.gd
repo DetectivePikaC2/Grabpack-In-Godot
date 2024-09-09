@@ -22,6 +22,9 @@ func _process(delta):
 	if light.light_energy < 0:
 		queue_free()
 
+func _delete_flare():
+	queue_free()
+
 func _on_time_timeout():
 	fading = true
 

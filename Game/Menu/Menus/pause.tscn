@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwnki4k556rab"]
+[gd_scene load_steps=12 format=3 uid="uid://cwnki4k556rab"]
 
 [ext_resource type="Script" path="res://Game/Menu/Menus/pause.gd" id="1_0b8db"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="2_17ls7"]
 [ext_resource type="Shader" path="res://Game/Menu/Shader/vcr_pause.gdshader" id="3_ab8y3"]
 [ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_cegoq"]
+[ext_resource type="PackedScene" uid="uid://umft1vb3u8io" path="res://Game/Menu/Menus/settings.tscn" id="4_s8otl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4mcrc"]
 noise_type = 2
@@ -174,6 +175,9 @@ text = "QUIT"
 alignment = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="Settings" parent="." instance=ExtResource("4_s8otl")]
+layout_mode = 1
+
 [node name="ButtonSFXPlayer" type="Node" parent="."]
 script = ExtResource("3_cegoq")
 root_path = NodePath("../buttons")
@@ -184,5 +188,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="buttons/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="buttons/titlescreen" to="." method="_on_titlescreen_pressed"]
 [connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]
