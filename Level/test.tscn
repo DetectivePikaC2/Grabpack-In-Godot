@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dtek15k36ldcv"]
+[gd_scene load_steps=36 format=3 uid="uid://dtek15k36ldcv"]
 
 [ext_resource type="Script" path="res://Level/test.gd" id="1_c5qd1"]
 [ext_resource type="PackedScene" uid="uid://bechbsgfmthff" path="res://Puzzle/Green Power/green_source.tscn" id="2_c0aww"]
@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dbidsa4wtpsi8" path="res://Puzzle/Purple Pad/purple_panel.tscn" id="17_s7jik"]
 [ext_resource type="PackedScene" uid="uid://dpmnxnq4om4t6" path="res://Puzzle/Gas/gas_mask.tscn" id="18_hut6s"]
 [ext_resource type="PackedScene" uid="uid://c7h4vgpq7wn2j" path="res://Puzzle/Handle/grapple_handle.tscn" id="19_iryww"]
+[ext_resource type="PackedScene" uid="uid://srfnirr8g0qb" path="res://Puzzle/Scanners/green_scanner.tscn" id="20_avi0m"]
 [ext_resource type="PackedScene" uid="uid://cci31kuqdnklx" path="res://Puzzle/Gates/gate.tscn" id="20_d51hf"]
+[ext_resource type="PackedScene" uid="uid://chcdaawkjwpos" path="res://Puzzle/Scanners/purple_scanner.tscn" id="20_uol5n"]
 [ext_resource type="PackedScene" uid="uid://b6jhnelyu0cjv" path="res://Puzzle/Gates/large_gate.tscn" id="21_5vwj6"]
 [ext_resource type="PackedScene" uid="uid://cgfr84c3rrtym" path="res://Puzzle/Doors/door.tscn" id="22_ycurx"]
 [ext_resource type="PackedScene" uid="uid://cu72dk6n7aaco" path="res://Item/Grabpack/grabpack_item.tscn" id="23_c6bia"]
@@ -380,6 +382,12 @@ shape = SubResource("BoxShape3D_g4t8l")
 
 [node name="Grapple Handle" parent="Puzzle" instance=ExtResource("19_iryww")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8, 12.8636, 2)
+
+[node name="Green Scanner" parent="Puzzle" instance=ExtResource("20_avi0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -4)
+
+[node name="Purple Scanner" parent="Puzzle" instance=ExtResource("20_uol5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -4)
 
 [node name="Doors_Gates" type="Node3D" parent="."]
 

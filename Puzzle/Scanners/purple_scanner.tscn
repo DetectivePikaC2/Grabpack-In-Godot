@@ -1,16 +1,17 @@
-[gd_scene load_steps=18 format=4 uid="uid://147a8f65buiy"]
+[gd_scene load_steps=19 format=4 uid="uid://chcdaawkjwpos"]
 
-[ext_resource type="Script" path="res://Puzzle/Scanners/red_scanner.gd" id="1_8liln"]
-[ext_resource type="Texture2D" uid="uid://bgo0pmconuvqi" path="res://Puzzle/Scanners/Model/blue_scanner_Image_0.png" id="2_vxgkm"]
-[ext_resource type="Texture2D" uid="uid://y6qf7rt4lvd4" path="res://Puzzle/Scanners/Model/blue_scanner_Image_0_1.png" id="3_er4jk"]
-[ext_resource type="Texture2D" uid="uid://baxs6p3475yes" path="res://Puzzle/Scanners/Model/red_scanner.png" id="3_gsp4i"]
-[ext_resource type="AudioStream" uid="uid://wc31h8bac4ku" path="res://Puzzle/Scanners/SFX/SW_Hand_Scanning.wav" id="5_wk3ei"]
+[ext_resource type="Texture2D" uid="uid://bgo0pmconuvqi" path="res://Puzzle/Scanners/Model/blue_scanner_Image_0.png" id="1_jeucp"]
+[ext_resource type="Script" path="res://Puzzle/Scanners/purple_scanner.gd" id="1_k2yct"]
+[ext_resource type="Texture2D" uid="uid://baxs6p3475yes" path="res://Puzzle/Scanners/Model/red_scanner.png" id="2_q8jfw"]
+[ext_resource type="Texture2D" uid="uid://dejqv1mn1v733" path="res://Puzzle/Scanners/Model/purple_scanner.png" id="3_ekbgl"]
+[ext_resource type="Texture2D" uid="uid://y6qf7rt4lvd4" path="res://Puzzle/Scanners/Model/blue_scanner_Image_0_1.png" id="3_q4pm3"]
+[ext_resource type="AudioStream" uid="uid://wc31h8bac4ku" path="res://Puzzle/Scanners/SFX/SW_Hand_Scanning.wav" id="4_nff1h"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx8g3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4ydl"]
 resource_name = "Material.319"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_vxgkm")
+albedo_texture = ExtResource("1_jeucp")
 roughness = 0.821115
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sexrr"]
@@ -28,7 +29,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_425c3"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_37b5b"]
 resource_name = "blue_scanner_SM_HandScanner_mo_Material_319_0"
 _surfaces = [{
 "aabb": AABB(-0.267146, -0.140606, -6.10352e-06, 0.534293, 0.140606, 0.683478),
@@ -37,7 +38,7 @@ _surfaces = [{
 "index_count": 1098,
 "index_data": PackedByteArray("AAACAAEAAwAFAAQABgAIAAcACQALAAoADAAOAA0ADwARABAAEgAUABMAFQAXABYAGAAaABkAGgAbABkAHAAeAB0AHwAdAB4AIAAiACEAIQAjACAAJAAmACUAJQAnACQAKAAqACkAKQArACgALAAuAC0ALgAvAC0AMAAyADEAMQAzADAANAA2ADUANQA3ADQAOAA6ADkAOQA7ADgAPAA+AD0APgA/AD0AQABCAEEAQwBBAEIARABGAEUARgBHAEUASABKAEkASQBLAEgATABOAE0ATQBPAEwAUABSAFEAUwBRAFIAVABWAFUAVQBXAFQAWABaAFkAWgBbAFkAXABeAF0AXQBfAFwAYABiAGEAYQBjAGAAZABmAGUAZQBnAGQAaABqAGkAaQBrAGgAbABuAG0AbQBvAGwAcAByAHEAcQBzAHAASwBAAEEAQQBIAEsAaABVAFYAVgBqAGgAdAB2AHUAdQB3AHQAdQB4AHcAeAB5AHcAeAB6AHkAewB6AHgAewB8AHoAfAB9AHoAfAB+AH0AfwB+AHwAfwCAAH4AgACBAH4AgQCAAIIAggCDAIEAggCEAIMAhACFAIMAhACGAIUAhwCGAIQAhwCIAIYAiACJAIYAiACKAIkAiwCKAIgAjACOAI0AjQCOAI8AjQCPAJAAkACRAI0AkQCQAJIAkgCQAJMAkgCTAJQAlACVAJIAlQCUAJYAlgCUAJcAlgCXAJgAmACZAJYAmQCYAJoAmgCYAJsAnACaAJsAmwCdAJwAnACdAJ4AngCdAJ8AngCfAKAAoAChAJ4AoQCgAKIAogCjAKEApACmAKUApQCmAKcAqACqAKkAqQCrAKgArACuAK0ArQCvAKwAsACyALEAsACzALIAtAC2ALUAtAC3ALYAuAC6ALkAuQC7ALgAvAC+AL0AvAC/AL4AwADCAMEAwQDDAMAAxADGAMUAxADHAMYAyADKAMkAyQDLAMgAzADOAM0AzADPAM4A0ADSANEA0QDTANAA1ADWANUA1ADXANYA2ADaANkA2QDbANgA3ADeAN0A3QDfANwA4ADiAOEA4QDjAOAA5ADmAOUA5gDnAOUA6ADqAOkA6QDrAOgA7ADuAO0A7gDvAO0A8ADyAPEA8QDzAPAA9AD2APUA9gD3APUA+AD6APkA+gD7APkA/AD+AP0A/gD/AP0AAAECAQEBAQEDAQABBAEGAQUBBgEHAQUBCAEKAQkBCQELAQgBDAEOAQ0BDgEPAQ0BEAESAREBEAETARIBFAEWARUBFQEXARQBGAEaARkBGQEbARgBHAEeAR0BHQEfARwBIAEiASEBIQEjASABJAEmASUBJQEnASQBKAEqASkBKQEqASsBLAEuAS0BLQEvASwBMAEyATEBMQEzATABNAE2ATUBNQE3ATQBOAE6ATkBOQE6ATsBPAE+AT0BPAE/AT4BQAFCAUEBQwFBAUIBRAFGAUUBRwFFAUYBSAFKAUkBSQFLAUgBTAFNAT0BPQE+AUwBTgFQAU8BUAFOAVEBUgFUAVMBVQFTAVQBVgFYAVcBVgFZAVgBWgFcAVsBXAFdAVsBXgFgAV8BYAFeAWEBYgFkAWMBZAFlAWMBZgFoAWcBaQFmAWcBagFsAWsBawFtAWoBagFtAW4BagFuAW8BcAFyAXEBcQFzAXABdAF2AXUBdQF3AXQBeAF6AXkBeQF7AXgBfAF+AX0BfQF/AXwBgAGCAYEBggGDAYEBhAGGAYUBhQGHAYQBiAGKAYkBiAGLAYoBjAGOAY0BjQGPAYwBkAGSAZEBkwGRAZIBlAGWAZUBlQGXAZQBmAGaAZkBmwGZAZoBcgGdAZwBnAFxAXIBngGgAZ8BnwGhAZ4BogGkAaMBpQGjAaQBpgGoAacBpwGpAaYBqgGsAasBqgGtAawBrgGwAa8BrwGxAa4BsgG0AbMBsgG1AbQBtgG4AbcBuAG2AbkBugG8AbsBugG9AbwBvgHAAb8BvgHBAcABwgHEAcMBwwHFAcIBxgHIAccBxwHIAckBxgHLAcoBygHIAcYBxQHDAcwBzAHNAcUBzgHQAc8BzwHRAc4B0gHOAdEB0QHTAdIB1AHSAdMB0wGyAdQBsgHVAdQB1QGyAbMB1gHYAdcB1wHZAdYB2gHcAdsB2gHdAdwB3gHgAd8B3wHhAd4B3gHhAeIB4wHiAeEB5AHiAeMB4wHlAeQB5AHlAeYB5wHmAeUB6AHmAecB5wHpAegB6AHpAeoB6wHqAekB7AHqAesB6wHtAewB7AHtAe4B7wHuAe0B8AHuAe8B7wHxAfAB8gH0AfMB9QHzAfQB9gHzAfUB9QH3AfYB+AH2AfcB9wH5AfgB+gH4AfkB+QH7AfoB/AH6AfsB+wH9AfwB/gH8Af0B/QH/Af4B/gH/AQACAAIBAv4BAQIAAgICAgIDAgECBAIDAgICAgIFAgQCBgJUAFcAVwAHAgYCCAIGAgcCBwIJAggCCAIJAgoCCwIJAgcCDAIKAgkCDQILAgcCDgIKAgwCDgIPAgoCDwIOAhACEQIOAgwCEgIQAg4CEwIRAgwCEAISAhQCFAIVAhACFQIUAhYCFwIUAhICGAIWAhQCGQIXAhICGgIWAhgCGgIbAhYCGwIaAhwCHQIaAhgCHgIcAhoCHwIdAhgCIAIcAh4CIAIhAhwCIQIgAkMAQwBCACECIgIgAh4CIwIiAh4CJAIiAiMCSgAiAiQCJAJJAEoAJAIjAiUCJQIjAh0CJQIdAiYCJgIdAh8CJgIfAicCJwIfAhcCFwIoAicCKAIXAhkCKAIZAikCKQIZAhECKQIRAioCKgIRAhMCKgITAisCKwITAgsCKwILAiwCLAILAg0CLAINAi0CLQINAmsAawBpAC0CLgIvAjYBNgE0AS4CbAEuAjQBNAFrAWwBMAIyAjECMgIzAjECNAIzAjICMgI1AjQC"),
 "lods": [0.0371399, PackedByteArray("AAACAAEAAwAFAAQADAAOAA0ADQAOABEAEQAKAQ0ADwARABAAEgAUABMAEAEUABEBEAEXABQAFQAXABYAOwIaADwCGgAbADwCOwI8AqwBOwKsAWgCaAKsAV4BaAJiAq8BrwGxAWgCaAJeAT0BPQFeAT8BPQE/AT4BPQE+AUMCQwI6Aj0BOgJDAi0ANgI9AmYCZgJlApIBkAGSAWUCIAAiACEAIQAjACAANwInAEECQQJjAjcCYwJBAiwBQgJgAiwBOQI4AmMCwgHEAWMCYwJpAsIBYwIsAWkCaQIsAVEBUQHIAWkCaQLIAUACQALIAT8CKAAqAJsBKACbATECmwEzAjECYwEzApsBmwFlAWMBmwGCAWUBggGDAWUBZwI+AjEAMQAzAGcCfgFnAjMAZwJ+AWQCfQFkAn4BZAJ9AZUBlQGXAWQCRAJFAmsCawJPAjUATgJPAmsCOAA6ADkARgI7ADgARgI6AEwATABOAE0ATAJNAkYCTQBNAkwCSAJJAkcCQABCAEEAQwBBAEIAQQBIAEAAQgAgAkMAIAJCAB4CIgIgAh4CHgJCABoCIwIiAh4CQgBAAFgCWAJAAFkCGgJCAFQASQAiAiMCSQBAAEgASgAiAkkASABKAEkAWgJbAkAAQABJAFoCSQAjAh0CHQIaAhgCGgJUABgCHwIdAhgCSQAdAh8CGAJUABQCSQAfAhcCFwIUAhICVAASAhQCGQIXAhICSQAXAhkCSQAZAhECEgJUAA4CSQARAhMCEQIOAgwCEwIRAgwCDgJUAAwCSQATAmkADAJUAAkCaQATAgsCCwIJAgcCBwIJAlQADQILAgcCaQALAg0CVwAHAlQAaQANAmsAVQBXAFQAaQBrAGgAVABqAFUAaABVAGoAaABqAGkAagBUAFwCXAJdAmoAagBeAmkAagBfAl4CSgJLAmoCRgBgAGoCVQJWAmoCUAJSAlECXABeAF0AXQBUAlwAUwJUAlcCVwJmAFwAZABmAGUAVwJnAGQAdAB2AHwAfAB3AHQAfAB5AHcAfAB6AHkAfAB9AHoAfAB+AH0AfACBAH4AfACDAIEAfACFAIMAfACGAIUAfACJAIYAfACKAIkAiwCKAHwAjACOAJkAmQCOAI8AmQCPAJAAmQCQAJMAmQCTAJQAmQCUAJcAmQCXAJgAmQCYAJsAmwCdAJkAmQCdAJ8AmQCfAKAAmQCgAKIAogCjAJkAtAC2ALUAtAC3ALYAuAC6ALkAuQC7ALgAvAC+AL0AvAC/AL4AwADCAMEAwQDDAMAAxADGAMUAxADHAMYAyADKAMkAyQDLAMgAzADOAM0AzADPAM4A0ADSANEA0QDTANAA1ADWANUA1ADXANYA2ADaANkA2QDbANgA3ADeAN0A3QDfANwA4ADiAOEA4QDjAOAA5ADmAOUA5gDnAOUA6ADqAOkA6QDrAOgA7ADuAO0A7gDvAO0A8ADyAPEA8QDzAPAA9AD2APUA9gD3APUA+AD6APkA+gD7APkA/AD+AP0A/gD/AP0AAAECAQEBAQEDAQABBAEGAQUBBgEHAQUBDAEOAQ0BDgEPAQ0BFAEWARUBFQEXARQBGAEaARkBGQEbARgBHAEeAR0BHQEfARwBIAEiASEBIQEjASABJAEmASUBJQEnASQBKAEqASkBKQEqASsBYQKHAWcBWQFhAmcBZwEvAlkBYQJZAbUBWQHBAbUBtQG0AWEC")],
-"material": SubResource("StandardMaterial3D_vx8g3"),
+"material": SubResource("StandardMaterial3D_l4ydl"),
 "name": "Material.319",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -47,15 +48,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sexrr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qiak"]
-albedo_texture = ExtResource("3_gsp4i")
-metallic_texture = ExtResource("3_er4jk")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeqfw"]
+albedo_texture = ExtResource("3_ekbgl")
+metallic_texture = ExtResource("3_q4pm3")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("3_er4jk")
+roughness_texture = ExtResource("3_q4pm3")
 roughness_texture_channel = 1
 emission_enabled = true
 emission_energy_multiplier = 1.09
-emission_texture = ExtResource("3_gsp4i")
+emission_texture = ExtResource("2_q8jfw")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nthof"]
 _surfaces = [{
@@ -72,7 +73,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_lb6p5"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_kswos"]
 resource_name = "blue_scanner_SM_HandScanner_mo_Material_320_0"
 _surfaces = [{
 "aabb": AABB(-0.223164, -0.140606, 0.0617528, 0.446329, 0.0471, 0.442537),
@@ -81,7 +82,7 @@ _surfaces = [{
 "index_count": 324,
 "index_data": PackedByteArray("AAACAAEAAwAFAAQABgAIAAcACQALAAoADAAOAA0ADgAPAA0AEAASABEAEQATABAAFAAWABUAFgAXABUAGAAaABkAGwAZABoAHAAeAB0AHgAfAB0AIAAiACEAIgAjACEAJAAmACUAJwAlACYAKAAqACkAKAArACoALAAuAC0ALQAvACwAMAAyADEAMwAxADIANAA2ADUANwA1ADYAOAA6ADkAOQA6ADsAPAA+AD0APwA9AD4AQABCAEEAQwBBAEIARABGAEUARwBFAEYASABKAEkASABLAEoATABOAE0ATwBNAE4AQQBDAFAAUQBQAEMAUgBUAFMAUwBUAFUAVgBXADAAMgAwAFcAJQAnAFgAWQBYACcAWgBcAFsAWwBcAF0AXgBgAF8AXwBgAGEAYgBkAGMAYgBlAGQAZgBoAGcAZgBpAGgAagAsAC8ALwBrAGoAGQAbACQAJgAkABsAbABuAG0AbQBuAG8AVABwAFUAVQBwAHEAcgB0AHMAcgB1AHQAdgB4AHcAdgB5AHgALgAQABMAEwAtAC4ATQBPAHoAewB6AE8AegB7ADQANgA0AHsARgBEAHwAfQB8AEQAfAB9AD8APQA/AH0AVwBWAH4AfwB+AFYAfgB/AIAAgQCAAH8AggCEAIMAhQCDAIQAgwCFAIYAhwCGAIUAhgCHAIgAiQCIAIcAiACJAIoAiwCKAIkAUABRAIwAjQCMAFEAjACNAI4AjwCOAI0AkACSAJEAkwCRAJIAkQCTAJQAlQCUAJMAlACVAJYAlwCWAJUAlgCXAJgAmQCYAJcAmgCcAJsAmwCcAJ0AmwCdAJ4AngCdAJ8AngCfAKAAngCgAKEAoQCgAKIAoQCiAKMA"),
 "lods": [0.0123591, PackedByteArray("pAAPAK8ApACvALQAkwC0AK8AlQC0AJMAlwC0AJUAtACmAKUAtACXAK0AswCtAJcArQCzACEAtACuAKwAqACnABUApwCwABUAsACnAIMAsQCDAKcAgwCxAIYAhgCxAIgAiACxALIAqgCyALEAqgAfALIAMAC1ADEAtQAwALoANwC1ALoAVgC6ADAAfwC6AFYAugB/ALkAgQC5AH8AuQBOALoAtgA+ALgAQAC2AEEAuABBALYAQQC4AFAAUAC4AIwAjAC4AI4AtwCOALgARwC3ALgAqQCrABsAWgBuAGMAYwBuAEkAYwBJAGcAbgCgAEkASQCgAKIAbgCcAKAA")],
-"material": SubResource("StandardMaterial3D_5qiak"),
+"material": SubResource("StandardMaterial3D_aeqfw"),
 "name": "Material.320",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -91,16 +92,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nthof")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wh383"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxbn2"]
+albedo_color = Color(0.809449, 0.278894, 1, 1)
 emission_enabled = true
-emission = Color(1, 0, 0, 1)
+emission = Color(0.732247, 0.459094, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4yehs"]
 size = Vector3(1.07031, 1.3728, 0.278687)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1yb07"]
-size = Vector3(0.9021, 0.90625, 0.49617)
 
 [sub_resource type="Animation" id="Animation_wli6i"]
 length = 0.001
@@ -163,8 +161,11 @@ _data = {
 "fill": SubResource("Animation_wdt4b")
 }
 
-[node name="Red Scanner" type="StaticBody3D"]
-script = ExtResource("1_8liln")
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yb07"]
+size = Vector3(0.9021, 0.90625, 0.49617)
+
+[node name="Purple Scanner" type="StaticBody3D"]
+script = ExtResource("1_k2yct")
 
 [node name="model" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -173,12 +174,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="SM_HandScanner_mo_Material_319_0" type="MeshInstance3D" parent="model/SM_HandScanner_mo"]
-mesh = SubResource("ArrayMesh_425c3")
+mesh = SubResource("ArrayMesh_37b5b")
 skeleton = NodePath("")
 
 [node name="SM_HandScanner_mo_Material_320_0" type="MeshInstance3D" parent="model/SM_HandScanner_mo"]
 transform = Transform3D(-1, 0, 0, 0, 1, -8.74228e-08, 0, 8.74228e-08, 1, 0, 0, 0)
-mesh = SubResource("ArrayMesh_lb6p5")
+mesh = SubResource("ArrayMesh_kswos")
 skeleton = NodePath("")
 
 [node name="line" type="Node3D" parent="model"]
@@ -186,7 +187,7 @@ skeleton = NodePath("")
 [node name="line" type="CSGBox3D" parent="model/line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214444, 0.59266, 0.0960093)
 size = Vector3(0.001, 0.0698853, 0.0220947)
-material = SubResource("StandardMaterial3D_wh383")
+material = SubResource("StandardMaterial3D_oxbn2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.686707, 0.143982)
@@ -194,15 +195,7 @@ shape = SubResource("BoxShape3D_4yehs")
 
 [node name="light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0056445, 1.16154, 0.34773)
-light_color = Color(1, 0, 0, 1)
-
-[node name="detR" type="Area3D" parent="."]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="detR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55368, 0.313881)
-shape = SubResource("BoxShape3D_1yb07")
+light_color = Color(0.780887, 0.119159, 1, 1)
 
 [node name="l_marker" type="Marker3D" parent="."]
 transform = Transform3D(-1, -3.82137e-15, -8.74228e-08, -8.74228e-08, 4.37114e-08, 1, 0, 1, -4.37114e-08, 0, 0.324417, 0.313548)
@@ -217,7 +210,15 @@ wait_time = 3.0
 one_shot = true
 
 [node name="scan" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_wk3ei")
+stream = ExtResource("4_nff1h")
 
-[connection signal="area_entered" from="detR" to="." method="_on_det_r_area_entered"]
+[node name="detR" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55368, 0.313881)
+shape = SubResource("BoxShape3D_1yb07")
+
 [connection signal="timeout" from="scan_time" to="." method="_on_scan_time_timeout"]
+[connection signal="area_entered" from="detR" to="." method="_on_det_r_area_entered"]
