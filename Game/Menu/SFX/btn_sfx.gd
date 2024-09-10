@@ -4,7 +4,7 @@ class_name ButtonSFXPlayer
 @export var root_path : NodePath
 
 @onready var sounds = {
-	&"hover_back" : AudioStreamPlayer.new(),
+	&"hover" : AudioStreamPlayer.new(),
 	&"select" : AudioStreamPlayer.new(),
 }
 
@@ -27,7 +27,7 @@ func _ready() -> void:
 func install_sounds(node: Node) -> void:
 	for i in node.get_children():
 		if i is Button:
-			i.mouse_entered.connect( func(): ui_sfx_play(&"hover_back"))
+			i.mouse_entered.connect( func(): ui_sfx_play(&"hover"))
 			i.pressed.connect( func(): ui_sfx_play(&"select"))
 		
 		#repeat
