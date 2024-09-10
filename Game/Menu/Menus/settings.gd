@@ -3,6 +3,7 @@ extends Control
 var open = false
 
 @onready var setting: Control = $setting
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	visible = false
@@ -16,11 +17,12 @@ func _toggle_menu() -> void:
 func _open_settings():
 	visible = true
 	_unload_sections()
+	animation_player.play("open")
 	open = true
 
 func _close_settings():
-	visible = false
 	_unload_sections()
+	animation_player.play("close")
 	open = false
 
 func _load_section(section: String):
@@ -62,3 +64,7 @@ func _on_language_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	_close_settings()
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "close":
+		visible = false

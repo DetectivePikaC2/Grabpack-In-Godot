@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://umft1vb3u8io"]
+[gd_scene load_steps=10 format=3 uid="uid://umft1vb3u8io"]
 
 [ext_resource type="Script" path="res://Game/Menu/Menus/settings.gd" id="1_a2klg"]
 [ext_resource type="Shader" path="res://Game/Menu/Shader/blur.gdshader" id="2_fdmk4"]
@@ -8,7 +8,61 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pr8yn"]
 shader = ExtResource("2_fdmk4")
 shader_parameter/lod = 3.5
-shader_parameter/mix_percentage = 0.34
+shader_parameter/mix_percentage = 0.578
+
+[sub_resource type="Animation" id="Animation_k5h73"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lroft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ofmmd"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1kiq"]
+_data = {
+"RESET": SubResource("Animation_lroft"),
+"close": SubResource("Animation_ofmmd"),
+"open": SubResource("Animation_k5h73")
+}
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -128,6 +182,7 @@ text = "BACK"
 flat = true
 
 [node name="setting" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_left = 384.0
 offset_right = 1084.0
@@ -211,6 +266,7 @@ text = "Example Divider Section"
 vertical_alignment = 1
 
 [node name="section_label" type="Label" parent="setting/display"]
+layout_mode = 0
 offset_top = 418.0
 offset_right = 692.0
 offset_bottom = 492.0
@@ -247,6 +303,7 @@ text = "Example Divider Section"
 vertical_alignment = 1
 
 [node name="section_label" type="Label" parent="setting/graphics"]
+layout_mode = 0
 offset_top = 418.0
 offset_right = 692.0
 offset_bottom = 492.0
@@ -375,6 +432,7 @@ text = "PAUSE: ESC"
 vertical_alignment = 1
 
 [node name="section_label" type="Label" parent="setting/controls"]
+layout_mode = 0
 offset_top = 418.0
 offset_right = 692.0
 offset_bottom = 492.0
@@ -401,6 +459,7 @@ text = "LANGUAGE"
 vertical_alignment = 1
 
 [node name="section_label" type="Label" parent="setting/language"]
+layout_mode = 0
 offset_top = 418.0
 offset_right = 692.0
 offset_bottom = 492.0
@@ -413,9 +472,15 @@ vertical_alignment = 1
 script = ExtResource("4_ihtxr")
 root_path = NodePath("../buttons")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h1kiq")
+}
+
 [connection signal="pressed" from="buttons/audio" to="." method="_on_audio_pressed"]
 [connection signal="pressed" from="buttons/display" to="." method="_on_display_pressed"]
 [connection signal="pressed" from="buttons/graphics" to="." method="_on_graphics_pressed"]
 [connection signal="pressed" from="buttons/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="buttons/language" to="." method="_on_language_pressed"]
 [connection signal="pressed" from="buttons/back" to="." method="_on_back_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
