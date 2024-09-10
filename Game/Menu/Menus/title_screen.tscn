@@ -18,13 +18,13 @@
 noise_type = 2
 seed = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8j3j6"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s4m1o"]
 width = 2
 height = 2
 normalize = false
 noise = SubResource("FastNoiseLite_gu1im")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2ewh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wrrx6"]
 shader = ExtResource("3_kdlex")
 shader_parameter/curvature = 0.0
 shader_parameter/skip = 0.0
@@ -38,7 +38,7 @@ shader_parameter/scanlines_opacity = 1.0
 shader_parameter/scanlines_speed = 0.1
 shader_parameter/scanline_thickness = 0.57
 shader_parameter/scanlines_spacing = 1.0
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_8j3j6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_s4m1o")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68e28"]
 expand_margin_top = 1.0
@@ -177,7 +177,7 @@ expand = true
 loop = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_h2ewh")
+material = SubResource("ShaderMaterial_wrrx6")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

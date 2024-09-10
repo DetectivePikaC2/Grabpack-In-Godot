@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/Menu/Menus/pause.gd" id="1_0b8db"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="2_17ls7"]
-[ext_resource type="Shader" path="res://Game/Menu/Shader/vcr_pause.gdshader" id="3_ab8y3"]
+[ext_resource type="Shader" uid="uid://3sgyqdxrk6tk" path="res://Game/Menu/Shader/vcr_pause_blur.tres" id="2_274np"]
 [ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_cegoq"]
 [ext_resource type="PackedScene" uid="uid://umft1vb3u8io" path="res://Game/Menu/Menus/settings.tscn" id="4_s8otl"]
 
@@ -17,7 +17,7 @@ normalize = false
 noise = SubResource("FastNoiseLite_4mcrc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2jht"]
-shader = ExtResource("3_ab8y3")
+shader = ExtResource("2_274np")
 shader_parameter/curvature = 0.0
 shader_parameter/skip = 0.0
 shader_parameter/image_flicker = 0.04
@@ -176,6 +176,7 @@ alignment = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" parent="." instance=ExtResource("4_s8otl")]
+visible = false
 layout_mode = 1
 
 [node name="ButtonSFXPlayer" type="Node" parent="."]
