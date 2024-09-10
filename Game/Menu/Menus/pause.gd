@@ -1,14 +1,12 @@
 extends Control
 
 var paused = false
-var settings_menu = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var settings = $Settings
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("esc"):
-		print(paused)
 		if paused:
 			_close_pause()
 		else:
@@ -46,8 +44,4 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_settings_pressed():
-	if not settings_menu:
-		settings._open_settings()
-	else:
-		settings._close_settings()
-	settings_menu = !settings_menu
+	settings._toggle_menu()

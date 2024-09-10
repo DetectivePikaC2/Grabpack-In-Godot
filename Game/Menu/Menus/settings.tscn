@@ -1,30 +1,421 @@
-[gd_scene load_steps=2 format=3 uid="uid://umft1vb3u8io"]
+[gd_scene load_steps=6 format=3 uid="uid://umft1vb3u8io"]
 
 [ext_resource type="Script" path="res://Game/Menu/Menus/settings.gd" id="1_a2klg"]
+[ext_resource type="Shader" path="res://Game/Menu/Shader/blur.gdshader" id="2_fdmk4"]
+[ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_urlqi"]
+[ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="4_ihtxr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pr8yn"]
+shader = ExtResource("2_fdmk4")
+shader_parameter/lod = 3.5
+shader_parameter/mix_percentage = 0.34
 
 [node name="Settings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 560.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a2klg")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 97.0
-offset_right = 499.0
-offset_bottom = 506.0
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pr8yn")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="paused" type="Label" parent="."]
+offset_left = 55.0
+offset_top = 43.0
+offset_right = 278.0
+offset_bottom = 93.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 38
+text = "[settings]"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="buttons" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.0347222
+anchor_top = 0.594136
+anchor_right = 0.311632
+anchor_bottom = 0.921296
+metadata/_edit_use_anchors_ = true
+
+[node name="audio" type="Button" parent="buttons"]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 173.0
-offset_right = 332.0
-offset_bottom = 230.0
+anchor_left = 0.0470219
+anchor_top = 0.0518868
+anchor_right = 0.959248
+anchor_bottom = 0.212264
+offset_bottom = 2.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 23
+text = "AUDIO"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="display" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.231132
+anchor_right = 0.959248
+anchor_bottom = 0.391509
+offset_bottom = 2.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 23
+text = "DISPLAY"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="graphics" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.410377
+anchor_right = 0.959248
+anchor_bottom = 0.570755
+offset_bottom = 2.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 23
+text = "GRAPHICS"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="controls" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.59434
+anchor_right = 0.959248
+anchor_bottom = 0.754717
+offset_bottom = 2.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 23
+text = "CONTROLS
+"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="language" type="Button" parent="buttons"]
+layout_mode = 0
+anchor_left = 0.0470219
+anchor_top = 0.773585
+anchor_right = 0.959248
+anchor_bottom = 0.933962
+offset_bottom = 2.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 23
+text = "LANGUAGE"
+alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="back" type="Button" parent="buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.031
+offset_left = 1002.0
+offset_top = 212.0
+offset_right = 1061.11
+offset_bottom = 246.0
+theme = ExtResource("3_urlqi")
+theme_override_colors/font_hover_color = Color(0.566298, 0.566298, 0.566298, 1)
+theme_override_font_sizes/font_size = 22
 text = "BACK"
+flat = true
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[node name="setting" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 384.0
+offset_right = 1084.0
+offset_bottom = 585.0
+
+[node name="lineleft" type="VSeparator" parent="setting"]
+layout_mode = 0
+offset_top = 511.0
+offset_right = 4.0
+offset_bottom = 585.0
+
+[node name="lineright" type="VSeparator" parent="setting"]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 508.0
+offset_right = 700.0
+offset_bottom = 582.0
+
+[node name="audio" type="Control" parent="setting"]
+visible = false
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 93.0
+offset_right = 696.0
+offset_bottom = 486.0
+
+[node name="example" type="Button" parent="setting/audio"]
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 43.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 22
+text = "HERE IS AN EXAMPLE AUDIO BUTTON"
+alignment = 0
+
+[node name="example_div" type="Label" parent="setting/audio"]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 539.0
+offset_bottom = 98.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 40
+text = "Example Divider Section"
+vertical_alignment = 1
+
+[node name="section_label" type="Label" parent="setting/audio"]
+layout_mode = 0
+offset_top = 418.0
+offset_right = 692.0
+offset_bottom = 492.0
+theme = ExtResource("3_urlqi")
+text = "AUDIO related settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="display" type="Control" parent="setting"]
+visible = false
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 93.0
+offset_right = 696.0
+offset_bottom = 486.0
+
+[node name="example" type="Button" parent="setting/display"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 696.0
+offset_bottom = 98.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 22
+text = "DISPLAY SETTING EXAMPLE :O"
+alignment = 0
+
+[node name="example_div" type="Label" parent="setting/display"]
+layout_mode = 0
+offset_right = 539.0
+offset_bottom = 55.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 40
+text = "Example Divider Section"
+vertical_alignment = 1
+
+[node name="section_label" type="Label" parent="setting/display"]
+offset_top = 418.0
+offset_right = 692.0
+offset_bottom = 492.0
+theme = ExtResource("3_urlqi")
+text = "DISPLAY related settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="graphics" type="Control" parent="setting"]
+visible = false
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 93.0
+offset_right = 696.0
+offset_bottom = 486.0
+
+[node name="example" type="Button" parent="setting/graphics"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 696.0
+offset_bottom = 98.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 22
+text = "OMG GRAPHICS BUTTON EXAMPLE :O"
+alignment = 0
+
+[node name="example_div" type="Label" parent="setting/graphics"]
+layout_mode = 0
+offset_right = 539.0
+offset_bottom = 55.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 40
+text = "Example Divider Section"
+vertical_alignment = 1
+
+[node name="section_label" type="Label" parent="setting/graphics"]
+offset_top = 418.0
+offset_right = 692.0
+offset_bottom = 492.0
+theme = ExtResource("3_urlqi")
+text = "GRAPHICS related settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="controls" type="Control" parent="setting"]
+visible = false
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 93.0
+offset_right = 696.0
+offset_bottom = 486.0
+
+[node name="example_div" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_right = 692.0
+offset_bottom = 55.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 40
+text = "MOVEMENT"
+vertical_alignment = 1
+
+[node name="item1" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 692.0
+offset_bottom = 86.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "FORWARD: W"
+vertical_alignment = 1
+
+[node name="item2" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 86.0
+offset_right = 692.0
+offset_bottom = 117.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "LEFT: A"
+vertical_alignment = 1
+
+[node name="item3" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 117.0
+offset_right = 692.0
+offset_bottom = 148.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "BACKWARDS: S"
+vertical_alignment = 1
+
+[node name="item4" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 148.0
+offset_right = 692.0
+offset_bottom = 179.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "RIGHT: D
+"
+vertical_alignment = 1
+
+[node name="item5" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 179.0
+offset_right = 692.0
+offset_bottom = 210.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "JUMP: SPACE BAR
+"
+vertical_alignment = 1
+
+[node name="item6" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 210.0
+offset_right = 692.0
+offset_bottom = 241.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "CROUCH: CTRL"
+vertical_alignment = 1
+
+[node name="item7" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 241.0
+offset_right = 692.0
+offset_bottom = 272.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "GRABPACK LEFT: LEFT MOUSE"
+vertical_alignment = 1
+
+[node name="item8" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 272.0
+offset_right = 692.0
+offset_bottom = 303.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "GRABPACK RIGHT: RIGHT MOUSE"
+vertical_alignment = 1
+
+[node name="item9" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 303.0
+offset_right = 692.0
+offset_bottom = 334.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "SWITCH HANDS: 1, 2, 3, 4, 0"
+vertical_alignment = 1
+
+[node name="item10" type="Label" parent="setting/controls"]
+layout_mode = 0
+offset_top = 334.0
+offset_right = 692.0
+offset_bottom = 365.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE: ESC"
+vertical_alignment = 1
+
+[node name="section_label" type="Label" parent="setting/controls"]
+offset_top = 418.0
+offset_right = 692.0
+offset_bottom = 492.0
+theme = ExtResource("3_urlqi")
+text = "MOVEMENT OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="language" type="Control" parent="setting"]
+visible = false
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 93.0
+offset_right = 696.0
+offset_bottom = 486.0
+
+[node name="example_div" type="Label" parent="setting/language"]
+layout_mode = 0
+offset_right = 692.0
+offset_bottom = 55.0
+theme = ExtResource("3_urlqi")
+theme_override_font_sizes/font_size = 40
+text = "LANGUAGE"
+vertical_alignment = 1
+
+[node name="section_label" type="Label" parent="setting/language"]
+offset_top = 418.0
+offset_right = 692.0
+offset_bottom = 492.0
+theme = ExtResource("3_urlqi")
+text = "LANGUAGE OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("4_ihtxr")
+root_path = NodePath("../buttons")
+
+[connection signal="pressed" from="buttons/audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="buttons/display" to="." method="_on_display_pressed"]
+[connection signal="pressed" from="buttons/graphics" to="." method="_on_graphics_pressed"]
+[connection signal="pressed" from="buttons/controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="buttons/language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="buttons/back" to="." method="_on_back_pressed"]

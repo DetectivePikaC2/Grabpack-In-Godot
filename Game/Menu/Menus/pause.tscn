@@ -10,7 +10,7 @@
 noise_type = 2
 seed = 1
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8j3j6"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bsqb2"]
 width = 500
 height = 500
 normalize = false
@@ -30,7 +30,7 @@ shader_parameter/scanlines_opacity = 1.0
 shader_parameter/scanlines_speed = 0.1
 shader_parameter/scanline_thickness = 0.57
 shader_parameter/scanlines_spacing = 1.0
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_8j3j6")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bsqb2")
 
 [sub_resource type="Animation" id="Animation_86idu"]
 length = 0.001

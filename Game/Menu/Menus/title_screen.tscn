@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bd8mtaq7gm53"]
+[gd_scene load_steps=24 format=3 uid="uid://bd8mtaq7gm53"]
 
 [ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/Ch3MainMenuBackground.ogv" id="1_udaa2"]
 [ext_resource type="Script" path="res://Game/Menu/Menus/title_screen.gd" id="1_xuk05"]
@@ -6,12 +6,39 @@
 [ext_resource type="Texture2D" uid="uid://gbep6gfxosxo" path="res://Game/Menu/Texture/UI_Parts/NewFlare.png" id="2_qjkk2"]
 [ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_4uxni"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_8ihiw"]
+[ext_resource type="Shader" path="res://Game/Menu/Shader/vcr_pause.gdshader" id="3_kdlex"]
 [ext_resource type="Script" path="res://Game/Menu/Menus/replay_encounter.gd" id="5_cevw7"]
 [ext_resource type="Script" path="res://Game/Menu/CustomButtons/replaybutton.gd" id="6_r54t3"]
 [ext_resource type="Shader" path="res://Game/Menu/Shader/blur.gdshader" id="6_sdl0m"]
 [ext_resource type="Texture2D" uid="uid://qr7cw85m8s11" path="res://Game/Menu/Texture/ReplayImages/demo_scene.tscn - Grabpack In Godot - Godot Engine 2024-09-08 9_38_53 AM.png" id="7_cyas4"]
 [ext_resource type="Texture2D" uid="uid://bju8f3r3p6lu4" path="res://Game/Menu/Texture/ReplayImages/demo_scene.tscn - Grabpack In Godot - Godot Engine 2024-09-08 9_54_36 AM.png" id="9_5vurl"]
 [ext_resource type="PackedScene" uid="uid://umft1vb3u8io" path="res://Game/Menu/Menus/settings.tscn" id="11_y85ln"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gu1im"]
+noise_type = 2
+seed = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8j3j6"]
+width = 2
+height = 2
+normalize = false
+noise = SubResource("FastNoiseLite_gu1im")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2ewh"]
+shader = ExtResource("3_kdlex")
+shader_parameter/curvature = 0.0
+shader_parameter/skip = 0.0
+shader_parameter/image_flicker = 0.04
+shader_parameter/vignette_flicker_speed = 0.0
+shader_parameter/vignette_strength = 0.75
+shader_parameter/small_scanlines_speed = 0.1
+shader_parameter/small_scanlines_proximity = 1.0
+shader_parameter/small_scanlines_opacity = 1.0
+shader_parameter/scanlines_opacity = 1.0
+shader_parameter/scanlines_speed = 0.1
+shader_parameter/scanline_thickness = 0.57
+shader_parameter/scanlines_spacing = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_8j3j6")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68e28"]
 expand_margin_top = 1.0
@@ -148,6 +175,15 @@ stream = ExtResource("1_udaa2")
 autoplay = true
 expand = true
 loop = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_h2ewh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="menu_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_nvjh2")
@@ -428,6 +464,7 @@ libraries = {
 }
 
 [node name="Settings" parent="." instance=ExtResource("11_y85ln")]
+visible = false
 layout_mode = 1
 
 [node name="ButtonSFXPlayer" type="Node" parent="."]
