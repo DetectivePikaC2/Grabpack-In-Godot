@@ -472,6 +472,10 @@ vertical_alignment = 1
 script = ExtResource("4_ihtxr")
 root_path = NodePath("../buttons")
 
+[node name="ButtonSFXPlayer2" type="Node" parent="."]
+script = ExtResource("4_ihtxr")
+root_path = NodePath("../setting")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_h1kiq")
