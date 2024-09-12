@@ -131,6 +131,7 @@ enum start_hand {
 @onready var grab_switch_delay = $neck/head/grabpack_1/grab_switch_delay
 @onready var poppyface: Sprite3D = $neck/head/grabpack_1/scale/pack_nodes/Playwatch/model/poppyface
 @onready var controls = $ui/controls
+@onready var playwatch_mobile = $ui/playwatch_ui/playwatch_mobile
 
 #Hold Items:
 
@@ -792,6 +793,11 @@ func _process(delta):
 			else:
 				poppyface.texture = SECURITY_DEVICE_PIXEL_POPPY
 			prev_poppy = current_poppy
+		if cams_active:
+			if Player.use_mobile:
+				playwatch_mobile.visible = true
+			else:
+				playwatch_mobile.visible = false
 	
 	if Player.current_hand == 4:
 		flare_count.text = str(current_flares)

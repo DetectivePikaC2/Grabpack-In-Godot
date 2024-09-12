@@ -22,6 +22,9 @@ var l_press = false
 var r_press = false
 var e_press = false
 
+func _ready():
+	visible = true
+
 func _input(event):
 	if Player.use_mobile:
 		Input.action_press("sprint")

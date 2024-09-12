@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c6d3jsyf0q2w6" path="res://Player/UI/Texture/Mobile/watch_icon.png" id="10_8qcov"]
 
 [node name="controls" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
