@@ -190,5 +190,6 @@ libraries = {
 
 [connection signal="pressed" from="buttons/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="buttons/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="buttons/loadgame" to="." method="_on_loadgame_pressed"]
 [connection signal="pressed" from="buttons/titlescreen" to="." method="_on_titlescreen_pressed"]
 [connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]

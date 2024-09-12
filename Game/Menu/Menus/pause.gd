@@ -45,3 +45,9 @@ func _on_quit_pressed():
 
 func _on_settings_pressed():
 	settings._toggle_menu()
+
+func _on_loadgame_pressed():
+	var cur_scene = get_tree().current_scene.scene_file_path
+	get_tree().paused = false
+	get_tree().call_group("player", "_disable_movement", true)
+	LoadManagement.load_scene(cur_scene)
