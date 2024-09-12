@@ -3,7 +3,6 @@ extends CharacterBody3D
 @onready var ball_scene = preload("res://Player/flare.tscn")
 
 @export_category("Settings")
-@export var use_mobile_controls = false
 @export_subgroup("Movement")
 @export var JUMP_VELOCITY = 7
 @export var WALKING_SPEED = 5.0
@@ -131,6 +130,7 @@ enum start_hand {
 @onready var tooltip_animation: AnimationPlayer = $ui/tooltip_animation
 @onready var grab_switch_delay = $neck/head/grabpack_1/grab_switch_delay
 @onready var poppyface: Sprite3D = $neck/head/grabpack_1/scale/pack_nodes/Playwatch/model/poppyface
+@onready var controls = $ui/controls
 
 #Hold Items:
 
@@ -336,11 +336,11 @@ func _ready():
 	if start_with_playwatch and grabpack_version == 1:
 		has_playwatch = true
 	
-	if not use_mobile_controls:
+	if not controls.enable_mobile_controls:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else:
 		MOUSE_SENS = MOUSE_SENS * 2.0
-	Player.use_mobile = use_mobile_controls
+	Player.use_mobile = controls.enable_mobile_controls
 
 
 func _input(event):
@@ -978,6 +978,7 @@ func _process(delta):
 	Player.player_transform = global_transform.origin
 	Player.camera_position = camera.global_position
 	Player.can_move = can_move
+	Player.has_watch = has_playwatch
 
 func _retract_right():
 	r_anim.play("pull_back")

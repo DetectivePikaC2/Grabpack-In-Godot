@@ -34,6 +34,7 @@ var player_position = Vector3()
 var player_transform
 var camera_position = Vector3()
 var can_move = true
+var has_watch = false
 
 #Hand Variables
 var current_hand = 0

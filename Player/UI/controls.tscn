@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6vk3omy5rumt"]
+[gd_scene load_steps=11 format=3 uid="uid://c6vk3omy5rumt"]
 
 [ext_resource type="Script" path="res://Player/UI/controls.gd" id="1_ilaqk"]
 [ext_resource type="Script" path="res://Player/UI/virtual_joystick.gd" id="2_t824p"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cyl0n0mdafpu0" path="res://Player/UI/Texture/Mobile/switch_up.png" id="7_kc1qn"]
 [ext_resource type="Texture2D" uid="uid://cuc2n7cjhaxvt" path="res://Player/UI/Texture/Mobile/gas.png" id="7_vyw5a"]
 [ext_resource type="Texture2D" uid="uid://bv1mvegeiq4hb" path="res://Player/UI/Texture/Mobile/switch_down.png" id="8_ftul3"]
+[ext_resource type="Texture2D" uid="uid://c6d3jsyf0q2w6" path="res://Player/UI/Texture/Mobile/watch_icon.png" id="10_8qcov"]
 
 [node name="controls" type="Control"]
 layout_mode = 3
@@ -112,3 +113,9 @@ position = Vector2(739, 505)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_ftul3")
 action = "hand_switch_down"
+
+[node name="playwatch" type="TouchScreenButton" parent="."]
+position = Vector2(739, 226)
+scale = Vector2(0.437984, 0.447059)
+texture_normal = ExtResource("10_8qcov")
+action = "playwatch"

@@ -192,6 +192,10 @@ pointing/emulate_touch_from_mouse=true
 3d_physics/layer_11="Battery Sockets"
 3d_physics/layer_12="Gas"
 
+[penis]
+
+mobile_controls=false
+
 [physics]
 
 3d/default_gravity=18.0

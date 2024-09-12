@@ -8,6 +8,11 @@ extends Control
 @onready var crouch = $crouch
 @onready var gas_equip = $gas_equip
 @onready var virtual_joystick = $"Virtual Joystick"
+@onready var playwatch = $playwatch
+
+@export_category("Settings")
+##If enabled, mobile controls will be activated.
+@export var enable_mobile_controls = false
 
 var deleted = false
 
@@ -47,16 +52,14 @@ func _process(delta):
 			switch_down.queue_free()
 			crouch.queue_free()
 			gas_equip.queue_free()
+			playwatch.queue_free()
 			deleted = true
 	else:
-		if Player.current_pack < 1:
+		if Player.current_pack == 0:
 			switch_up.visible = false
 			switch_down.visible = false
 		else:
 			switch_up.visible = true
 			switch_down.visible = true
-		
-		if Player.has_mask:
-			gas_equip.visible = true
-		else:
-			gas_equip.visible = false
+		gas_equip.visible = Player.has_mask
+		playwatch.visible = Player.has_watch
