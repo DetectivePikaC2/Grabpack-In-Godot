@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://bd8mtaq7gm53"]
 
 [ext_resource type="Script" path="res://Game/Menu/Menus/title_screen.gd" id="1_xuk05"]
+[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/render1.ogv" id="2_l3ttc"]
 [ext_resource type="AudioStream" uid="uid://dkpntqt8iqxug" path="res://Game/Menu/SFX/Music/02. Chapter 3 Title Screen.mp3" id="2_nvjh2"]
 [ext_resource type="Texture2D" uid="uid://gbep6gfxosxo" path="res://Game/Menu/Texture/UI_Parts/NewFlare.png" id="2_qjkk2"]
-[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/render3.ogv" id="2_s2fka"]
 [ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_4uxni"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_8ihiw"]
 [ext_resource type="Shader" path="res://Game/Menu/Shader/vcr_pause.gdshader" id="3_kdlex"]
@@ -169,7 +169,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_s2fka")
+stream = ExtResource("2_l3ttc")
 autoplay = true
 expand = true
 loop = true
