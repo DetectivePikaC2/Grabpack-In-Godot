@@ -67,9 +67,9 @@ enum start_hand {
 @onready var grabpack_1 = $neck/head/grabpack_1
 @onready var r_hand = $neck/head/grabpack_1/scale/pack_nodes/RHand
 @onready var l_hand = $neck/head/grabpack_1/scale/pack_nodes/LHand
-@onready var l_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/left_attachment_new/l_hand
+@onready var l_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/NewGrabpack/left_attachment_new/l_hand
 @onready var line_l = $pack_lines/line_l/line_l_main
-@onready var line_l_pos = $neck/head/grabpack_1/scale/pack_nodes/left_attachment/l_line
+@onready var line_l_pos = $neck/head/grabpack_1/scale/pack_nodes/Grabpack/left_attachment/l_line
 @onready var l_anim = $neck/head/grabpack_1/scale/pack_nodes/LHand/l_anim
 @onready var line_cast = $pack_lines/line_l/line_l_main/line_cast
 @onready var line_l_sub_1 = $pack_lines/line_l/line_l_sub1
@@ -82,9 +82,9 @@ enum start_hand {
 @onready var line_r_sub_2 = $pack_lines/line_r/line_r_sub2
 @onready var line_r_sub_3 = $pack_lines/line_r/line_r_sub3
 @onready var line_r = $pack_lines/line_r/line_r_main
-@onready var r_line_pos = $neck/head/grabpack_1/scale/pack_nodes/right_attachment/r_line
+@onready var r_line_pos = $neck/head/grabpack_1/scale/pack_nodes/Grabpack/right_attachment/r_line
 @onready var r_hand_marker = $neck/head/grabpack_1/scale/pack_nodes/RHand/hand_r_marker
-@onready var r_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/right_attachment_new/r_hand
+@onready var r_hand_pos = $neck/head/grabpack_1/scale/pack_nodes/NewGrabpack/right_attachment_new/r_hand
 @onready var extra_anim = $neck/head/grabpack_1/extra_anim
 @onready var r_anim = $neck/head/grabpack_1/scale/pack_nodes/RHand/r_anim
 @onready var pack_player_r = $neck/head/grabpack_1/scale/pack_nodes/Grabpack/pack_player_r
@@ -118,8 +118,8 @@ enum start_hand {
 @onready var ui_anim = $ui/ui_anim
 @onready var damage_anim = $ui/damage_anim
 @onready var pack_full_timer = $neck/head/grabpack_1/pack_full_timer
-@onready var r_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/right_attachment/r_hand_pos2
-@onready var l_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/left_attachment/l_hand_pos2
+@onready var r_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/Grabpack/right_attachment/r_hand_pos2
+@onready var l_hand_pos_2: Marker3D = $neck/head/grabpack_1/scale/pack_nodes/Grabpack/left_attachment/l_hand_pos2
 @onready var objective_animation: AnimationPlayer = $ui/objective_animation
 @onready var obj_title: Label = $ui/objective/obj_title
 @onready var display_timer: Timer = $ui/objective/display_timer
@@ -129,9 +129,14 @@ enum start_hand {
 @onready var tooltip_sound: AudioStreamPlayer = $ui/tooltip/tooltip_sound
 @onready var tooltip_animation: AnimationPlayer = $ui/tooltip_animation
 @onready var grab_switch_delay = $neck/head/grabpack_1/grab_switch_delay
-@onready var poppyface: Sprite3D = $neck/head/grabpack_1/scale/pack_nodes/Playwatch/model/poppyface
+@onready var poppyface: Sprite3D = $neck/head/grabpack_1/scale/pack_nodes/NewGrabpack/Playwatch/model/poppyface
 @onready var controls = $ui/controls
 @onready var playwatch_mobile = $ui/playwatch_ui/playwatch_mobile
+@onready var movement_anim = $neck/head/grabpack_1/movement_anim
+@onready var air_anim = $neck/head/grabpack_1/air_anim
+@onready var l_line_2 = $neck/head/grabpack_1/scale/pack_nodes/NewGrabpack/left_attachment_new/l_line2
+@onready var r_line_2 = $neck/head/grabpack_1/scale/pack_nodes/NewGrabpack/right_attachment_new/r_line2
+@onready var gas_mask = $ui/gas_mask
 
 #Hold Items:
 
@@ -181,7 +186,7 @@ var switched_hand = 0
 var can_shoot_right = false
 var can_shoot_left = false
 var PACK_LERP_SPEED = 5.0
-var pull_speed = 0.4
+var pull_speed = 0.8
 var pull_point = Vector3()
 var pulling = false
 var drop_pull = false
@@ -207,7 +212,7 @@ var grabpack_lowered = false
 var mobile_item_sel = false
 var playwatch_enabled = false
 var has_playwatch = false
-var hit_stay_time = 0.25
+var hit_stay_time = 0.2
 var pack_switch_queued = false
 
 #Grabpack_Line_L:
@@ -228,7 +233,7 @@ var r_line_target = Vector3()
 var r_fire_time = 0.0
 #Playwatch:
 
-@onready var watch_model: Node3D = $neck/head/grabpack_1/scale/pack_nodes/Playwatch/model
+@onready var watch_model: Node3D = $neck/head/grabpack_1/scale/pack_nodes/NewGrabpack/Playwatch/model
 @onready var playwatch_ui: Control = $ui/playwatch_ui
 @onready var watch_static: ColorRect = $ui/playwatch_ui/static
 @onready var cam_title: Label = $ui/playwatch_ui/cam_title
@@ -312,11 +317,11 @@ var watch_anim = false
 var queue_watch = false
 var prev_poppy = false
 var current_poppy = false
+var walk_anim = false
 
 var jump_time = 0.0
 
 func _ready():
-	extra_anim.play("idle")
 	if grabpack_version == 0:
 		_grab1_hand_reset()
 	else:
@@ -434,11 +439,6 @@ func _physics_process(delta):
 	is_free_looking = false
 	rotation.y += neck.rotation.y
 	neck.rotation.y = 0
-	eyes.rotation.z = lerp(
-		eyes.rotation.z,
-		0.0,
-		delta*LERP_SPEED
-	)
 	
 	if can_move:
 		if not is_on_floor():
@@ -447,9 +447,9 @@ func _physics_process(delta):
 			jump_time += 0.01
 			if jump_time > 0.1:
 				jump_time = 0.1
-			grabpack_1.position.y = lerp(grabpack_1.position.y, jump_time, 0.01)
-			grabpack_1.rotation.x = lerp(grabpack_1.rotation.x, 0.0, delta * LERP_SPEED)
 			velocity.y -= gravity * delta
+			movement_anim.pause()
+			walk_anim = false
 		elif slide_timer.is_stopped() and input_dir != Vector2.ZERO:
 			is_moving = true
 			grabpack_1.position = lerp(
@@ -459,24 +459,24 @@ func _physics_process(delta):
 			)
 			if last_velocity.y <= -1:
 				jump_time = -0.5
-				animation_player.play("landing")
+				air_anim.play("land")
 				_rand_sfx("neck/head/grabpack_1/sfx/land", 1, 3)
 			_land_anim(delta, true)
-			wiggle_vector.y = sin(wiggle_index)
-			wiggle_vector.x = sin(wiggle_index / 2) + 0.5
-			eyes.position.y = lerp(
-				eyes.position.y,
-				wiggle_vector.y * (wiggle_current_intensity / 2.0), 
-				delta * LERP_SPEED
-			)
-			eyes.position.x = lerp(
-				eyes.position.x,
-				wiggle_vector.x * wiggle_current_intensity, 
-				delta * LERP_SPEED
-			)
 			if jump_time == 0:
 				_grabpack_walk(delta)
+			
+			if is_sprinting:
+				movement_anim.speed_scale = 2.5
+			elif is_crouching:
+				movement_anim.speed_scale = 1.25
+			else:
+				movement_anim.speed_scale = 2.0
+			
+			if not walk_anim:
+				movement_anim.play("stop_to_walk")
+				walk_anim = true
 		else:
+			movement_anim.speed_scale = 2.0
 			is_moving = false
 			grabpack_1.position = lerp(
 				grabpack_1.position,
@@ -493,12 +493,14 @@ func _physics_process(delta):
 			
 			_land_anim(delta, true)
 			
-			eyes.position.y = lerp(eyes.position.y, 0.0, delta * LERP_SPEED)
-			eyes.position.x = lerp(eyes.position.x, 0.0, delta * LERP_SPEED)
 			if last_velocity.y <= -1:
 				jump_time = -0.5
-				animation_player.play("landing")
+				air_anim.play("land")
 				_rand_sfx("neck/head/grabpack_1/sfx/land", 1, 3)
+			
+			if walk_anim:
+				movement_anim.play("walk_to_stop")
+				walk_anim = false
 	else:
 		grabpack_1.rotation.z = lerp(
 			grabpack_1.rotation.z,
@@ -587,12 +589,6 @@ func _physics_process(delta):
 		is_moving = true
 
 func _grabpack_walk(delta):
-	if jump_time == 0.0:
-		grabpack_1.rotation.x = lerp(
-			grabpack_1.rotation.x,
-			-0.1 - wiggle_vector.y * (wiggle_current_intensity * 2), 
-			delta * LERP_SPEED
-		)
 	
 	#DIRECTIONAL SWAY
 	
@@ -683,7 +679,8 @@ func _cancel_pull():
 func _jump(jump_vel):
 	_rand_sfx("neck/head/grabpack_1/sfx/jump", 1, 3)
 	jump_time = 0
-	animation_player.play("jump")
+	air_anim.play("jump")
+	print("jumped")
 	if !slide_timer.is_stopped():
 		velocity.y = jump_vel * 1.5
 		slide_timer.stop()
@@ -1029,8 +1026,12 @@ func _hide_lines_r():
 
 func _fix_line_l():
 	fire_time += 0.1
-	line_l.global_position = line_l_pos.global_position
+	if grabpack_version > 0:
+		line_l.global_position = l_line_2.global_position
+	else:
+		line_l.global_position = line_l_pos.global_position
 	line_l_position = line_l.global_position
+	
 	line_l.scale.z = line_l_position.distance_to(line_l_target) / 2
 	
 	# Line Direction Management:
@@ -1082,7 +1083,10 @@ func _fix_line_r_pillar():
 
 func _fix_line_r():
 	r_fire_time += 0.1
-	line_r.global_position = r_line_pos.global_position
+	if grabpack_version > 0:
+		line_r.global_position = r_line_2.global_position
+	else:
+		line_r.global_position = r_line_pos.global_position
 	r_line_position = line_r.global_position
 	line_r.scale.z = r_line_position.distance_to(r_line_target) / 2
 	
@@ -1191,6 +1195,9 @@ func _hide_crosshair():
 func _disable_movement(disable_pack):
 	can_move = false
 	can_pack = !disable_pack
+
+func _set_position(pos):
+	global_position = pos
 
 func _enable_movement(enable_pack):
 	can_move = true
@@ -1380,10 +1387,11 @@ func _lose_mask():
 	Player.has_mask = false
 
 func _equip_mask():
-	mask_equipped = true
-	gas_equip.play()
-	gas_breath.play()
-	ui_anim.play("gas_equip")
+	if not playwatch_enabled:
+		mask_equipped = true
+		gas_equip.play()
+		gas_breath.play()
+		ui_anim.play("gas_equip")
 
 func _unequip_mask():
 	mask_equipped = false
@@ -1399,6 +1407,8 @@ func _toggle_playwatch():
 			ui_anim.play("watch_disabled")
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		else:
+			mask_equipped = false
+			gas_mask.visible = false
 			watch_equip.play()
 			watch_anim = true
 			new_pack_anim.play("playwatch_on")
@@ -1456,7 +1466,8 @@ func _on_pack_switch_timer_timeout():
 
 func _on_extra_anim_animation_finished(anim_name):
 	if anim_name == "grabpack_raise":
-		extra_anim.play("idle")
+		if not walk_anim:
+			movement_anim.play("idle")
 		grabpack_lowered = false
 
 func _on_reload_timer_timeout(anim):
@@ -1478,10 +1489,10 @@ func _hand_anim_switched():
 	hand_switch_anim = false
 
 func _on_crouch_enter_timeout():
-	extra_anim.play("idle")
+	movement_anim.play("idle")
 
 func _on_crouch_exit_timeout():
-	extra_anim.play("idle")
+	movement_anim.play("idle")
 
 func _on_new_pack_anim_animation_finished(anim_name):
 	if anim_name == "Armature|A_FirstPersonPlayer_HandSwitch":
@@ -1559,3 +1570,16 @@ func _on_pack_playerl_animation_finished(anim_name: StringName) -> void:
 		extra_anim.play("grabpack_lower")
 		pack_switch_timer.start()
 		pack_switch_queued = false
+
+func _on_movement_anim_animation_finished(anim_name):
+	if anim_name == "stop_to_walk":
+		movement_anim.play("walk")
+	if anim_name == "walk_to_stop":
+		movement_anim.play("idle")
+
+func _on_air_anim_animation_finished(anim_name):
+	if anim_name == "jump":
+		air_anim.play("fall_loop")
+	if anim_name == "land":
+		if not walk_anim:
+			movement_anim.play("idle")

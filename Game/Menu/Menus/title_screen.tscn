@@ -253,7 +253,7 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_8ihiw")
 theme_override_colors/font_color = Color(0.593134, 0.593134, 0.593134, 1)
 theme_override_font_sizes/font_size = 19
-text = "v9/11/24"
+text = "v12/05/24"
 
 [node name="buttons" type="Control" parent="."]
 layout_mode = 1
