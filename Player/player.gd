@@ -352,11 +352,7 @@ func _ready():
 func _input(event):
 	if can_move:
 		if event is InputEventMouseMotion:
-			if is_free_looking:
-				neck.rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
-				neck.rotation.y = clamp(neck.rotation.y, deg_to_rad(-120), deg_to_rad(120))
-			else:
-				rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
+			rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
 			head.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENS))
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	if can_pack:
@@ -859,6 +855,9 @@ func _process(delta):
 		line_l.global_position = line_l_pos.global_position
 		l_hand_current = l_hand_current.move_toward(l_hand_pos.global_position, grab_speed * delta)
 		l_hand.global_position = l_hand_current
+		l_hand.rotation_degrees.x = -90
+		l_hand.rotation_degrees.y = 0
+		l_hand.rotation_degrees.z = 0
 		if l_hand.global_position.distance_to(l_hand_pos.global_position) < 0.05:
 			if not Player.source_hand:
 				_unpower_line()
@@ -1489,10 +1488,9 @@ func _hand_anim_switched():
 	hand_switch_anim = false
 
 func _on_crouch_enter_timeout():
-	movement_anim.play("idle")
-
+	pass
 func _on_crouch_exit_timeout():
-	movement_anim.play("idle")
+	pass
 
 func _on_new_pack_anim_animation_finished(anim_name):
 	if anim_name == "Armature|A_FirstPersonPlayer_HandSwitch":
