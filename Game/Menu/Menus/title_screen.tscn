@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://bd8mtaq7gm53"]
 
 [ext_resource type="Script" path="res://Game/Menu/Menus/title_screen.gd" id="1_xuk05"]
+[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/render1.ogv" id="2_ag73m"]
 [ext_resource type="AudioStream" uid="uid://dkpntqt8iqxug" path="res://Game/Menu/SFX/Music/02. Chapter 3 Title Screen.mp3" id="2_nvjh2"]
 [ext_resource type="Texture2D" uid="uid://gbep6gfxosxo" path="res://Game/Menu/Texture/UI_Parts/NewFlare.png" id="2_qjkk2"]
-[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/render1.ogv" id="2_wjf4e"]
 [ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_4uxni"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_8ihiw"]
 [ext_resource type="Shader" path="res://Game/Menu/Shader/vcr_pause.gdshader" id="3_kdlex"]
@@ -169,7 +169,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_wjf4e")
+stream = ExtResource("2_ag73m")
 autoplay = true
 expand = true
 loop = true
@@ -201,7 +201,7 @@ offset_right = 261.0
 offset_bottom = 83.0
 theme = ExtResource("3_8ihiw")
 theme_override_font_sizes/font_size = 27
-text = "Chapter 0"
+text = "Chapter [INSERT YOUR CHAPTER HERE]"
 vertical_alignment = 1
 uppercase = true
 
@@ -213,7 +213,7 @@ offset_right = 387.0
 offset_bottom = 141.0
 theme = ExtResource("3_8ihiw")
 theme_override_font_sizes/font_size = 49
-text = "‘Grabpack’"
+text = "‘Insert your title here’"
 vertical_alignment = 1
 uppercase = true
 
@@ -238,13 +238,13 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/line_spacing = 6
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 36
-text = "In the aftermath of the previous few
-chapters, you find yourself stranded in the
-internet with a new goal in your sights(to
-make an epic fangame)
+text = "INSERT YOUR DESCRIPTION HERE!
 
 CREATED BY @DetectivePikaC2 / Derective on
-youtube!"
+youtube!
+(In your final project you can remove the
+credit on the title screen, as long as you
+still credit me somewhere)"
 
 [node name="version" type="Label" parent="."]
 layout_mode = 0
