@@ -477,6 +477,7 @@ root_path = NodePath("../buttons")
 script = ExtResource("3_4uxni")
 root_path = NodePath("../replay_encounter")
 
+[connection signal="pressed" from="buttons/newgame" to="." method="_on_newgame_pressed"]
 [connection signal="pressed" from="buttons/replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]

@@ -11,3 +11,6 @@ func _on_quit_pressed():
 
 func _on_settings_pressed():
 	settings._toggle_menu()
+
+func _on_newgame_pressed():
+	LoadManagement.load_scene("res://Level/demo_scene.tscn")
