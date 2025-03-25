@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://cniflrgxb0y1p"]
 
-[ext_resource type="Script" path="res://Puzzle/Scanners/flare_scanner.gd" id="1_fkr8n"]
+[ext_resource type="Script" uid="uid://mltxre0h7obu" path="res://Puzzle/Scanners/flare_scanner.gd" id="1_fkr8n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tqo1d"]
 size = Vector3(0.6, 0.6, 0.6)

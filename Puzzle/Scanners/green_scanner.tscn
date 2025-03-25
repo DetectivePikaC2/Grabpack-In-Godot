@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://srfnirr8g0qb"]
 
-[ext_resource type="Script" path="res://Puzzle/Scanners/green_scanner.gd" id="1_161vu"]
+[ext_resource type="Script" uid="uid://dybgdfy4smggp" path="res://Puzzle/Scanners/green_scanner.gd" id="1_161vu"]
 [ext_resource type="Texture2D" uid="uid://bgo0pmconuvqi" path="res://Puzzle/Scanners/Model/blue_scanner_Image_0.png" id="2_48tya"]
 [ext_resource type="Texture2D" uid="uid://clrag57l8cpbn" path="res://Puzzle/Scanners/Model/green_scanner.png" id="3_lbvp6"]
 [ext_resource type="Texture2D" uid="uid://baxs6p3475yes" path="res://Puzzle/Scanners/Model/red_scanner.png" id="4_l6wvb"]
@@ -156,8 +156,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dvxfe"]
 _data = {
-"RESET": SubResource("Animation_wli6i"),
-"fill": SubResource("Animation_wdt4b")
+&"RESET": SubResource("Animation_wli6i"),
+&"fill": SubResource("Animation_wdt4b")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1yb07"]

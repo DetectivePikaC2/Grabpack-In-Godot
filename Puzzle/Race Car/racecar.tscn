@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=4 uid="uid://bghr8effdjgcs"]
 
-[ext_resource type="Script" path="res://Puzzle/Race Car/racecar.gd" id="1_3orkw"]
+[ext_resource type="Script" uid="uid://civo8enj7uac2" path="res://Puzzle/Race Car/racecar.gd" id="1_3orkw"]
 [ext_resource type="Material" uid="uid://c63kao2ldech0" path="res://Puzzle/Race Car/model/textures/helmet.tres" id="1_uq06l"]
 [ext_resource type="Material" uid="uid://bgy6kr3geh2lt" path="res://Puzzle/Race Car/model/textures/car.tres" id="2_deybo"]
 [ext_resource type="AudioStream" uid="uid://b1n4skuumsnuy" path="res://Puzzle/Race Car/SFX/SW_WindupCar_StringWinding.wav" id="2_p5k0j"]
@@ -545,10 +545,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fm6wa"]
 _data = {
-"RESET": SubResource("Animation_3056e"),
-"collide_end": SubResource("Animation_nm40g"),
-"pull_string": SubResource("Animation_fmome"),
-"pulled_loop": SubResource("Animation_3r8il")
+&"RESET": SubResource("Animation_3056e"),
+&"collide_end": SubResource("Animation_nm40g"),
+&"pull_string": SubResource("Animation_fmome"),
+&"pulled_loop": SubResource("Animation_3r8il")
 }
 
 [sub_resource type="Animation" id="Animation_lsp5u"]
@@ -609,8 +609,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w021o"]
 _data = {
-"RESET": SubResource("Animation_lsp5u"),
-"spin_loop": SubResource("Animation_gio5y")
+&"RESET": SubResource("Animation_lsp5u"),
+&"spin_loop": SubResource("Animation_gio5y")
 }
 
 [node name="Race Car" type="CharacterBody3D"]

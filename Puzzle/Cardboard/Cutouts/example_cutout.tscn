@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://bkcxtdy1mfgx0"]
 
-[ext_resource type="Script" path="res://Puzzle/Cardboard/cardboard_cutout.gd" id="1_ld4tx"]
+[ext_resource type="Script" uid="uid://bupqw5xp76s3q" path="res://Puzzle/Cardboard/cardboard_cutout.gd" id="1_ld4tx"]
 [ext_resource type="PackedScene" uid="uid://dblbbttrtatud" path="res://Puzzle/Cardboard/model_parent.tscn" id="2_17w0m"]
 [ext_resource type="AudioStream" uid="uid://dcgluvjnai6mv" path="res://Puzzle/Cardboard/VoiceLines/Voices cutout huggy 01.mp3" id="2_aw2pu"]
 [ext_resource type="PackedScene" uid="uid://do6337i7ubv7n" path="res://Puzzle/Button/button.tscn" id="3_84ike"]

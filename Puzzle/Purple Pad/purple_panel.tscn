@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://dbidsa4wtpsi8"]
 
-[ext_resource type="Script" path="res://Puzzle/Purple Pad/purple_panel.gd" id="1_f8b7n"]
+[ext_resource type="Script" uid="uid://dsq8l1w4g0nqd" path="res://Puzzle/Purple Pad/purple_panel.gd" id="1_f8b7n"]
 [ext_resource type="Texture2D" uid="uid://bggwo54rke5ga" path="res://Puzzle/Purple Pad/model/T_Jump_Pad_Blue_DIF.png" id="2_14n5e"]
 [ext_resource type="AudioStream" uid="uid://inekakguo630" path="res://Puzzle/Purple Pad/sfx/SW_Rocket_HandJump_01.wav" id="3_3dqc2"]
 [ext_resource type="Texture2D" uid="uid://dkiqcb4vdwdhh" path="res://Puzzle/Purple Pad/model/imageedit_16_9486307495.png" id="3_fbjmr"]

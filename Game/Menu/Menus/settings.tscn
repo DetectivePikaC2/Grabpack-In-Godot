@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://umft1vb3u8io"]
 
-[ext_resource type="Script" path="res://Game/Menu/Menus/settings.gd" id="1_a2klg"]
-[ext_resource type="Shader" path="res://Game/Menu/Shader/blur.gdshader" id="2_fdmk4"]
+[ext_resource type="Script" uid="uid://dbpdabjc1ru4b" path="res://Game/Menu/Menus/settings.gd" id="1_a2klg"]
+[ext_resource type="Shader" uid="uid://10j5kj7o4t1w" path="res://Game/Menu/Shader/blur.gdshader" id="2_fdmk4"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="3_urlqi"]
-[ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="4_ihtxr"]
+[ext_resource type="Script" uid="uid://bwj02vbc5hadx" path="res://Game/Menu/SFX/btn_sfx.gd" id="4_ihtxr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pr8yn"]
 shader = ExtResource("2_fdmk4")
@@ -59,9 +59,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h1kiq"]
 _data = {
-"RESET": SubResource("Animation_lroft"),
-"close": SubResource("Animation_ofmmd"),
-"open": SubResource("Animation_k5h73")
+&"RESET": SubResource("Animation_lroft"),
+&"close": SubResource("Animation_ofmmd"),
+&"open": SubResource("Animation_k5h73")
 }
 
 [node name="Settings" type="Control"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6vk3omy5rumt"]
 
-[ext_resource type="Script" path="res://Player/UI/controls.gd" id="1_ilaqk"]
-[ext_resource type="Script" path="res://Player/UI/virtual_joystick.gd" id="2_t824p"]
+[ext_resource type="Script" uid="uid://d0w268k8ct2oy" path="res://Player/UI/controls.gd" id="1_ilaqk"]
+[ext_resource type="Script" uid="uid://chgl67rmgolaw" path="res://Player/UI/virtual_joystick.gd" id="2_t824p"]
 [ext_resource type="Texture2D" uid="uid://d0207ancdlnig" path="res://Player/UI/Texture/Mobile/90_20240220170918.png" id="3_jie2r"]
 [ext_resource type="Texture2D" uid="uid://4dk173bvg5ts" path="res://Player/UI/Texture/Mobile/90_20240220171039.png" id="4_b5h16"]
 [ext_resource type="Texture2D" uid="uid://cl67l6fw50hlv" path="res://Player/UI/Texture/Mobile/left_1.png" id="5_oe5wf"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bllcv4jda6hvb"]
 
-[ext_resource type="Script" path="res://Puzzle/Race Car/car_destroyable.gd" id="1_28ucu"]
+[ext_resource type="Script" uid="uid://crpk1lj4wj0jy" path="res://Puzzle/Race Car/car_destroyable.gd" id="1_28ucu"]
 [ext_resource type="AudioStream" uid="uid://lrx3ohrsyido" path="res://Puzzle/Race Car/SFX/SW_WindupCar_RubbleCrash.wav" id="2_3bwab"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obnid"]

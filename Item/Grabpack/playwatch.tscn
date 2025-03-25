@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=4 uid="uid://bjhse55dlsf0a"]
 
-[ext_resource type="Script" path="res://Item/Grabpack/playwatch.gd" id="1_qyktj"]
+[ext_resource type="Script" uid="uid://cx7jk7rr3410a" path="res://Item/Grabpack/playwatch.gd" id="1_qyktj"]
 [ext_resource type="Texture2D" uid="uid://bx0pdux5livw4" path="res://Player/grabpack3/security_device_pixel_poppy.png" id="2_op4al"]
 [ext_resource type="AudioStream" uid="uid://bs3xsrfrjoatc" path="res://Player/SFX/Grabpack/SW_Jingle_Grabpack2_Obtain.wav" id="2_u72h7"]
 [ext_resource type="AudioStream" uid="uid://bn4g1q8gpbtym" path="res://Item/SFX/SFX item grab v3.mp3" id="4_v3r7e"]

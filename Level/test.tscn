@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://dtek15k36ldcv"]
 
-[ext_resource type="Script" path="res://Level/test.gd" id="1_c5qd1"]
+[ext_resource type="Script" uid="uid://b6i3foxivwl0e" path="res://Level/test.gd" id="1_c5qd1"]
 [ext_resource type="PackedScene" uid="uid://bechbsgfmthff" path="res://Puzzle/Green Power/green_source.tscn" id="2_c0aww"]
 [ext_resource type="PackedScene" uid="uid://byxcjqdl02iud" path="res://Puzzle/Green Power/green_reciever.tscn" id="3_xpqsd"]
 [ext_resource type="PackedScene" uid="uid://cn5f8b3834rc" path="res://Puzzle/Levers/lever.tscn" id="4_hnjnk"]
@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cux068o67jh01" path="res://Item/Grabpack/Hands/hand_item.tscn" id="24_3cc6c"]
 [ext_resource type="PackedScene" uid="uid://bjhse55dlsf0a" path="res://Item/Grabpack/playwatch.tscn" id="25_0of1s"]
 [ext_resource type="PackedScene" uid="uid://wipogv674odr" path="res://Player/player.tscn" id="25_hyjo4"]
-[ext_resource type="Script" path="res://Puzzle/Playwatch Camera/playwatch_cameras.gd" id="26_i5ve1"]
+[ext_resource type="Script" uid="uid://duwu4cfb6xax7" path="res://Puzzle/Playwatch Camera/playwatch_cameras.gd" id="26_i5ve1"]
 [ext_resource type="PackedScene" uid="uid://cnp4xletrofhp" path="res://Puzzle/Playwatch Camera/playwatch_camera.tscn" id="27_t4bwh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uwxyg"]

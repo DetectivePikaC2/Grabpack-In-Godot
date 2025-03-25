@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cwnki4k556rab"]
 
-[ext_resource type="Script" path="res://Game/Menu/Menus/pause.gd" id="1_0b8db"]
+[ext_resource type="Script" uid="uid://3nmm63qnqsc" path="res://Game/Menu/Menus/pause.gd" id="1_0b8db"]
 [ext_resource type="Theme" uid="uid://dv4qrnr0ds2w6" path="res://Game/Menu/theme/menu.tres" id="2_17ls7"]
 [ext_resource type="Shader" uid="uid://3sgyqdxrk6tk" path="res://Game/Menu/Shader/vcr_pause_blur.tres" id="2_274np"]
-[ext_resource type="Script" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_cegoq"]
+[ext_resource type="Script" uid="uid://bwj02vbc5hadx" path="res://Game/Menu/SFX/btn_sfx.gd" id="3_cegoq"]
 [ext_resource type="PackedScene" uid="uid://umft1vb3u8io" path="res://Game/Menu/Menus/settings.tscn" id="4_s8otl"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4mcrc"]
@@ -65,8 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ddvi6"]
 _data = {
-"RESET": SubResource("Animation_86idu"),
-"fade_in": SubResource("Animation_kcbwc")
+&"RESET": SubResource("Animation_86idu"),
+&"fade_in": SubResource("Animation_kcbwc")
 }
 
 [node name="pause" type="Control"]

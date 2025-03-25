@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5kkkagyrsuel"]
 
-[ext_resource type="VideoStream" path="res://Game/Menu/Texture/Video/Loading.ogv" id="1_1a8t4"]
-[ext_resource type="Script" path="res://Game/Menu/Menus/loading_screen.gd" id="1_3xpd1"]
+[ext_resource type="VideoStream" uid="uid://1milcjc4erw7" path="res://Game/Menu/Texture/Video/Loading.ogv" id="1_1a8t4"]
+[ext_resource type="Script" uid="uid://b030hanp4b2qa" path="res://Game/Menu/Menus/loading_screen.gd" id="1_3xpd1"]
 
 [sub_resource type="Animation" id="Animation_jw4yb"]
 length = 0.001
@@ -66,9 +66,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xs1p0"]
 _data = {
-"RESET": SubResource("Animation_jw4yb"),
-"end_load": SubResource("Animation_dug7v"),
-"start_load": SubResource("Animation_fwyyc")
+&"RESET": SubResource("Animation_jw4yb"),
+&"end_load": SubResource("Animation_dug7v"),
+&"start_load": SubResource("Animation_fwyyc")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrunc"]

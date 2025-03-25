@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://booq526bndbbo"]
 
-[ext_resource type="Script" path="res://Player/UI/death.gd" id="1_aj1u6"]
+[ext_resource type="Script" uid="uid://b2ebtpm1nbw41" path="res://Player/UI/death.gd" id="1_aj1u6"]
 [ext_resource type="AudioStream" uid="uid://by4su3nedv2qt" path="res://Player/SFX/UI/SW_Death_Audio.wav" id="2_8il3s"]
-[ext_resource type="Shader" path="res://Player/UI/Shader/vhs.gdshader" id="2_odmnd"]
+[ext_resource type="Shader" uid="uid://1ucg8tjmguog" path="res://Player/UI/Shader/vhs.gdshader" id="2_odmnd"]
 [ext_resource type="FontFile" uid="uid://cer55s5caorg6" path="res://Player/UI/Font/easvhs.ttf" id="2_v872p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovtrv"]
@@ -12,6 +12,21 @@ shader_parameter/noiseQuality = 107.1
 shader_parameter/noiseIntensity = 0.001
 shader_parameter/offsetIntensity = 0.045
 shader_parameter/colorOffsetIntensity = 0.043
+
+[sub_resource type="Animation" id="Animation_ttkgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_bjo4y"]
 resource_name = "fade"
@@ -29,25 +44,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ttkgw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kails"]
 _data = {
-"RESET": SubResource("Animation_ttkgw"),
-"fade": SubResource("Animation_bjo4y")
+&"RESET": SubResource("Animation_ttkgw"),
+&"fade": SubResource("Animation_bjo4y")
 }
 
 [node name="death" type="Control"]

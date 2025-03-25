@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dsrb3nvouvvrj"]
 
-[ext_resource type="Script" path="res://Player/flare.gd" id="1_iq4wj"]
+[ext_resource type="Script" uid="uid://b55ewhpiiwit7" path="res://Player/flare.gd" id="1_iq4wj"]
 [ext_resource type="AudioStream" uid="uid://6tvwqf3cbf2r" path="res://Player/SFX/Flare/SW_Flare_Burning_LOOP_01.wav" id="3_123cu"]
 [ext_resource type="Texture2D" uid="uid://dmg344m5ttil2" path="res://Player/Effect/fire/smoke_effect.png" id="3_roc2v"]
 

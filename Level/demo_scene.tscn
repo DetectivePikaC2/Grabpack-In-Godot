@@ -1,6 +1,6 @@
 [gd_scene load_steps=83 format=4 uid="uid://b1synj2xgx754"]
 
-[ext_resource type="Script" path="res://Level/demo_scene.gd" id="1_o3h6j"]
+[ext_resource type="Script" uid="uid://sylcpqis3ai6" path="res://Level/demo_scene.gd" id="1_o3h6j"]
 [ext_resource type="PackedScene" uid="uid://wipogv674odr" path="res://Player/player.tscn" id="1_y6ybj"]
 [ext_resource type="Texture2D" uid="uid://cnbqxi5aoxl4k" path="res://Level/Environment/Objects/Piston/piston_b_Image_3.png" id="2_8fpla"]
 [ext_resource type="Texture2D" uid="uid://c6a22rtwtqmqb" path="res://Level/Environment/Objects/Piston/piston_b_Image_4_3.png" id="3_ak2mp"]
@@ -18,26 +18,26 @@
 [ext_resource type="PackedScene" uid="uid://c5k6rffr7xs1b" path="res://Puzzle/Scanners/blue_scanner.tscn" id="18_s35dw"]
 [ext_resource type="Texture2D" uid="uid://crnu4ixplgnfc" path="res://Level/Environment/Objects/Box Letters/box_letters_Image_0.png" id="19_6w8n0"]
 [ext_resource type="PackedScene" uid="uid://c7h4vgpq7wn2j" path="res://Puzzle/Handle/grapple_handle.tscn" id="19_acbyl"]
-[ext_resource type="Script" path="res://Game/Scripts/draggable3d.gd" id="19_qoi3l"]
+[ext_resource type="Script" uid="uid://dynff4p008uh6" path="res://Game/Scripts/draggable3d.gd" id="19_qoi3l"]
 [ext_resource type="PackedScene" uid="uid://b6jhnelyu0cjv" path="res://Puzzle/Gates/large_gate.tscn" id="20_jajkj"]
 [ext_resource type="PackedScene" uid="uid://cgfr84c3rrtym" path="res://Puzzle/Doors/door.tscn" id="20_phgs6"]
 [ext_resource type="Texture2D" uid="uid://buljjyks3fblf" path="res://Level/Environment/Objects/Box Letters/box_letters_Image_2.png" id="20_v4awl"]
 [ext_resource type="PackedScene" uid="uid://cu72dk6n7aaco" path="res://Item/Grabpack/grabpack_item.tscn" id="21_6y8sb"]
 [ext_resource type="PackedScene" uid="uid://bjhse55dlsf0a" path="res://Item/Grabpack/playwatch.tscn" id="21_ci0ym"]
 [ext_resource type="PackedScene" uid="uid://ds0xuh6jlgnl1" path="res://Item/Vhs/vhs_player.tscn" id="22_6xpmf"]
-[ext_resource type="Script" path="res://Puzzle/Playwatch Camera/playwatch_cameras.gd" id="23_hq7xv"]
+[ext_resource type="Script" uid="uid://duwu4cfb6xax7" path="res://Puzzle/Playwatch Camera/playwatch_cameras.gd" id="23_hq7xv"]
 [ext_resource type="PackedScene" uid="uid://0ityjxe6w7c0" path="res://Item/Vhs/vhs_tape.tscn" id="23_qliqo"]
 [ext_resource type="PackedScene" uid="uid://cnp4xletrofhp" path="res://Puzzle/Playwatch Camera/playwatch_camera.tscn" id="24_betoh"]
 [ext_resource type="PackedScene" uid="uid://bwwpyi58q6o0t" path="res://Item/Vhs/vhs_tv.tscn" id="24_qweid"]
-[ext_resource type="VideoStream" path="res://Item/Vhs/Video/Poppy Playtime_ Chapter 4 - New Hand VHS Tutorial.ogv" id="25_02lwy"]
+[ext_resource type="VideoStream" uid="uid://dqfyavwnrjxn8" path="res://Item/Vhs/Video/Poppy Playtime_ Chapter 4 - New Hand VHS Tutorial.ogv" id="25_02lwy"]
 [ext_resource type="AudioStream" uid="uid://djxgcsx8dsmk2" path="res://Item/Vhs/Video/Poppy Playtime_ Chapter 4 - New Hand VHS Tutorial.mp3" id="26_hx8p8"]
 [ext_resource type="PackedScene" uid="uid://cux068o67jh01" path="res://Item/Grabpack/Hands/hand_item.tscn" id="27_gtrrr"]
 [ext_resource type="PackedScene" uid="uid://bj8oeqdjcnfts" path="res://Puzzle/Dash Panel/dash_panel.tscn" id="28_7gd3n"]
 [ext_resource type="PackedScene" uid="uid://bghr8effdjgcs" path="res://Puzzle/Race Car/racecar.tscn" id="31_5cxjm"]
 [ext_resource type="PackedScene" uid="uid://bllcv4jda6hvb" path="res://Puzzle/Race Car/examplebox.tscn" id="32_c08ry"]
-[ext_resource type="Script" path="res://Game/Scripts/kill_box.gd" id="32_vcyq0"]
-[ext_resource type="Script" path="res://Game/Scripts/eventrigger.gd" id="33_1ojco"]
-[ext_resource type="Script" path="res://Game/Scripts/critterspawn.gd" id="33_a0188"]
+[ext_resource type="Script" uid="uid://cfkx5jlwngm3o" path="res://Game/Scripts/kill_box.gd" id="32_vcyq0"]
+[ext_resource type="Script" uid="uid://loofl7jb3dca" path="res://Game/Scripts/eventrigger.gd" id="33_1ojco"]
+[ext_resource type="Script" uid="uid://daapug3gasi83" path="res://Game/Scripts/critterspawn.gd" id="33_a0188"]
 [ext_resource type="PackedScene" uid="uid://byxcjqdl02iud" path="res://Puzzle/Green Power/green_reciever.tscn" id="34_nkdh8"]
 [ext_resource type="PackedScene" uid="uid://bechbsgfmthff" path="res://Puzzle/Green Power/green_source.tscn" id="35_fwarc"]
 [ext_resource type="PackedScene" uid="uid://rryth3f4cou" path="res://Puzzle/Battery/battery.tscn" id="36_2uxqm"]
@@ -190,8 +190,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qdk1l"]
 _data = {
-"RESET": SubResource("Animation_kdgh6"),
-"loop": SubResource("Animation_0njwy")
+&"RESET": SubResource("Animation_kdgh6"),
+&"loop": SubResource("Animation_0njwy")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87wjc"]
@@ -296,7 +296,7 @@ resource_name = "cutseen_intro"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_irjxv"]
 _data = {
-"cutseen_intro": SubResource("Animation_25d0v")
+&"cutseen_intro": SubResource("Animation_25d0v")
 }
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_efby1"]
