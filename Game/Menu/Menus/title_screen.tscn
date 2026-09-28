@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bd8mtaq7gm53"]
+[gd_scene format=3 uid="uid://bd8mtaq7gm53"]
 
 [ext_resource type="Script" uid="uid://dqjavikb6ivhw" path="res://Game/Menu/Menus/title_screen.gd" id="1_xuk05"]
 [ext_resource type="VideoStream" uid="uid://beatebp607ch5" path="res://Game/Menu/Texture/Video/render1.ogv" id="2_ag73m"]
@@ -21,8 +21,8 @@ seed = 1
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s4m1o"]
 width = 2
 height = 2
-normalize = false
 noise = SubResource("FastNoiseLite_gu1im")
+normalize = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wrrx6"]
 shader = ExtResource("3_kdlex")
@@ -153,7 +153,7 @@ _data = {
 &"open": SubResource("Animation_e8npk")
 }
 
-[node name="title_screen" type="Control"]
+[node name="title_screen" type="Control" unique_id=1409220426]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,7 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xuk05")
 
-[node name="menu_bg_video" type="VideoStreamPlayer" parent="."]
+[node name="menu_bg_video" type="VideoStreamPlayer" parent="." unique_id=612712950]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -174,7 +174,7 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2098551737]
 material = SubResource("ShaderMaterial_wrrx6")
 layout_mode = 1
 anchors_preset = 15
@@ -183,17 +183,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="menu_music" type="AudioStreamPlayer" parent="."]
+[node name="menu_music" type="AudioStreamPlayer" parent="." unique_id=765884957]
 stream = ExtResource("2_nvjh2")
 volume_db = -15.0
 autoplay = true
 
-[node name="flare" type="Sprite2D" parent="."]
+[node name="flare" type="Sprite2D" parent="." unique_id=537968999]
 position = Vector2(254.5, 70)
 scale = Vector2(0.248535, 0.546875)
 texture = ExtResource("2_qjkk2")
 
-[node name="chapter" type="Label" parent="."]
+[node name="chapter" type="Label" parent="." unique_id=539641369]
 layout_mode = 0
 offset_left = 54.0
 offset_top = 59.0
@@ -205,7 +205,7 @@ text = "Chapter [INSERT YOUR CHAPTER HERE]"
 vertical_alignment = 1
 uppercase = true
 
-[node name="title" type="Label" parent="."]
+[node name="title" type="Label" parent="." unique_id=752430569]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 97.0
@@ -217,7 +217,7 @@ text = "‘Insert your title here’"
 vertical_alignment = 1
 uppercase = true
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1882668508]
 layout_mode = 0
 offset_top = 165.0
 offset_right = 510.0
@@ -226,7 +226,7 @@ theme = ExtResource("3_8ihiw")
 theme_override_constants/separation = 4
 theme_override_styles/separator = SubResource("StyleBoxFlat_68e28")
 
-[node name="description" type="Label" parent="."]
+[node name="description" type="Label" parent="." unique_id=1571313172]
 layout_mode = 0
 offset_left = 52.0
 offset_top = 196.0
@@ -246,7 +246,7 @@ youtube!
 credit on the title screen, as long as you
 still credit me somewhere)"
 
-[node name="version" type="Label" parent="."]
+[node name="version" type="Label" parent="." unique_id=862592551]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 635.0
@@ -258,7 +258,7 @@ theme_override_colors/font_color = Color(0.593134, 0.593134, 0.593134, 1)
 theme_override_font_sizes/font_size = 19
 text = "v12/05/24"
 
-[node name="buttons" type="Control" parent="."]
+[node name="buttons" type="Control" parent="." unique_id=1056446182]
 layout_mode = 1
 anchor_left = 0.023
 anchor_top = 0.571
@@ -269,7 +269,7 @@ offset_top = -0.00802612
 offset_right = -0.160004
 offset_bottom = -0.288025
 
-[node name="continue" type="Button" parent="buttons"]
+[node name="continue" type="Button" parent="buttons" unique_id=306907442]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -282,7 +282,7 @@ theme_override_font_sizes/font_size = 22
 text = "CONTINUE"
 alignment = 0
 
-[node name="newgame" type="Button" parent="buttons"]
+[node name="newgame" type="Button" parent="buttons" unique_id=87217961]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -295,7 +295,7 @@ theme_override_font_sizes/font_size = 22
 text = "NEW GAME"
 alignment = 0
 
-[node name="replay" type="Button" parent="buttons"]
+[node name="replay" type="Button" parent="buttons" unique_id=546238553]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -308,7 +308,7 @@ theme_override_font_sizes/font_size = 22
 text = "REPLAY ENCOUNTER"
 alignment = 0
 
-[node name="settings" type="Button" parent="buttons"]
+[node name="settings" type="Button" parent="buttons" unique_id=355802810]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -321,7 +321,7 @@ theme_override_font_sizes/font_size = 22
 text = "SETTINGS"
 alignment = 0
 
-[node name="credits" type="Button" parent="buttons"]
+[node name="credits" type="Button" parent="buttons" unique_id=1712380985]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -334,7 +334,7 @@ theme_override_font_sizes/font_size = 22
 text = "CREDITS"
 alignment = 0
 
-[node name="quit" type="Button" parent="buttons"]
+[node name="quit" type="Button" parent="buttons" unique_id=1230837363]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -347,7 +347,7 @@ theme_override_font_sizes/font_size = 22
 text = "QUIT"
 alignment = 0
 
-[node name="replay_encounter" type="Control" parent="."]
+[node name="replay_encounter" type="Control" parent="." unique_id=827045332]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -358,7 +358,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_cevw7")
 
-[node name="ColorRect" type="ColorRect" parent="replay_encounter"]
+[node name="ColorRect" type="ColorRect" parent="replay_encounter" unique_id=2130926615]
 material = SubResource("ShaderMaterial_q4q4r")
 layout_mode = 1
 anchors_preset = -1
@@ -366,7 +366,7 @@ anchor_right = 1.0
 anchor_bottom = 0.998457
 metadata/_edit_use_anchors_ = true
 
-[node name="replayencounter" type="Label" parent="replay_encounter"]
+[node name="replayencounter" type="Label" parent="replay_encounter" unique_id=759820225]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 30.0
@@ -377,7 +377,7 @@ theme_override_font_sizes/font_size = 50
 text = "[REPLAY ENCOUNTER]"
 vertical_alignment = 1
 
-[node name="replaytitle" type="Label" parent="replay_encounter"]
+[node name="replaytitle" type="Label" parent="replay_encounter" unique_id=230818989]
 layout_mode = 0
 offset_left = 510.0
 offset_top = 437.0
@@ -388,7 +388,7 @@ theme_override_font_sizes/font_size = 30
 text = "Level Name"
 vertical_alignment = 1
 
-[node name="load" type="Button" parent="replay_encounter"]
+[node name="load" type="Button" parent="replay_encounter" unique_id=133246502]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -401,7 +401,7 @@ theme_override_font_sizes/font_size = 22
 text = "LOAD CHECKPOINT "
 alignment = 2
 
-[node name="back" type="Button" parent="replay_encounter"]
+[node name="back" type="Button" parent="replay_encounter" unique_id=1752453235]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -415,13 +415,13 @@ theme_override_font_sizes/font_size = 22
 text = "BACK"
 flat = true
 
-[node name="replay_image" type="MeshInstance2D" parent="replay_encounter"]
+[node name="replay_image" type="MeshInstance2D" parent="replay_encounter" unique_id=611684657]
 position = Vector2(769, 288)
 scale = Vector2(0.39636, 0.502534)
 mesh = SubResource("ArrayMesh_ekilp")
 texture = ExtResource("7_cyas4")
 
-[node name="level1" type="Button" parent="replay_encounter"]
+[node name="level1" type="Button" parent="replay_encounter" unique_id=2100039565]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -437,7 +437,7 @@ script = ExtResource("6_r54t3")
 level_path = "res://Level/demo_scene.tscn"
 image = ExtResource("7_cyas4")
 
-[node name="level2" type="Button" parent="replay_encounter"]
+[node name="level2" type="Button" parent="replay_encounter" unique_id=1200936124]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.031
@@ -453,27 +453,25 @@ script = ExtResource("6_r54t3")
 level_path = "res://Level/test.tscn"
 image = ExtResource("9_5vurl")
 
-[node name="HSeparator" type="HSeparator" parent="replay_encounter"]
+[node name="HSeparator" type="HSeparator" parent="replay_encounter" unique_id=912596586]
 layout_mode = 0
 offset_left = 510.0
 offset_top = 518.0
 offset_right = 1028.0
 offset_bottom = 522.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="replay_encounter"]
-libraries = {
-"": SubResource("AnimationLibrary_qq4kf")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="replay_encounter" unique_id=2032527195]
+libraries/ = SubResource("AnimationLibrary_qq4kf")
 
-[node name="Settings" parent="." instance=ExtResource("11_y85ln")]
+[node name="Settings" parent="." unique_id=1023364423 instance=ExtResource("11_y85ln")]
 visible = false
 layout_mode = 1
 
-[node name="ButtonSFXPlayer" type="Node" parent="."]
+[node name="ButtonSFXPlayer" type="Node" parent="." unique_id=313369362]
 script = ExtResource("3_4uxni")
 root_path = NodePath("../buttons")
 
-[node name="ButtonSFXPlayer2" type="Node" parent="."]
+[node name="ButtonSFXPlayer2" type="Node" parent="." unique_id=1210918628]
 script = ExtResource("3_4uxni")
 root_path = NodePath("../replay_encounter")
 

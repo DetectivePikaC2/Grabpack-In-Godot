@@ -1,8 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://dtek15k36ldcv"]
+[gd_scene format=3 uid="uid://dtek15k36ldcv"]
 
 [ext_resource type="Script" uid="uid://b6i3foxivwl0e" path="res://Level/test.gd" id="1_c5qd1"]
 [ext_resource type="PackedScene" uid="uid://bechbsgfmthff" path="res://Puzzle/Green Power/green_source.tscn" id="2_c0aww"]
+[ext_resource type="Script" uid="uid://b4rdryskf7p1j" path="res://Level/csg.gd" id="2_sshbo"]
 [ext_resource type="PackedScene" uid="uid://byxcjqdl02iud" path="res://Puzzle/Green Power/green_reciever.tscn" id="3_xpqsd"]
+[ext_resource type="Script" uid="uid://yru4gdf3puqy" path="res://addons/box_plugin/box.gd" id="3_xxndu"]
 [ext_resource type="PackedScene" uid="uid://cn5f8b3834rc" path="res://Puzzle/Levers/lever.tscn" id="4_hnjnk"]
 [ext_resource type="PackedScene" uid="uid://bghr8effdjgcs" path="res://Puzzle/Race Car/racecar.tscn" id="5_2g48q"]
 [ext_resource type="PackedScene" uid="uid://c5k6rffr7xs1b" path="res://Puzzle/Scanners/blue_scanner.tscn" id="6_lgl65"]
@@ -49,444 +51,1562 @@ transparency = 1
 cull_mode = 2
 albedo_color = Color(1, 0, 0, 0.580392)
 
+[sub_resource type="BoxMesh" id="BoxMesh_dgfsc"]
+material = SubResource("StandardMaterial3D_rp8v8")
+size = Vector3(3, 8, 10)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4t8l"]
 size = Vector3(3, 8, 10)
 
-[node name="test" type="Node3D"]
+[node name="test" type="Node3D" unique_id=1850134637]
 script = ExtResource("1_c5qd1")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=161377727]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2136409329]
 environment = SubResource("Environment_t2idv")
 
-[node name="csg" type="Node3D" parent="."]
+[node name="csg" type="Node3D" parent="." unique_id=1554199644]
+script = ExtResource("2_sshbo")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D" type="GeometryInstance3D" parent="csg" unique_id=435346138]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63782, 0, -13.3525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(26, 0.236572, 45)
 
-[node name="CSGBox3D35" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D35" type="GeometryInstance3D" parent="csg" unique_id=353662010]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36218, 0, -44.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(14, 0.236572, 4)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D19" type="GeometryInstance3D" parent="csg" unique_id=1297767537]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -17.3622, 1, -13.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(6, 0.236572, 8)
 
-[node name="CSGBox3D22" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D22" type="GeometryInstance3D" parent="csg" unique_id=1600048883]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -32.3622, 1, -15.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(6, 0.236572, 4)
 
-[node name="CSGBox3D21" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D21" type="GeometryInstance3D" parent="csg" unique_id=560217186]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8622, 0, -15.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(9, 0.236572, 4)
 
-[node name="CSGBox3D25" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D25" type="GeometryInstance3D" parent="csg" unique_id=529234753]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8622, 0, -20.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(39, 0.236572, 4)
 
-[node name="CSGBox3D23" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D23" type="GeometryInstance3D" parent="csg" unique_id=251549031]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.3622, 0, -15.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(12, 0.236572, 4)
 
-[node name="CSGBox3D20" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D20" type="GeometryInstance3D" parent="csg" unique_id=779065621]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8622, 0, -13.8525)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(7, 0.236572, 8)
 
-[node name="CSGBox3D16" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D16" type="GeometryInstance3D" parent="csg" unique_id=721380882]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3622, 8, 2.64746)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(4, 0.236572, 15)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D6" type="GeometryInstance3D" parent="csg" unique_id=1629310639]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.36218, 2.38171, -4.37476)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(2, 5, 0.955566)
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D10" type="GeometryInstance3D" parent="csg" unique_id=1553906580]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.36218, 3.88171, 2.62524)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(14, 8, 0.955566)
 
-[node name="CSGBox3D18" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D18" type="GeometryInstance3D" parent="csg" unique_id=1607159923]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.36218, 3.88171, -18.8748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1, 8, 0.955566)
 
-[node name="CSGBox3D26" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D26" type="GeometryInstance3D" parent="csg" unique_id=478828317]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.36218, 3.88171, -22.8748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1, 8, 0.955566)
 
-[node name="CSGBox3D29" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D29" type="GeometryInstance3D" parent="csg" unique_id=171913166]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.53521, 3.88171, -25.3748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(2, 8, 2.6095)
 
-[node name="CSGBox3D28" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D28" type="GeometryInstance3D" parent="csg" unique_id=1976550467]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.66004, 0.881714, -25.3748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(2, 2, 7)
 
-[node name="CSGBox3D24" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D24" type="GeometryInstance3D" parent="csg" unique_id=311029548]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -48.3622, 3.88171, -18.8748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(9, 8, 0.955566)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D11" type="GeometryInstance3D" parent="csg" unique_id=1518161621]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.63782, 3.88171, -4.87476)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(29, 8, 0.955566)
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D32" type="GeometryInstance3D" parent="csg" unique_id=187323256]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.6378, 3.88171, 7.12524)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(5, 8, 0.955566)
 
-[node name="CSGBox3D27" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D27" type="GeometryInstance3D" parent="csg" unique_id=1025951556]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.63782, 3.88171, -30.3748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(12, 8, 0.955566)
 
-[node name="CSGBox3D34" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D34" type="GeometryInstance3D" parent="csg" unique_id=1490466646]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.36218, 3.88171, -30.3748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(12, 8, 0.955566)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D8" type="GeometryInstance3D" parent="csg" unique_id=1261241909]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86218, 4.38171, -4.37476)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(5, 1, 0.955566)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D9" type="GeometryInstance3D" parent="csg" unique_id=1322725795]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86218, 9.88171, -4.37476)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(17, 10, 0.955566)
 
-[node name="CSGBox3D17" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D17" type="GeometryInstance3D" parent="csg" unique_id=1281575209]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63782, 3.88171, 9.62524)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(26, 8, 0.955566)
 
-[node name="CSGBox3D36" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D36" type="GeometryInstance3D" parent="csg" unique_id=983464448]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36218, 3.88171, -47.3748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(14, 8, 0.955566)
 
-[node name="CSGBox3D33" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D33" type="GeometryInstance3D" parent="csg" unique_id=866721383]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1378, 3.88171, -35.3748)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(13, 8, 0.955566)
 
-[node name="CSGBox3D30" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D30" type="GeometryInstance3D" parent="csg" unique_id=1123444751]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6378, 3.88171, 4.62524)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(8, 8, 0.955566)
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D31" type="GeometryInstance3D" parent="csg" unique_id=1089692964]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13782, 5.88171, 4.62524)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(5, 4, 0.955566)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D7" type="GeometryInstance3D" parent="csg" unique_id=598880440]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13782, 2.38171, -4.37476)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1, 5, 0.955566)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D2" type="GeometryInstance3D" parent="csg" unique_id=1911413990]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.49182, 1.06806, 7.23242)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1.74072, 2, 3.83008)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D14" type="GeometryInstance3D" parent="csg" unique_id=47412574]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86218, 1.56806, 2.23242)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(3, 3, 3.83008)
 
-[node name="CSGBox3D15" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D15" type="GeometryInstance3D" parent="csg" unique_id=468295076]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86218, 13.5681, 2.23242)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(3, 1, 3.83008)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D3" type="GeometryInstance3D" parent="csg" unique_id=1567254939]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50818, 0.838693, 7.23242)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1.74072, 1.54126, 3.83008)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D4" type="GeometryInstance3D" parent="csg" unique_id=669867769]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50818, 0.483377, 3.63462)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1.74072, 0.830627, 2.00488)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D5" type="GeometryInstance3D" parent="csg" unique_id=11180517]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10882, 1.13545, 8.09886)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1.74072, 2.13478, 2.00488)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D12" type="GeometryInstance3D" parent="csg" unique_id=504043456]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89118, 1.13545, 8.09886)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1.74072, 2.13478, 2.00488)
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="csg"]
+[node name="CSGBox3D13" type="GeometryInstance3D" parent="csg" unique_id=1227546009]
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.89118, 1.13545, 8.09886)
-use_collision = true
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+layers = 1
+sorting_offset = 0.0
+sorting_use_aabb_center = true
+material_override = null
+material_overlay = null
+transparency = 0.0
+cast_shadow = 1
+extra_cull_margin = 0.0
+custom_aabb = AABB(0, 0, 0, 0, 0, 0)
+lod_bias = 1.0
+ignore_occlusion_culling = false
+gi_mode = 1
+gi_lightmap_texel_scale = 1.0
+visibility_range_begin = 0.0
+visibility_range_begin_margin = 0.0
+visibility_range_end = 0.0
+visibility_range_end_margin = 0.0
+visibility_range_fade_mode = 0
+script = ExtResource("3_xxndu")
 size = Vector3(1.74072, 2.13478, 2.00488)
 
-[node name="Puzzle" type="Node3D" parent="."]
+[node name="Puzzle" type="Node3D" parent="." unique_id=82553775]
 
-[node name="green_source" parent="Puzzle" instance=ExtResource("2_c0aww")]
+[node name="green_source" parent="Puzzle" unique_id=1430589208 instance=ExtResource("2_c0aww")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.13041, 2.11327, 0)
 
-[node name="green_reciever" parent="Puzzle" instance=ExtResource("3_xpqsd")]
+[node name="green_reciever" parent="Puzzle" unique_id=1476728390 instance=ExtResource("3_xpqsd")]
 transform = Transform3D(0.999826, 0, 0.018674, 0, 1, 0, -0.018674, 0, 0.999826, 0.08516, 5.5834, -3.88927)
 
-[node name="Lever" parent="Puzzle" instance=ExtResource("4_hnjnk")]
+[node name="Lever" parent="Puzzle" unique_id=1085610931 instance=ExtResource("4_hnjnk")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.14161, 2.90088, -3.9239)
 
-[node name="Race Car" parent="Puzzle" instance=ExtResource("5_2g48q")]
+[node name="Race Car" parent="Puzzle" unique_id=531288071 instance=ExtResource("5_2g48q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -16)
 
-[node name="Race Car2" parent="Puzzle" instance=ExtResource("5_2g48q")]
+[node name="Race Car2" parent="Puzzle" unique_id=146136325 instance=ExtResource("5_2g48q")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0, -12)
 
-[node name="Blue Scanner" parent="Puzzle" instance=ExtResource("6_lgl65")]
+[node name="Blue Scanner" parent="Puzzle" unique_id=1811205131 instance=ExtResource("6_lgl65")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66699, 3.40608, -24.8701)
 
-[node name="Red Scanner" parent="Puzzle" instance=ExtResource("7_w6k50")]
+[node name="Red Scanner" parent="Puzzle" unique_id=2002327126 instance=ExtResource("7_w6k50")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64972, 3.40608, -24.8701)
 
-[node name="Button" parent="Puzzle" instance=ExtResource("8_b8ttb")]
+[node name="Button" parent="Puzzle" unique_id=858360656 instance=ExtResource("8_b8ttb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -11)
 
-[node name="Button2" parent="Puzzle" instance=ExtResource("8_b8ttb")]
+[node name="Button2" parent="Puzzle" unique_id=2012828635 instance=ExtResource("8_b8ttb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -11)
 
-[node name="Button3" parent="Puzzle" instance=ExtResource("8_b8ttb")]
+[node name="Button3" parent="Puzzle" unique_id=1784370538 instance=ExtResource("8_b8ttb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8)
 
-[node name="Button4" parent="Puzzle" instance=ExtResource("8_b8ttb")]
+[node name="Button4" parent="Puzzle" unique_id=787625465 instance=ExtResource("8_b8ttb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -8)
 
-[node name="Large Button" parent="Puzzle" instance=ExtResource("9_gnr5t")]
+[node name="Large Button" parent="Puzzle" unique_id=1214169685 instance=ExtResource("9_gnr5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -17)
 
-[node name="Large Button2" parent="Puzzle" instance=ExtResource("9_gnr5t")]
+[node name="Large Button2" parent="Puzzle" unique_id=859205154 instance=ExtResource("9_gnr5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -17)
 
-[node name="Large Button3" parent="Puzzle" instance=ExtResource("9_gnr5t")]
+[node name="Large Button3" parent="Puzzle" unique_id=648887653 instance=ExtResource("9_gnr5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -14)
 
-[node name="Large Button4" parent="Puzzle" instance=ExtResource("9_gnr5t")]
+[node name="Large Button4" parent="Puzzle" unique_id=661551404 instance=ExtResource("9_gnr5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -14)
 
-[node name="Battery Socket" parent="Puzzle" instance=ExtResource("10_7v3wu")]
+[node name="Battery Socket" parent="Puzzle" unique_id=1310118172 instance=ExtResource("10_7v3wu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.52871, -24.3408)
 
-[node name="Battery Socket2" parent="Puzzle" instance=ExtResource("10_7v3wu")]
+[node name="Battery Socket2" parent="Puzzle" unique_id=699530935 instance=ExtResource("10_7v3wu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.12846, 2.52871, -15.3408)
 
-[node name="Battery Socket3" parent="Puzzle" instance=ExtResource("10_7v3wu")]
+[node name="Battery Socket3" parent="Puzzle" unique_id=1653922951 instance=ExtResource("10_7v3wu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.12846, 2.52871, -11.3408)
 allow_removal = false
 
-[node name="Battery Socket4" parent="Puzzle" instance=ExtResource("10_7v3wu")]
+[node name="Battery Socket4" parent="Puzzle" unique_id=1803978272 instance=ExtResource("10_7v3wu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.12846, 2.52871, -7.34077)
 
-[node name="power_source" parent="Puzzle" instance=ExtResource("11_nk3i7")]
+[node name="power_source" parent="Puzzle" unique_id=836904481 instance=ExtResource("11_nk3i7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 3, -4)
 
-[node name="power_reciever" parent="Puzzle" instance=ExtResource("12_hvvio")]
+[node name="power_reciever" parent="Puzzle" unique_id=640367158 instance=ExtResource("12_hvvio")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.08815, 3, 1)
 required_power_poles = 3
 play_complete_sound = true
 
-[node name="power_reciever2" parent="Puzzle" instance=ExtResource("12_hvvio")]
+[node name="power_reciever2" parent="Puzzle" unique_id=2020721611 instance=ExtResource("12_hvvio")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.19781, 3, -30)
 required_power_poles = 3
 play_complete_sound = true
 
-[node name="power_reciever3" parent="Puzzle" instance=ExtResource("12_hvvio")]
+[node name="power_reciever3" parent="Puzzle" unique_id=1155590192 instance=ExtResource("12_hvvio")]
 transform = Transform3D(-2.38419e-07, 0, 1, 0, 1, 0, -1, 0, -2.38419e-07, -8.91021, 5, -31)
 required_power_poles = 3
 play_complete_sound = true
 
-[node name="puzzle_pole" parent="Puzzle" instance=ExtResource("13_e6dms")]
+[node name="puzzle_pole" parent="Puzzle" unique_id=1471152209 instance=ExtResource("13_e6dms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
 
-[node name="puzzle_pole2" parent="Puzzle" instance=ExtResource("13_e6dms")]
+[node name="puzzle_pole2" parent="Puzzle" unique_id=1357122573 instance=ExtResource("13_e6dms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -4)
 
-[node name="puzzle_pole3" parent="Puzzle" instance=ExtResource("13_e6dms")]
+[node name="puzzle_pole3" parent="Puzzle" unique_id=160223775 instance=ExtResource("13_e6dms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -1)
 
-[node name="battery" parent="Puzzle" instance=ExtResource("14_qlev3")]
+[node name="battery" parent="Puzzle" unique_id=1961474340 instance=ExtResource("14_qlev3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 6)
 
-[node name="battery2" parent="Puzzle" instance=ExtResource("14_qlev3")]
+[node name="battery2" parent="Puzzle" unique_id=1701230078 instance=ExtResource("14_qlev3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 8)
 
-[node name="battery3" parent="Puzzle" instance=ExtResource("14_qlev3")]
+[node name="battery3" parent="Puzzle" unique_id=1614250573 instance=ExtResource("14_qlev3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 6)
 
-[node name="battery4" parent="Puzzle" instance=ExtResource("14_qlev3")]
+[node name="battery4" parent="Puzzle" unique_id=1774081259 instance=ExtResource("14_qlev3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 7)
 
-[node name="Grab Turret" parent="Puzzle" instance=ExtResource("15_erqg0")]
+[node name="Grab Turret" parent="Puzzle" unique_id=2135599436 instance=ExtResource("15_erqg0")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -3, 0, -33)
 
-[node name="Grab Turret2" parent="Puzzle" instance=ExtResource("15_erqg0")]
+[node name="Grab Turret2" parent="Puzzle" unique_id=1416843226 instance=ExtResource("15_erqg0")]
 transform = Transform3D(-8.74228e-08, 0, 1, 0, 1, 0, -1, 0, -8.74228e-08, -3, 0, -29)
 
-[node name="dash_panel" parent="Puzzle" instance=ExtResource("16_rbn6r")]
+[node name="dash_panel" parent="Puzzle" unique_id=1842906027 instance=ExtResource("16_rbn6r")]
 transform = Transform3D(-4.37114e-08, 0, -1, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1.91069e-15, -3, 3.15902, -46.8522)
 
-[node name="dash_panel2" parent="Puzzle" instance=ExtResource("16_rbn6r")]
+[node name="dash_panel2" parent="Puzzle" unique_id=2139345435 instance=ExtResource("16_rbn6r")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, -1, -4.37114e-08, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -8.88416, 3.15902, -33.8522)
 
-[node name="purple_panel" parent="Puzzle" instance=ExtResource("17_s7jik")]
+[node name="purple_panel" parent="Puzzle" unique_id=1250644285 instance=ExtResource("17_s7jik")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 7, 0.121372, -31)
 
-[node name="purple_panel2" parent="Puzzle" instance=ExtResource("17_s7jik")]
+[node name="purple_panel2" parent="Puzzle" unique_id=11012796 instance=ExtResource("17_s7jik")]
 transform = Transform3D(-0.08126, 0, -0.996693, 0, 1, 0, 0.996693, 0, -0.08126, 11, 0.121372, -32)
 
-[node name="purple_panel3" parent="Puzzle" instance=ExtResource("17_s7jik")]
+[node name="purple_panel3" parent="Puzzle" unique_id=26377800 instance=ExtResource("17_s7jik")]
 transform = Transform3D(0.402938, 0, -0.915227, 0, 1, 0, 0.915227, 0, 0.402938, 13.9759, 0.121372, -29.1175)
 
-[node name="Gas Mask" parent="Puzzle" instance=ExtResource("18_hut6s")]
+[node name="Gas Mask" parent="Puzzle" unique_id=121083216 instance=ExtResource("18_hut6s")]
 transform = Transform3D(1, 0, 0, 0, 0.937148, 0.348932, 0, -0.348932, 0.937148, 10.6486, 0.0252014, -23.9964)
 
-[node name="gas" type="Area3D" parent="Puzzle"]
+[node name="gas" type="Area3D" parent="Puzzle" unique_id=782919933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6486, 4.0252, -10.9964)
 collision_layer = 2048
 collision_mask = 2048
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Puzzle/gas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351357, 0.0967431, -0.501308)
-size = Vector3(3, 8, 10)
-material = SubResource("StandardMaterial3D_rp8v8")
+[node name="CSGBox3D" type="MeshInstance3D" parent="Puzzle/gas" unique_id=456942201]
+mesh = SubResource("BoxMesh_dgfsc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/gas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315254, -0.5, -0.5)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/gas" unique_id=1414345421]
 shape = SubResource("BoxShape3D_g4t8l")
 
-[node name="Grapple Handle" parent="Puzzle" instance=ExtResource("19_iryww")]
+[node name="Grapple Handle" parent="Puzzle" unique_id=2146997111 instance=ExtResource("19_iryww")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8, 12.8636, 2)
 
-[node name="Green Scanner" parent="Puzzle" instance=ExtResource("20_avi0m")]
+[node name="Green Scanner" parent="Puzzle" unique_id=1606410149 instance=ExtResource("20_avi0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, -4)
 
-[node name="Purple Scanner" parent="Puzzle" instance=ExtResource("20_uol5n")]
+[node name="Purple Scanner" parent="Puzzle" unique_id=490513410 instance=ExtResource("20_uol5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4, -4)
 
-[node name="Flare Scanner" parent="Puzzle" instance=ExtResource("22_rqph2")]
+[node name="Flare Scanner" parent="Puzzle" unique_id=1471466327 instance=ExtResource("22_rqph2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0.096822, -3.4)
 
-[node name="Doors_Gates" type="Node3D" parent="."]
+[node name="Doors_Gates" type="Node3D" parent="." unique_id=2093609392]
 
-[node name="Gate" parent="Doors_Gates" instance=ExtResource("20_d51hf")]
+[node name="Gate" parent="Doors_Gates" unique_id=1948189916 instance=ExtResource("20_d51hf")]
 transform = Transform3D(1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 7.10543e-15, -4.37114e-08, -1.42109e-14, 1, -5, 0.146503, -4.32332)
 
-[node name="Gate2" parent="Doors_Gates" instance=ExtResource("20_d51hf")]
+[node name="Gate2" parent="Doors_Gates" unique_id=1085315872 instance=ExtResource("20_d51hf")]
 transform = Transform3D(1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 7.10543e-15, -4.37114e-08, -1.42109e-14, 1, -4.78844, 0.146503, -25.3233)
 colour = 2
 
-[node name="Gate3" parent="Doors_Gates" instance=ExtResource("20_d51hf")]
+[node name="Gate3" parent="Doors_Gates" unique_id=2097508636 instance=ExtResource("20_d51hf")]
 transform = Transform3D(1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 7.10543e-15, -4.37114e-08, -1.42109e-14, 1, 6.25283, 0.146503, 4.67668)
 colour = 3
 
-[node name="Large Gate" parent="Doors_Gates" instance=ExtResource("21_5vwj6")]
+[node name="Large Gate" parent="Doors_Gates" unique_id=1776273292 instance=ExtResource("21_5vwj6")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.146503, -4.32332)
 
-[node name="Large Gate2" parent="Doors_Gates" instance=ExtResource("21_5vwj6")]
+[node name="Large Gate2" parent="Doors_Gates" unique_id=107847120 instance=ExtResource("21_5vwj6")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.146503, -25.3233)
 
-[node name="Door" parent="Doors_Gates" instance=ExtResource("22_ycurx")]
+[node name="Door" parent="Doors_Gates" unique_id=1496913294 instance=ExtResource("22_ycurx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -8)
 
-[node name="Door2" parent="Doors_Gates" instance=ExtResource("22_ycurx")]
+[node name="Door2" parent="Doors_Gates" unique_id=1238648126 instance=ExtResource("22_ycurx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8)
 colour = 2
 locked = true
 
-[node name="Door3" parent="Doors_Gates" instance=ExtResource("22_ycurx")]
+[node name="Door3" parent="Doors_Gates" unique_id=745136062 instance=ExtResource("22_ycurx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8)
 colour = 3
 open_by_defualt = true
 
-[node name="Item" type="Node3D" parent="."]
+[node name="Item" type="Node3D" parent="." unique_id=1621954670]
 
-[node name="Grabpack Item" parent="Item" instance=ExtResource("23_c6bia")]
+[node name="Grabpack Item" parent="Item" unique_id=1032773950 instance=ExtResource("23_c6bia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59279, 3.3619, 1.67153)
 play_collect_jingle = true
 
-[node name="Collectable Hand" parent="Item" instance=ExtResource("24_3cc6c")]
+[node name="Collectable Hand" parent="Item" unique_id=1193052171 instance=ExtResource("24_3cc6c")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -11.5847, 8.1622, 1.36586)
 
-[node name="Grabpack Item2" parent="Item" instance=ExtResource("23_c6bia")]
+[node name="Grabpack Item2" parent="Item" unique_id=454992488 instance=ExtResource("23_c6bia")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.40722, 2.1891, -25.6035)
 pack = 1
 play_collect_jingle = true
 
-[node name="Collectable Hand2" parent="Item" instance=ExtResource("24_3cc6c")]
+[node name="Collectable Hand2" parent="Item" unique_id=1985442159 instance=ExtResource("24_3cc6c")]
 transform = Transform3D(-0.934043, 0, -0.357162, 0, 1, 0, 0.357162, 0, -0.934043, 6.82769, 1.91002, -25.9162)
 
-[node name="Collectable Hand3" parent="Item" instance=ExtResource("24_3cc6c")]
+[node name="Collectable Hand3" parent="Item" unique_id=490114512 instance=ExtResource("24_3cc6c")]
 transform = Transform3D(-0.967339, 0, 0.253488, 0, 1, 0, -0.253488, 0, -0.967339, 7.43, 1.91002, -24.9289)
 hand = 0
 
-[node name="Collectable Hand4" parent="Item" instance=ExtResource("24_3cc6c")]
+[node name="Collectable Hand4" parent="Item" unique_id=458601365 instance=ExtResource("24_3cc6c")]
 transform = Transform3D(-0.952762, 0, -0.303717, 0, 1, 0, 0.303717, 0, -0.952762, 8.45443, 1.91002, -25.5492)
 hand = 2
 
-[node name="Collectable Hand5" parent="Item" instance=ExtResource("24_3cc6c")]
+[node name="Collectable Hand5" parent="Item" unique_id=236210262 instance=ExtResource("24_3cc6c")]
 transform = Transform3D(-0.957601, 0, 0.288096, 0, 1, 0, -0.288096, 0, -0.957601, 9.73132, 1.91002, -25.8943)
 hand = 3
 
-[node name="Collectable Hand6" parent="Item" instance=ExtResource("24_3cc6c")]
+[node name="Collectable Hand6" parent="Item" unique_id=1545523961 instance=ExtResource("24_3cc6c")]
 transform = Transform3D(-0.957601, 0, 0.288096, 0, 1, 0, -0.288096, 0, -0.957601, 10.4729, 1.91002, -24.8937)
 hand = 4
 
-[node name="playwatch" parent="Item" instance=ExtResource("25_0of1s")]
+[node name="playwatch" parent="Item" unique_id=832255428 instance=ExtResource("25_0of1s")]
 transform = Transform3D(0.771336, 0, -0.636428, 0, 1, 0, 0.636428, 0, 0.771336, 8.78948, 0.178199, -23.6992)
 
-[node name="Break Boxes" type="Node3D" parent="."]
+[node name="Break Boxes" type="Node3D" parent="." unique_id=1608040933]
 
-[node name="Player" parent="." instance=ExtResource("25_hyjo4")]
+[node name="Player" parent="." unique_id=186219697 instance=ExtResource("25_hyjo4")]
 transform = Transform3D(1, 0, -1.58932e-08, 0, 1, 0, 1.58932e-08, 0, 1, -2.92386, 0.102042, 3.11763)
 start_with_grabpack = false
 starting_hand = 0
 green_hand = false
 rocket_hand = false
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=652814827]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -8.88287, 4.11265, 1.93138)
 text = "-->"
 
-[node name="PlaywatchCams" type="Node" parent="."]
+[node name="PlaywatchCams" type="Node" parent="." unique_id=310788548]
 script = ExtResource("26_i5ve1")
 
-[node name="playwatch_camera" parent="PlaywatchCams" instance=ExtResource("27_t4bwh")]
+[node name="playwatch_camera" parent="PlaywatchCams" unique_id=1853443377 instance=ExtResource("27_t4bwh")]
 transform = Transform3D(0.75471, -0.202733, 0.623949, 0, 0.951057, 0.309017, -0.656059, -0.233218, 0.717772, 2.34485, 5, 8.54322)
 play_puzzle_complete_sound = true
 
-[node name="playwatch_camera2" parent="PlaywatchCams" instance=ExtResource("27_t4bwh")]
+[node name="playwatch_camera2" parent="PlaywatchCams" unique_id=476030451 instance=ExtResource("27_t4bwh")]
 transform = Transform3D(0.842725, 0, -0.538344, 0, 1, 0, 0.538344, 0, 0.842725, 4.34547, 4.08742, 3.43582)
 play_puzzle_complete_sound = true
 complete_sound = 1
 
-[node name="playwatch_camera3" parent="PlaywatchCams" instance=ExtResource("27_t4bwh")]
+[node name="playwatch_camera3" parent="PlaywatchCams" unique_id=328267005 instance=ExtResource("27_t4bwh")]
 transform = Transform3D(0.842725, 0, -0.538344, 0, 1, 0, 0.538344, 0, 0.842725, -8.65453, 4.08742, -4.96537)
 
 [connection signal="power_recieved" from="Puzzle/green_reciever" to="." method="_on_green_reciever_power_recieved"]
